@@ -34,8 +34,7 @@ const Navbar: React.FC<NavbarProps> = ({ initialTextColor = 'text-black' }) => {
                 <div className={`hidden md:flex items-center gap-6 font-medium transition-all duration-500 ${linkColor} ${scrolled ? 'text-sm' : 'text-lg'}`}>
                     <Link to="/company" className="hover:text-opacity-80 transition-colors">Company</Link>
                     <Link to="/solutions" className="hover:text-opacity-80 transition-colors">Solutions</Link>
-                    <a href="#" className="hover:text-opacity-80 transition-colors">Docs</a>
-                    <Link to="/blog" className="hover:text-opacity-80 transition-colors">Blog</Link>
+                    <Link to="/docs" className="hover:text-opacity-80 transition-colors">Docs</Link>
                 </div>
 
                 <button className={`rounded-full font-medium transition-all duration-500 ${scrolled
