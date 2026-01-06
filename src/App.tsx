@@ -3,7 +3,7 @@ import Home from './pages/Home';
 import Company from './pages/Company';
 import TermsOfService from './pages/TermsOfService';
 import Solutions from './pages/Solutions';
-import Blog from './pages/Blog';
+import Docs from './pages/Docs';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
         <Route path="/company" element={<Company />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/solutions" element={<Solutions />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/docs" element={<Docs />} />
       </Routes>
     </Router>
   );

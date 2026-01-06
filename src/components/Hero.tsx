@@ -36,7 +36,7 @@ const Hero: React.FC = () => {
                 className="relative z-20 text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed font-medium"
             >
                 Build, connect, and scale intelligent workflows — all from one place.
-                Predict delays and automate compliance for megaprojects.
+                Improve labor efficiency, predict delays, and automate compliance for megaprojects.
             </motion.p>
 
             <motion.div
