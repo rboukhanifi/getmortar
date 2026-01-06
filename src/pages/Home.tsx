@@ -15,17 +15,6 @@ const Home: React.FC = () => {
                 <Hero />
             </div>
 
-            {/* Social Proof (Transition Zone) */}
-            <section className="py-16 bg-white border-b border-gray-100">
-                <div className="max-w-7xl mx-auto px-6 flex flex-wrap justify-center items-center gap-12 md:gap-20">
-                    <img src="/logos/cuhk.png" alt="CUHK" className="h-12 w-auto object-contain hover:scale-110 transition-transform duration-300" />
-                    <img src="/logos/lovable.png" alt="Lovable" className="h-10 w-auto object-contain hover:scale-110 transition-transform duration-300" />
-                    <img src="/logos/huawei.png" alt="Huawei" className="h-10 w-auto object-contain hover:scale-110 transition-transform duration-300" />
-                    <img src="/logos/nvidia.png" alt="Nvidia" className="h-8 w-auto object-contain hover:scale-110 transition-transform duration-300" />
-                    <img src="/logos/tsinghua.png" alt="Tsinghua" className="h-12 w-auto object-contain hover:scale-110 transition-transform duration-300" />
-                </div>
-            </section>
-
             {/* Stats Grid */}
             <StatsGrid />
 
