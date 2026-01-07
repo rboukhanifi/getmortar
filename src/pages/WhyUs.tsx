@@ -75,7 +75,7 @@ const WhyUs: React.FC = () => {
                         </h1>
                         <p className="text-xl text-gray-400 leading-relaxed">
                             Most industrial technology optimizes planning, reporting, or documentation.
-                            <span className="text-white font-medium"> Mortar Vault optimizes execution</span> — where time, money, and risk are actually burned.
+                            <span className="text-white font-medium"> Mortar optimizes execution</span>, that's where time, money, and risk are actually burned.
                         </p>
                     </motion.div>
                 </div>
@@ -166,7 +166,7 @@ const WhyUs: React.FC = () => {
                             </motion.div>
                         </section>
 
-                        {/* Why Mortar Vault Is Different */}
+                        {/* Why Mortar Is Different */}
                         <section id="difference">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -174,10 +174,10 @@ const WhyUs: React.FC = () => {
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-8">Why Mortar Vault Is Different</h2>
+                                <h2 className="text-3xl md:text-4xl font-bold mb-8">Why Mortar Is Different</h2>
                                 <div className="space-y-6 text-lg leading-relaxed">
                                     <p className="text-gray-300">
-                                        Mortar Vault is built around one principle: if you want to improve labor efficiency, you must see work the way workers do.
+                                        Mortar is built around one principle: if you want to improve labor efficiency, you must see work the way workers do.
                                     </p>
                                     <p className="text-gray-300">
                                         We capture execution directly from the worker's point of view and convert it into operational intelligence that improves productivity without slowing crews down or changing how work is done.
@@ -208,7 +208,7 @@ const WhyUs: React.FC = () => {
                                         Unlike walk-throughs, photos, or daily reports, AEGIS produces a continuous, time-stamped record of real execution.
                                     </p>
                                     <p className="text-white font-medium">
-                                        Why this matters: You can't reduce waste or rework if you don't know where they're actually coming from.
+                                        This matters because you can't reduce waste or rework if you don't know where they're actually coming from.
                                     </p>
                                 </div>
                             </motion.div>
@@ -233,7 +233,7 @@ const WhyUs: React.FC = () => {
                                         This allows teams to correct inefficiencies while they're still cheap to fix, ramp new or rotating workers significantly faster, and standardize best practices across crews, shifts, and projects.
                                     </p>
                                     <p className="text-white font-medium">
-                                        Why this matters: Productivity improves when good execution becomes the default — not when it's rediscovered on every job.
+                                        This matters because productivity improves when good execution becomes the default — not when it's rediscovered on every job.
                                     </p>
                                 </div>
                             </motion.div>
@@ -250,13 +250,13 @@ const WhyUs: React.FC = () => {
                                 <h2 className="text-3xl md:text-4xl font-bold mb-8">We Improve Productivity Without Squeezing Workers</h2>
                                 <div className="space-y-6 text-lg leading-relaxed">
                                     <p className="text-gray-300">
-                                        Mortar Vault does not increase output by pushing labor harder. We improve efficiency by eliminating unnecessary motion and waiting, preventing work from being done twice, and reducing stop-and-go caused by missing context.
+                                        Mortar does not increase output by pushing labor harder. We improve efficiency by eliminating unnecessary motion and waiting, preventing work from being done twice, and reducing stop-and-go caused by missing context.
                                     </p>
                                     <p className="text-gray-300">
-                                        These are durable gains — not short-term pressure tactics.
+                                        These are durable gains, not short-term pressure tactics.
                                     </p>
                                     <p className="text-white font-medium">
-                                        The result: higher throughput and less burnout.
+                                        The result is higher throughput and less burnout.
                                     </p>
                                 </div>
                             </motion.div>
@@ -276,7 +276,7 @@ const WhyUs: React.FC = () => {
                                         Labor dominates industrial project cost. Even small improvements matter — a lot.
                                     </p>
                                     <p className="text-gray-300">
-                                        Mortar Vault drives ROI through rework reduction (often 5–15% of labor hours on industrial sites), faster crew ramp-up and knowledge transfer, fewer coordination-driven delays, and lower supervisory and administrative overhead.
+                                        Mortar drives ROI through rework reduction (often 5–15% of labor hours on industrial sites), faster crew ramp-up and knowledge transfer, fewer coordination-driven delays, and lower supervisory and administrative overhead.
                                     </p>
                                     <p className="text-white font-medium">
                                         On labor-intensive projects, a single-digit percentage improvement in effective labor productivity can cover deployment costs many times over.
@@ -319,11 +319,11 @@ const WhyUs: React.FC = () => {
                                         No fixed infrastructure required. Works in messy, changing environments. Deployable today. Improves continuously as more work is captured.
                                     </p>
                                     <p className="text-gray-300">
-                                        Mortar Vault is designed for how industrial work actually runs — not how it's documented after the fact.
+                                        Mortar is designed for how industrial work actually runs — not how it's documented after the fact.
                                     </p>
                                 </div>
 
-                                <h3 className="text-2xl font-bold mt-16 mb-6">Why Companies Choose Mortar Vault</h3>
+                                <h3 className="text-2xl font-bold mt-16 mb-6">Why Companies Choose Mortar</h3>
                                 <div className="space-y-6 text-lg leading-relaxed">
                                     <p className="text-gray-300">
                                         Because labor efficiency is their biggest unrealized opportunity. Because existing tools stop at planning and reporting. Because visibility beats assumptions — every time.
@@ -339,16 +339,11 @@ const WhyUs: React.FC = () => {
                                         We help your crews get more done, with less waste, every day.
                                     </p>
                                     <p className="text-lg text-gray-400 mb-8">
-                                        If labor performance matters to your margins, Mortar Vault is built for you.
+                                        If labor performance matters to your margins, Mortar is built for you.
                                     </p>
-                                    <div className="flex flex-col sm:flex-row gap-4">
-                                        <Link to="/get-started" className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors inline-flex items-center justify-center">
-                                            Request Demo
-                                        </Link>
-                                        <a href="mailto:founder@getmortar.ai" className="px-8 py-4 bg-white/10 text-white rounded-full font-bold hover:bg-white/20 transition-colors border border-white/10 text-center">
-                                            Talk to Sales
-                                        </a>
-                                    </div>
+                                    <Link to="/get-started" className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors inline-flex items-center justify-center">
+                                        Get Started
+                                    </Link>
                                 </div>
                             </motion.div>
                         </section>
