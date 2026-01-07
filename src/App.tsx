@@ -4,6 +4,7 @@ import Company from './pages/Company';
 import TermsOfService from './pages/TermsOfService';
 import Solutions from './pages/Solutions';
 import WhyUs from './pages/WhyUs';
+import GetStarted from './pages/GetStarted';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/solutions" element={<Solutions />} />
         <Route path="/why-us" element={<WhyUs />} />
+        <Route path="/get-started" element={<GetStarted />} />
       </Routes>
     </Router>
   );

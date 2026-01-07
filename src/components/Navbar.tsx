@@ -37,12 +37,12 @@ const Navbar: React.FC<NavbarProps> = ({ initialTextColor = 'text-black' }) => {
                     <Link to="/company" className="hover:text-opacity-80 transition-colors">Company</Link>
                 </div>
 
-                <button className={`rounded-full font-medium transition-all duration-500 ${scrolled
+                <Link to="/get-started" className={`rounded-full font-medium transition-all duration-500 ${scrolled
                     ? 'px-5 py-2 text-sm bg-white text-black hover:bg-gray-200'
                     : (initialTextColor === 'text-black' ? 'px-10 py-4 text-lg bg-black text-white hover:bg-gray-900' : 'px-10 py-4 text-lg bg-white text-black hover:bg-gray-200')
                     }`}>
                     Get Started
-                </button>
+                </Link>
             </div>
         </nav>
     );
