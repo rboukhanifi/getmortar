@@ -53,7 +53,7 @@ const WhyUs: React.FC = () => {
             <Navbar initialTextColor="text-white" />
 
             {/* Hero */}
-            <section className="relative pt-40 pb-20 px-6 overflow-hidden">
+            <section className="relative pt-28 md:pt-40 pb-12 md:pb-20 px-4 md:px-6 overflow-hidden">
                 <div className="absolute inset-0 pointer-events-none">
                     <div className="absolute inset-0 translate-x-[30%]">
                         <DotBolt />
@@ -70,10 +70,10 @@ const WhyUs: React.FC = () => {
                         <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-mono mb-8">
                             MORTAR VAULT
                         </span>
-                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-8 tracking-tighter leading-[1.1]">
+                        <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-6 md:mb-8 tracking-tighter leading-[1.1]">
                             Labor Efficiency Is the Only Lever That Actually Moves Margins
                         </h1>
-                        <p className="text-xl text-gray-400 leading-relaxed">
+                        <p className="text-lg md:text-xl text-gray-400 leading-relaxed">
                             Most industrial technology optimizes planning, reporting, or documentation.
                             <span className="text-white font-medium"> Mortar optimizes execution</span>, that's where time, money, and risk are actually burned.
                         </p>
@@ -81,9 +81,30 @@ const WhyUs: React.FC = () => {
                 </div>
             </section>
 
+            {/* Mobile Section Navigation */}
+            <div className="lg:hidden sticky top-16 z-30 bg-[#050505]/95 backdrop-blur-lg border-b border-white/10">
+                <div className="overflow-x-auto scrollbar-hide">
+                    <nav className="flex gap-1 px-4 py-3 min-w-max">
+                        {sections.map((section) => (
+                            <button
+                                key={section.id}
+                                onClick={() => scrollToSection(section.id)}
+                                className={`px-3 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
+                                    activeSection === section.id
+                                        ? 'bg-white text-black'
+                                        : 'text-gray-400 hover:text-white hover:bg-white/10'
+                                }`}
+                            >
+                                {section.label}
+                            </button>
+                        ))}
+                    </nav>
+                </div>
+            </div>
+
             {/* Main Content with Sidebar */}
-            <div className="max-w-7xl mx-auto px-6 pb-32">
-                <div className="flex gap-16">
+            <div className="max-w-7xl mx-auto px-4 md:px-6 pb-16 md:pb-32">
+                <div className="flex gap-8 lg:gap-16">
                     {/* Left Sidebar - Sticky Outline */}
                     <aside className="hidden lg:block w-64 flex-shrink-0">
                         <div className="sticky top-32">
@@ -116,7 +137,7 @@ const WhyUs: React.FC = () => {
                     </aside>
 
                     {/* Main Content */}
-                    <main className="flex-1 space-y-24">
+                    <main className="flex-1 space-y-16 md:space-y-24">
                         {/* The Problem Section */}
                         <section id="problem">
                             <motion.div
@@ -125,8 +146,8 @@ const WhyUs: React.FC = () => {
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-8">The Real Problem</h2>
-                                <div className="space-y-6 text-lg leading-relaxed">
+                                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">The Real Problem</h2>
+                                <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
                                     <p className="text-gray-300">
                                         On real job sites, margins are not lost in spreadsheets. They're lost in rework, waiting, poor sequencing, and knowledge gaps between crews and shifts.
                                     </p>
@@ -148,8 +169,8 @@ const WhyUs: React.FC = () => {
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-8">Why Traditional Approaches Fall Short</h2>
-                                <div className="space-y-6 text-lg leading-relaxed">
+                                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">Why Traditional Approaches Fall Short</h2>
+                                <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
                                     <p className="text-gray-300">
                                         Productivity losses on industrial sites are well known — but poorly measured and even more poorly controlled.
                                     </p>
@@ -174,8 +195,8 @@ const WhyUs: React.FC = () => {
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-8">Why Mortar Is Different</h2>
-                                <div className="space-y-6 text-lg leading-relaxed">
+                                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">Why Mortar Is Different</h2>
+                                <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
                                     <p className="text-gray-300">
                                         Mortar is built around one principle: if you want to improve labor efficiency, you must see work the way workers do.
                                     </p>
@@ -200,7 +221,7 @@ const WhyUs: React.FC = () => {
                                 <p className="text-sm text-gray-500 font-mono mb-2 tracking-wider">WE CAPTURE REALITY, NOT REPORTS</p>
                                 <h2 className="text-3xl md:text-4xl font-bold mb-2">AEGIS</h2>
                                 <p className="text-xl text-gray-500 mb-8">Ground-Truth Visibility</p>
-                                <div className="space-y-6 text-lg leading-relaxed">
+                                <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
                                     <p className="text-gray-300">
                                         AEGIS is a wearable, jobsite-ready system used during normal operations. It captures how tasks are actually executed, real sequencing and handoffs between trades, tool and material usage in context, and site conditions at the exact moment work happens.
                                     </p>
@@ -225,7 +246,7 @@ const WhyUs: React.FC = () => {
                                 <p className="text-sm text-gray-500 font-mono mb-2 tracking-wider">WE TURN GOOD WORK INTO REPEATABLE EFFICIENCY</p>
                                 <h2 className="text-3xl md:text-4xl font-bold mb-2">Zhora</h2>
                                 <p className="text-xl text-gray-500 mb-8">Operational Intelligence From the Field</p>
-                                <div className="space-y-6 text-lg leading-relaxed">
+                                <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
                                     <p className="text-gray-300">
                                         Zhora analyzes first-person site data and reveals where crews lose time, which steps create downstream rework or delays, and which execution methods consistently outperform others.
                                     </p>
@@ -247,8 +268,8 @@ const WhyUs: React.FC = () => {
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-8">We Improve Productivity Without Squeezing Workers</h2>
-                                <div className="space-y-6 text-lg leading-relaxed">
+                                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">We Improve Productivity Without Squeezing Workers</h2>
+                                <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
                                     <p className="text-gray-300">
                                         Mortar does not increase output by pushing labor harder. We improve efficiency by eliminating unnecessary motion and waiting, preventing work from being done twice, and reducing stop-and-go caused by missing context.
                                     </p>
@@ -270,8 +291,8 @@ const WhyUs: React.FC = () => {
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-8">Why the ROI Is Real</h2>
-                                <div className="space-y-6 text-lg leading-relaxed">
+                                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">Why the ROI Is Real</h2>
+                                <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
                                     <p className="text-gray-300">
                                         Labor dominates industrial project cost. Even small improvements matter — a lot.
                                     </p>
@@ -293,8 +314,8 @@ const WhyUs: React.FC = () => {
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-8">Proof We're Solving a Real Problem</h2>
-                                <div className="space-y-6 text-lg leading-relaxed">
+                                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">Proof We're Solving a Real Problem</h2>
+                                <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
                                     <p className="text-gray-300">
                                         This isn't theoretical. We signed $800,000 in contracts in under one month. We have live deployments on industrial job sites. Our approach has been validated by customer adoption.
                                     </p>
@@ -313,8 +334,8 @@ const WhyUs: React.FC = () => {
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-8">Built for Live Industrial Job Sites</h2>
-                                <div className="space-y-6 text-lg leading-relaxed">
+                                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8">Built for Live Industrial Job Sites</h2>
+                                <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
                                     <p className="text-gray-300">
                                         No fixed infrastructure required. Works in messy, changing environments. Deployable today. Improves continuously as more work is captured.
                                     </p>
@@ -324,7 +345,7 @@ const WhyUs: React.FC = () => {
                                 </div>
 
                                 <h3 className="text-2xl font-bold mt-16 mb-6">Why Companies Choose Mortar</h3>
-                                <div className="space-y-6 text-lg leading-relaxed">
+                                <div className="space-y-4 md:space-y-6 text-base md:text-lg leading-relaxed">
                                     <p className="text-gray-300">
                                         Because labor efficiency is their biggest unrealized opportunity. Because existing tools stop at planning and reporting. Because visibility beats assumptions — every time.
                                     </p>

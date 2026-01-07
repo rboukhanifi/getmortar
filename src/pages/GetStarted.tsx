@@ -92,9 +92,9 @@ const GetStarted: React.FC = () => {
         <div className="min-h-screen bg-[#f5f5f5] text-black font-sans selection:bg-black/20">
             <Navbar initialTextColor="text-black" />
 
-            <div className="pt-32 pb-20 px-6">
+            <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6">
                 <div className="max-w-7xl mx-auto">
-                    <div className="grid lg:grid-cols-2 gap-16 items-start">
+                    <div className="grid lg:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-start">
                         {/* Left Side - Value Proposition */}
                         <div className="lg:sticky lg:top-32">
                             <motion.div
@@ -102,10 +102,10 @@ const GetStarted: React.FC = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
                             >
-                                <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6 tracking-tight leading-[1.1]">
+                                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 md:mb-6 tracking-tight leading-[1.1]">
                                     Unlock Labor Efficiency for Your Projects
                                 </h1>
-                                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                                <p className="text-lg md:text-xl text-gray-600 mb-6 md:mb-8 leading-relaxed">
                                     Request a personalized demo to see how Mortar Vault helps industrial companies reduce rework by 15% and improve crew productivity from day one.
                                 </p>
 
@@ -131,18 +131,18 @@ const GetStarted: React.FC = () => {
                                 </div>
 
                                 {/* Stats */}
-                                <div className="grid grid-cols-3 gap-6 p-6 bg-white rounded-2xl border border-gray-200">
+                                <div className="hidden sm:grid grid-cols-3 gap-4 md:gap-6 p-4 md:p-6 bg-white rounded-2xl border border-gray-200">
                                     <div className="text-center">
-                                        <div className="text-3xl font-bold text-black">15%</div>
-                                        <div className="text-sm text-gray-500">Rework Reduction</div>
+                                        <div className="text-2xl md:text-3xl font-bold text-black">15%</div>
+                                        <div className="text-xs md:text-sm text-gray-500">Rework Reduction</div>
                                     </div>
                                     <div className="text-center border-x border-gray-200">
-                                        <div className="text-3xl font-bold text-black">$800K</div>
-                                        <div className="text-sm text-gray-500">Contracts Signed</div>
+                                        <div className="text-2xl md:text-3xl font-bold text-black">$800K</div>
+                                        <div className="text-xs md:text-sm text-gray-500">Contracts Signed</div>
                                     </div>
                                     <div className="text-center">
-                                        <div className="text-3xl font-bold text-black">3x</div>
-                                        <div className="text-sm text-gray-500">Faster Ramp-up</div>
+                                        <div className="text-2xl md:text-3xl font-bold text-black">3x</div>
+                                        <div className="text-xs md:text-sm text-gray-500">Faster Ramp-up</div>
                                     </div>
                                 </div>
                             </motion.div>
@@ -154,7 +154,7 @@ const GetStarted: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100"
+                                className="bg-white rounded-2xl md:rounded-3xl p-5 sm:p-6 md:p-8 lg:p-10 shadow-xl border border-gray-100"
                             >
                                 <h2 className="text-2xl font-bold text-center mb-2">Request a Demo</h2>
                                 <p className="text-center text-gray-500 text-sm mb-6">
@@ -260,14 +260,14 @@ const GetStarted: React.FC = () => {
                                                     What is the size of your company?
                                                 </p>
                                             </div>
-                                            <div className="grid grid-cols-2 gap-3">
+                                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                                                 {companySizes.map((size) => (
                                                     <button
                                                         key={size.value}
                                                         onClick={() => handleSizeSelect(size.value)}
-                                                        className="py-4 px-6 rounded-xl border-2 border-gray-200 hover:border-orange-500 hover:bg-orange-50 transition-all font-medium"
+                                                        className="py-3 px-3 sm:py-4 sm:px-4 rounded-xl border-2 border-gray-200 hover:border-orange-500 hover:bg-orange-50 transition-all font-medium text-sm sm:text-base"
                                                     >
-                                                        {size.label} employees
+                                                        {size.label}
                                                     </button>
                                                 ))}
                                             </div>
@@ -289,12 +289,12 @@ const GetStarted: React.FC = () => {
                                                     What is your annual deal volume?
                                                 </p>
                                             </div>
-                                            <div className="grid grid-cols-2 gap-3">
+                                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-3">
                                                 {dealVolumes.map((volume) => (
                                                     <button
                                                         key={volume.value}
                                                         onClick={() => handleVolumeSelect(volume.value)}
-                                                        className="py-4 px-6 rounded-xl border-2 border-gray-200 hover:border-orange-500 hover:bg-orange-50 transition-all font-medium"
+                                                        className="py-3 px-2 sm:py-4 sm:px-4 rounded-xl border-2 border-gray-200 hover:border-orange-500 hover:bg-orange-50 transition-all font-medium text-sm sm:text-base"
                                                     >
                                                         {volume.label}
                                                     </button>

@@ -18,20 +18,20 @@ const Company: React.FC = () => {
             <Navbar initialTextColor="text-white" />
 
             {/* SECTION: HERO (Background Only) */}
-            <section className="relative h-screen flex flex-col justify-center items-center px-6 overflow-hidden pointer-events-none">
+            <section className="relative h-[70vh] md:h-screen flex flex-col justify-center items-center px-4 md:px-6 overflow-hidden pointer-events-none">
                 <div className="absolute inset-0 z-0">
                     <WhiteHoleBackground />
                 </div>
             </section>
 
             {/* SECTION: CONTENT (Title + Text) */}
-            <section className="relative z-10 -mt-[40vh] pb-10 px-6">
-                <div className="max-w-3xl mx-auto space-y-12">
+            <section className="relative z-10 -mt-[30vh] md:-mt-[40vh] pb-10 px-4 md:px-6">
+                <div className="max-w-3xl mx-auto space-y-8 md:space-y-12">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: "easeOut" }}
-                        className="text-6xl md:text-8xl font-heading font-bold tracking-tighter text-center md:text-left mb-16"
+                        className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tighter text-center md:text-left mb-8 md:mb-16"
                     >
                         Build The World.
                     </motion.h1>
@@ -41,24 +41,24 @@ const Company: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.2 }}
                     >
-                        <p className="text-3xl md:text-4xl font-light leading-tight text-white mb-12">
+                        <p className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light leading-tight text-white mb-8 md:mb-12">
                             The future of intelligent systems is here.
                         </p>
-                        <div className="space-y-8 text-lg md:text-xl text-white font-light leading-relaxed">
+                        <div className="space-y-5 md:space-y-8 text-base sm:text-lg md:text-xl text-white font-light leading-relaxed">
                             <p>
                                 Mortar is the company pioneering a new era in high-impact, scalable AI and robotics solutions.
                             </p>
                             <p>
-                                Our goal is to build the backbone of tomorrow's industries by advancing infrastructure and tools that power the world’s most ambitious ventures.
+                                Our goal is to build the backbone of tomorrow's industries by advancing infrastructure and tools that power the world's most ambitious ventures.
                             </p>
                             <p>
-                                We design and deploy cutting-edge technology that doesn’t just solve problems, it enables a better future at scale.
+                                We design and deploy cutting-edge technology that doesn't just solve problems, it enables a better future at scale.
                             </p>
                             <p>
                                 Our work is a high-risk, high-reward endeavor, but we believe the impact is transformative, for industries, for people, and for the planet.
                             </p>
                             <p>
-                                You’ll work alongside a team of IMO founders and researchers, all aligned with our mission to disrupt and innovate at the deepest levels of technology.
+                                You'll work alongside a team of IMO founders and researchers, all aligned with our mission to disrupt and innovate at the deepest levels of technology.
                             </p>
                             <p>
                                 We love urgency, execution, and relentless innovation. Since our founding in December 2025, we've made rapid progress and currently work with multibillion-dollar and IPOed companies.
@@ -69,19 +69,19 @@ const Company: React.FC = () => {
             </section>
 
             {/* SECTION: HIRING */}
-            <section className="pt-10 pb-32 px-6 relative z-10">
+            <section className="pt-10 pb-16 md:pb-32 px-4 md:px-6 relative z-10">
                 <div className="max-w-5xl mx-auto">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className="text-4xl md:text-5xl font-bold mb-16 tracking-tight text-center md:text-left"
+                        className="text-3xl sm:text-4xl md:text-5xl font-bold mb-8 md:mb-16 tracking-tight text-center md:text-left"
                     >
                         HIRING
                     </motion.h2>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                         {jobs.map((job, index) => (
                             <motion.div
                                 key={index}
@@ -89,13 +89,13 @@ const Company: React.FC = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 viewport={{ once: true }}
-                                className="group relative p-8 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-sm"
+                                className="group relative p-5 md:p-8 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-sm active:scale-[0.98]"
                             >
                                 <div className="flex justify-between items-start">
-                                    <h3 className="text-xl md:text-2xl font-medium tracking-tight pr-8">{job}</h3>
-                                    <ArrowUpRight className="text-white/40 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
+                                    <h3 className="text-lg sm:text-xl md:text-2xl font-medium tracking-tight pr-6 md:pr-8">{job}</h3>
+                                    <ArrowUpRight className="text-white/40 group-hover:text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-all flex-shrink-0" />
                                 </div>
-                                <div className="mt-8 flex items-center gap-2 text-sm text-white/40 group-hover:text-white/60 transition-colors">
+                                <div className="mt-4 md:mt-8 flex items-center gap-2 text-xs md:text-sm text-white/40 group-hover:text-white/60 transition-colors">
                                     <span>San Francisco, CA</span>
                                     <span className="w-1 h-1 rounded-full bg-white/20"></span>
                                     <span>Full-time</span>
