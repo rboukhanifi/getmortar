@@ -28,7 +28,7 @@ const TermsOfService: React.FC = () => {
                     <h1 className="text-5xl md:text-7xl font-heading font-bold mb-6 tracking-tighter bg-clip-text text-transparent bg-gradient-to-b from-white to-white/50">
                         Terms of Service
                     </h1>
-                    <p className="text-gray-400 text-lg">Last Updated: October 21, 2025</p>
+                    <p className="text-gray-400 text-lg">Last Updated: January 02, 2026</p>
                 </div>
 
                 <div className="space-y-12">
