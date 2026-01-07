@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 
@@ -45,9 +46,9 @@ const Hero: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.6 }}
                 className="relative z-20 flex flex-col sm:flex-row gap-4 mb-20"
             >
-                <button className="px-8 py-4 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                <Link to="/get-started" className="px-8 py-4 bg-black text-white rounded-lg font-semibold hover:bg-gray-800 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                     Get Started
-                </button>
+                </Link>
             </motion.div>
         </section>
     );
