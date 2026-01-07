@@ -157,9 +157,9 @@ const GetStarted: React.FC = () => {
                                 className="bg-white rounded-3xl p-8 md:p-10 shadow-xl border border-gray-100"
                             >
                                 <h2 className="text-2xl font-bold text-center mb-2">Request a Demo</h2>
-                                <p className="text-center text-gray-600 mb-8">
+                                <p className="text-center text-gray-500 text-sm mb-6">
                                     Already have an account?{' '}
-                                    <a href="https://app.getmortar.ai" className="text-orange-500 font-semibold hover:underline">
+                                    <a href="https://app.getmortar.ai" className="text-black font-medium hover:underline">
                                         Log in
                                     </a>
                                 </p>
