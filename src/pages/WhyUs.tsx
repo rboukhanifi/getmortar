@@ -3,21 +3,24 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 import {
-    Zap, Shield, Clock, Users, Award,
-    CheckCircle, ArrowRight, Building, Globe, Lock,
-    Cpu, BarChart3, HeartHandshake
+    Eye, Target, Zap, TrendingUp,
+    CheckCircle, ArrowRight, AlertTriangle, Clock,
+    Users, DollarSign, Repeat, Brain
 } from 'lucide-react';
 
 const WhyUs: React.FC = () => {
-    const [activeSection, setActiveSection] = useState('vision');
+    const [activeSection, setActiveSection] = useState('problem');
 
     const sections = [
-        { id: 'vision', label: 'Our Vision' },
-        { id: 'difference', label: 'The Difference' },
-        { id: 'technology', label: 'Technology' },
-        { id: 'trust', label: 'Trust & Security' },
-        { id: 'results', label: 'Results' },
-        { id: 'team', label: 'Our Team' },
+        { id: 'problem', label: 'The Problem' },
+        { id: 'traditional', label: 'Why Others Fail' },
+        { id: 'difference', label: 'Why We\'re Different' },
+        { id: 'aegis', label: 'AEGIS' },
+        { id: 'zhora', label: 'Zhora' },
+        { id: 'approach', label: 'Our Approach' },
+        { id: 'roi', label: 'The ROI' },
+        { id: 'proof', label: 'Proof' },
+        { id: 'why-choose', label: 'Why Choose Us' },
     ];
 
     useEffect(() => {
@@ -48,80 +51,25 @@ const WhyUs: React.FC = () => {
         }
     };
 
-    const differentiators = [
-        {
-            icon: <Cpu className="w-6 h-6" />,
-            title: "Purpose-Built AI",
-            description: "Not a generic tool adapted for construction. Built from the ground up for megaprojects."
-        },
-        {
-            icon: <Clock className="w-6 h-6" />,
-            title: "Predictive, Not Reactive",
-            description: "See problems weeks before they happen. Act early, not after the damage is done."
-        },
-        {
-            icon: <Users className="w-6 h-6" />,
-            title: "Human-Centered",
-            description: "AI that enhances your team's capabilities, not replaces their expertise."
-        },
-        {
-            icon: <Globe className="w-6 h-6" />,
-            title: "Enterprise Scale",
-            description: "Handle portfolios of 100+ projects without breaking a sweat."
-        }
+    const painPoints = [
+        { icon: <Repeat className="w-5 h-5" />, text: "Rework" },
+        { icon: <Clock className="w-5 h-5" />, text: "Waiting" },
+        { icon: <AlertTriangle className="w-5 h-5" />, text: "Poor sequencing" },
+        { icon: <Users className="w-5 h-5" />, text: "Knowledge gaps between crews and shifts" }
     ];
 
-    const techFeatures = [
-        {
-            title: "Machine Learning Models",
-            description: "Trained on 50,000+ construction projects across 30 countries.",
-            stat: "50K+",
-            statLabel: "projects analyzed"
-        },
-        {
-            title: "Real-time Processing",
-            description: "Process millions of data points per second for instant insights.",
-            stat: "< 100ms",
-            statLabel: "response time"
-        },
-        {
-            title: "Continuous Learning",
-            description: "Models improve daily based on your project outcomes.",
-            stat: "Daily",
-            statLabel: "model updates"
-        }
+    const traditionalProblems = [
+        "Track plans instead of real work",
+        "Rely on manual reporting, photos, and after-the-fact updates",
+        "Surface problems only after rework is already baked in",
+        "Lose critical execution knowledge when experienced workers rotate off site"
     ];
 
-    const trustPoints = [
-        { icon: <Lock className="w-5 h-5" />, text: "SOC 2 Type II Certified" },
-        { icon: <Shield className="w-5 h-5" />, text: "End-to-end encryption" },
-        { icon: <Building className="w-5 h-5" />, text: "On-premise deployment available" },
-        { icon: <Globe className="w-5 h-5" />, text: "GDPR & CCPA compliant" }
-    ];
-
-    const results = [
-        { value: "$847M", label: "Total client savings", description: "Combined savings across all Mortar clients in 2024" },
-        { value: "2,400+", label: "Projects optimized", description: "Active projects using Mortar intelligence" },
-        { value: "99.7%", label: "Uptime SLA", description: "Enterprise-grade reliability you can count on" },
-        { value: "4.9/5", label: "Customer rating", description: "Based on 500+ verified reviews" }
-    ];
-
-    const teamValues = [
-        {
-            icon: <Award className="w-8 h-8" />,
-            title: "Industry Veterans",
-            description: "Our team includes former project directors, site engineers, and construction tech pioneers with 200+ combined years in the field."
-        },
-        {
-            icon: <Zap className="w-8 h-8" />,
-            title: "AI Researchers",
-            description: "PhDs from MIT, Stanford, and Tsinghua who've published groundbreaking work in predictive analytics and machine learning."
-        },
-        {
-            icon: <HeartHandshake className="w-8 h-8" />,
-            title: "Customer Obsessed",
-            description: "We embed with your teams, understand your pain points, and build solutions that actually get used."
-        }
+    const roiPoints = [
+        { text: "Rework reduction", detail: "often 5–15% of labor hours on industrial sites" },
+        { text: "Faster crew ramp-up and knowledge transfer", detail: "" },
+        { text: "Fewer coordination-driven delays", detail: "" },
+        { text: "Lower supervisory and administrative overhead", detail: "" }
     ];
 
     return (
@@ -135,17 +83,17 @@ const WhyUs: React.FC = () => {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="max-w-3xl"
+                        className="max-w-4xl"
                     >
                         <span className="inline-block py-1 px-3 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-mono mb-8">
-                            WHY MORTAR
+                            MORTAR VAULT
                         </span>
-                        <h1 className="text-5xl md:text-7xl font-heading font-bold mb-8 tracking-tighter">
-                            We're building the future of construction.
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold mb-8 tracking-tighter leading-[1.1]">
+                            Labor Efficiency Is the Only Lever That Actually Moves Margins
                         </h1>
                         <p className="text-xl text-gray-400 leading-relaxed">
-                            In an industry where 98% of megaprojects go over budget and 77% are delayed,
-                            we believe there's a better way. Here's why the world's best builders choose Mortar.
+                            Most industrial technology optimizes planning, reporting, or documentation.
+                            <span className="text-white font-medium"> Mortar Vault optimizes execution</span> — where time, money, and risk are actually burned.
                         </p>
                     </motion.div>
                 </div>
@@ -187,37 +135,82 @@ const WhyUs: React.FC = () => {
 
                     {/* Main Content */}
                     <main className="flex-1 space-y-32">
-                        {/* Vision Section */}
-                        <section id="vision">
+                        {/* The Problem Section */}
+                        <section id="problem">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-8">Our Vision</h2>
-                                <div className="prose prose-lg prose-invert max-w-none">
-                                    <p className="text-xl text-gray-300 leading-relaxed mb-6">
-                                        Construction is the backbone of civilization. Every hospital, school, bridge, and home
-                                        starts as a project someone had to build. Yet this $13 trillion industry operates on
-                                        gut instinct, spreadsheets, and hope.
+                                <h2 className="text-3xl md:text-4xl font-bold mb-8">The Real Problem</h2>
+                                <div className="space-y-6">
+                                    <p className="text-xl text-gray-300 leading-relaxed">
+                                        On real job sites, margins are not lost in spreadsheets.
                                     </p>
-                                    <p className="text-xl text-gray-300 leading-relaxed mb-6">
-                                        We founded Mortar because we believe the people who build our world deserve better tools.
-                                        Not another app to check. Not another report to file. Real intelligence that makes
-                                        every decision sharper and every project more predictable.
+                                    <p className="text-xl text-gray-400 leading-relaxed">
+                                        They're lost in:
                                     </p>
-                                    <div className="mt-12 p-8 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10">
-                                        <blockquote className="text-2xl font-medium italic text-white">
-                                            "Our mission is simple: make construction predictable."
-                                        </blockquote>
-                                        <p className="mt-4 text-gray-400">— Founding Team</p>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {painPoints.map((point, index) => (
+                                            <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-red-500/10 border border-red-500/20">
+                                                <div className="p-2 rounded-lg bg-red-500/20 text-red-400">
+                                                    {point.icon}
+                                                </div>
+                                                <span className="font-medium text-white">{point.text}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                    <div className="mt-8 p-8 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10">
+                                        <p className="text-xl text-white font-medium leading-relaxed">
+                                            Small inefficiencies at the worker level quietly compound into millions in overruns at the project level.
+                                        </p>
+                                        <p className="mt-4 text-gray-400">
+                                            We exist because no existing system captures or fixes this problem while the work is happening.
+                                        </p>
                                     </div>
                                 </div>
                             </motion.div>
                         </section>
 
-                        {/* Difference Section */}
+                        {/* Why Traditional Approaches Fall Short */}
+                        <section id="traditional">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5 }}
+                                viewport={{ once: true }}
+                            >
+                                <h2 className="text-3xl md:text-4xl font-bold mb-4">Why Traditional Approaches Fall Short</h2>
+                                <p className="text-xl text-gray-400 mb-8">
+                                    Productivity losses on industrial sites are well known — but poorly measured and even more poorly controlled.
+                                </p>
+                                <div className="mb-8">
+                                    <p className="text-lg text-gray-300 mb-4">Most tools:</p>
+                                    <div className="space-y-3">
+                                        {traditionalProblems.map((problem, index) => (
+                                            <div key={index} className="flex items-start gap-3 text-gray-400">
+                                                <AlertTriangle className="w-5 h-5 text-yellow-500 mt-0.5 flex-shrink-0" />
+                                                <span>{problem}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="p-8 rounded-2xl bg-yellow-500/10 border border-yellow-500/20">
+                                    <p className="text-lg text-white font-medium mb-4">The result:</p>
+                                    <ul className="space-y-2 text-gray-300">
+                                        <li>• Reactive management</li>
+                                        <li>• Avoidable waste</li>
+                                        <li>• Margins that erode quietly until it's too late</li>
+                                    </ul>
+                                    <p className="mt-6 text-yellow-400 font-medium">
+                                        Visibility arrives late. Action arrives later.
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </section>
+
+                        {/* Why Mortar Vault Is Different */}
                         <section id="difference">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
@@ -225,195 +218,284 @@ const WhyUs: React.FC = () => {
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-4">The Mortar Difference</h2>
-                                <p className="text-xl text-gray-400 mb-12">
-                                    What sets us apart from every other solution on the market.
+                                <h2 className="text-3xl md:text-4xl font-bold mb-8">Why Mortar Vault Is Different</h2>
+                                <div className="p-8 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-white/10 mb-8">
+                                    <p className="text-xl text-white font-medium mb-4">
+                                        Mortar Vault is built around one principle:
+                                    </p>
+                                    <blockquote className="text-2xl md:text-3xl font-bold text-white leading-tight">
+                                        "If you want to improve labor efficiency, you must see work the way workers do."
+                                    </blockquote>
+                                </div>
+                                <p className="text-xl text-gray-300 leading-relaxed mb-6">
+                                    We capture execution directly from the worker's point of view and convert it into operational intelligence that improves productivity without slowing crews down or changing how work is done.
                                 </p>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    {differentiators.map((item, index) => (
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                                            viewport={{ once: true }}
-                                            className="p-6 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition-all group"
-                                        >
-                                            <div className="p-3 rounded-xl bg-white/10 text-white w-fit mb-4 group-hover:bg-white/20 transition-colors">
-                                                {item.icon}
-                                            </div>
-                                            <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                                            <p className="text-gray-400">{item.description}</p>
-                                        </motion.div>
-                                    ))}
+                                <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
+                                    <Eye className="w-6 h-6 text-blue-400" />
+                                    <p className="text-lg text-white font-medium">
+                                        This is not another reporting layer. It's a visibility layer for reality.
+                                    </p>
                                 </div>
                             </motion.div>
                         </section>
 
-                        {/* Technology Section */}
-                        <section id="technology">
+                        {/* AEGIS Section */}
+                        <section id="aegis">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-4">Technology</h2>
-                                <p className="text-xl text-gray-400 mb-12">
-                                    Under the hood of our intelligence platform.
-                                </p>
-                                <div className="space-y-6">
-                                    {techFeatures.map((feature, index) => (
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, x: -20 }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                                            viewport={{ once: true }}
-                                            className="flex items-start gap-8 p-6 rounded-2xl border border-white/10 bg-white/5"
-                                        >
-                                            <div className="flex-1">
-                                                <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-                                                <p className="text-gray-400">{feature.description}</p>
-                                            </div>
-                                            <div className="text-right flex-shrink-0">
-                                                <div className="text-3xl font-bold text-white">{feature.stat}</div>
-                                                <div className="text-sm text-gray-500">{feature.statLabel}</div>
-                                            </div>
-                                        </motion.div>
-                                    ))}
-                                </div>
-
-                                <div className="mt-12 p-8 rounded-2xl bg-gradient-to-r from-blue-500/10 to-purple-500/10 border border-white/10">
-                                    <div className="flex items-center gap-4 mb-4">
-                                        <BarChart3 className="w-8 h-8 text-blue-400" />
-                                        <h3 className="text-xl font-bold">Powered by Real Data</h3>
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="p-3 rounded-xl bg-green-500/20">
+                                        <Target className="w-8 h-8 text-green-400" />
                                     </div>
-                                    <p className="text-gray-300 mb-6">
-                                        Our models are trained on anonymized data from real construction projects—not simulations.
-                                        This means predictions that reflect how projects actually behave in the real world.
-                                    </p>
-                                    <div className="flex flex-wrap gap-3">
-                                        {["Commercial", "Residential", "Infrastructure", "Industrial", "Healthcare", "Education"].map((tag) => (
-                                            <span key={tag} className="px-3 py-1 rounded-full bg-white/10 text-sm text-gray-300">
-                                                {tag}
-                                            </span>
+                                    <div>
+                                        <p className="text-sm text-green-400 font-mono">WE CAPTURE REALITY, NOT REPORTS</p>
+                                        <h2 className="text-3xl md:text-4xl font-bold">AEGIS</h2>
+                                    </div>
+                                </div>
+                                <p className="text-lg text-gray-400 mb-6">Ground-Truth Visibility</p>
+                                <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                                    AEGIS is a wearable, jobsite-ready system used during normal operations.
+                                </p>
+                                <div className="mb-8">
+                                    <p className="text-lg text-white font-medium mb-4">It captures:</p>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {[
+                                            "How tasks are actually executed",
+                                            "Real sequencing and handoffs between trades",
+                                            "Tool and material usage in context",
+                                            "Site conditions at the exact moment work happens"
+                                        ].map((item, index) => (
+                                            <div key={index} className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
+                                                <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                                                <span className="text-gray-300">{item}</span>
+                                            </div>
                                         ))}
                                     </div>
                                 </div>
+                                <p className="text-gray-400 mb-4">
+                                    Unlike walk-throughs, photos, or daily reports, AEGIS produces a continuous, time-stamped record of real execution.
+                                </p>
+                                <div className="p-6 rounded-xl bg-green-500/10 border border-green-500/20">
+                                    <p className="text-green-400 font-medium">
+                                        Why this matters: You can't reduce waste or rework if you don't know where they're actually coming from.
+                                    </p>
+                                </div>
                             </motion.div>
                         </section>
 
-                        {/* Trust Section */}
-                        <section id="trust">
+                        {/* Zhora Section */}
+                        <section id="zhora">
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.5 }}
                                 viewport={{ once: true }}
                             >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-4">Trust & Security</h2>
-                                <p className="text-xl text-gray-400 mb-12">
-                                    Your data is your competitive advantage. We protect it like our own.
+                                <div className="flex items-center gap-4 mb-6">
+                                    <div className="p-3 rounded-xl bg-purple-500/20">
+                                        <Brain className="w-8 h-8 text-purple-400" />
+                                    </div>
+                                    <div>
+                                        <p className="text-sm text-purple-400 font-mono">WE TURN GOOD WORK INTO REPEATABLE EFFICIENCY</p>
+                                        <h2 className="text-3xl md:text-4xl font-bold">Zhora</h2>
+                                    </div>
+                                </div>
+                                <p className="text-lg text-gray-400 mb-6">Operational Intelligence From the Field</p>
+                                <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                                    Zhora analyzes first-person site data and reveals:
                                 </p>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
-                                    {trustPoints.map((point, index) => (
-                                        <div key={index} className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/10">
-                                            <div className="p-2 rounded-lg bg-green-500/20 text-green-400">
-                                                {point.icon}
-                                            </div>
-                                            <span className="font-medium">{point.text}</span>
+                                <div className="space-y-4 mb-8">
+                                    {[
+                                        "Where crews lose time",
+                                        "Which steps create downstream rework or delays",
+                                        "Which execution methods consistently outperform others"
+                                    ].map((item, index) => (
+                                        <div key={index} className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
+                                            <Zap className="w-5 h-5 text-purple-400 flex-shrink-0" />
+                                            <span className="text-gray-300">{item}</span>
                                         </div>
                                     ))}
                                 </div>
-                                <div className="p-8 rounded-2xl bg-white/5 border border-white/10">
-                                    <h3 className="text-xl font-bold mb-4">Enterprise-Grade Infrastructure</h3>
-                                    <p className="text-gray-400 mb-6">
-                                        Built on AWS with multi-region redundancy, automatic failover, and 24/7 monitoring.
-                                        Your projects never sleep, and neither does our infrastructure.
+                                <p className="text-lg text-white font-medium mb-4">This allows teams to:</p>
+                                <div className="space-y-3 mb-8">
+                                    {[
+                                        "Correct inefficiencies while they're still cheap to fix",
+                                        "Ramp new or rotating workers significantly faster",
+                                        "Standardize best practices across crews, shifts, and projects"
+                                    ].map((item, index) => (
+                                        <div key={index} className="flex items-start gap-3 text-gray-300">
+                                            <ArrowRight className="w-5 h-5 text-purple-400 mt-0.5 flex-shrink-0" />
+                                            <span>{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="p-6 rounded-xl bg-purple-500/10 border border-purple-500/20">
+                                    <p className="text-purple-400 font-medium">
+                                        Why this matters: Productivity improves when good execution becomes the default — not when it's rediscovered on every job.
                                     </p>
-                                    <div className="flex items-center gap-2 text-green-400">
-                                        <CheckCircle className="w-5 h-5" />
-                                        <span>99.99% uptime guarantee</span>
+                                </div>
+                            </motion.div>
+                        </section>
+
+                        {/* Our Approach Section */}
+                        <section id="approach">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5 }}
+                                viewport={{ once: true }}
+                            >
+                                <h2 className="text-3xl md:text-4xl font-bold mb-8">We Improve Productivity Without Squeezing Workers</h2>
+                                <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                                    Mortar Vault does not increase output by pushing labor harder.
+                                </p>
+                                <p className="text-lg text-white font-medium mb-4">We improve efficiency by:</p>
+                                <div className="space-y-4 mb-8">
+                                    {[
+                                        "Eliminating unnecessary motion and waiting",
+                                        "Preventing work from being done twice",
+                                        "Reducing stop-and-go caused by missing context"
+                                    ].map((item, index) => (
+                                        <div key={index} className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
+                                            <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                                            <span className="text-gray-300">{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="p-8 rounded-2xl bg-gradient-to-br from-green-500/10 to-blue-500/10 border border-white/10">
+                                    <p className="text-lg text-gray-400 mb-2">These are durable gains — not short-term pressure tactics.</p>
+                                    <p className="text-xl text-white font-medium">
+                                        The result: higher throughput and less burnout.
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </section>
+
+                        {/* ROI Section */}
+                        <section id="roi">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5 }}
+                                viewport={{ once: true }}
+                            >
+                                <h2 className="text-3xl md:text-4xl font-bold mb-4">Why the ROI Is Real</h2>
+                                <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                                    Labor dominates industrial project cost. Even small improvements matter — a lot.
+                                </p>
+                                <div className="flex items-center gap-4 mb-6">
+                                    <DollarSign className="w-8 h-8 text-green-400" />
+                                    <p className="text-lg text-white font-medium">Mortar Vault drives ROI through:</p>
+                                </div>
+                                <div className="space-y-4 mb-8">
+                                    {roiPoints.map((point, index) => (
+                                        <div key={index} className="flex items-start gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
+                                            <TrendingUp className="w-5 h-5 text-green-400 mt-0.5 flex-shrink-0" />
+                                            <div>
+                                                <span className="text-white font-medium">{point.text}</span>
+                                                {point.detail && <span className="text-gray-400"> ({point.detail})</span>}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                                <div className="p-8 rounded-2xl bg-green-500/10 border border-green-500/20">
+                                    <p className="text-xl text-white font-medium">
+                                        On labor-intensive projects, a single-digit percentage improvement in effective labor productivity can cover deployment costs many times over.
+                                    </p>
+                                </div>
+                            </motion.div>
+                        </section>
+
+                        {/* Proof Section */}
+                        <section id="proof">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5 }}
+                                viewport={{ once: true }}
+                            >
+                                <h2 className="text-3xl md:text-4xl font-bold mb-4">Proof We're Solving a Real Problem</h2>
+                                <p className="text-xl text-gray-400 mb-8">This isn't theoretical.</p>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                                    <div className="p-6 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 text-center">
+                                        <div className="text-4xl font-bold text-white mb-2">$800K</div>
+                                        <p className="text-gray-400">in contracts signed in under one month</p>
+                                    </div>
+                                    <div className="p-6 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 text-center">
+                                        <div className="text-4xl font-bold text-white mb-2">Live</div>
+                                        <p className="text-gray-400">deployments on industrial job sites</p>
+                                    </div>
+                                    <div className="p-6 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10 text-center">
+                                        <div className="text-4xl font-bold text-white mb-2">Validated</div>
+                                        <p className="text-gray-400">by customer adoption</p>
                                     </div>
                                 </div>
-                            </motion.div>
-                        </section>
-
-                        {/* Results Section */}
-                        <section id="results">
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5 }}
-                                viewport={{ once: true }}
-                            >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-4">Proven Results</h2>
-                                <p className="text-xl text-gray-400 mb-12">
-                                    Numbers that speak for themselves.
-                                </p>
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    {results.map((result, index) => (
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, scale: 0.95 }}
-                                            whileInView={{ opacity: 1, scale: 1 }}
-                                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                                            viewport={{ once: true }}
-                                            className="p-8 rounded-2xl bg-gradient-to-br from-white/10 to-white/5 border border-white/10"
-                                        >
-                                            <div className="text-4xl md:text-5xl font-bold text-white mb-2">{result.value}</div>
-                                            <div className="text-lg font-medium text-white mb-2">{result.label}</div>
-                                            <p className="text-gray-400 text-sm">{result.description}</p>
-                                        </motion.div>
-                                    ))}
-                                </div>
-                            </motion.div>
-                        </section>
-
-                        {/* Team Section */}
-                        <section id="team">
-                            <motion.div
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.5 }}
-                                viewport={{ once: true }}
-                            >
-                                <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Team</h2>
-                                <p className="text-xl text-gray-400 mb-12">
-                                    The people behind the platform.
-                                </p>
-                                <div className="space-y-6">
-                                    {teamValues.map((value, index) => (
-                                        <motion.div
-                                            key={index}
-                                            initial={{ opacity: 0, y: 20 }}
-                                            whileInView={{ opacity: 1, y: 0 }}
-                                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                                            viewport={{ once: true }}
-                                            className="flex gap-6 p-6 rounded-2xl border border-white/10 bg-white/5"
-                                        >
-                                            <div className="p-4 rounded-2xl bg-white/10 text-white h-fit">
-                                                {value.icon}
-                                            </div>
-                                            <div>
-                                                <h3 className="text-xl font-bold mb-2">{value.title}</h3>
-                                                <p className="text-gray-400">{value.description}</p>
-                                            </div>
-                                        </motion.div>
-                                    ))}
-                                </div>
-
-                                {/* CTA */}
-                                <div className="mt-16 p-8 rounded-3xl bg-gradient-to-r from-white/10 to-white/5 border border-white/10 text-center">
-                                    <h3 className="text-2xl font-bold mb-4">Join the builders shaping the future</h3>
-                                    <p className="text-gray-400 mb-8 max-w-xl mx-auto">
-                                        Whether you're managing a single project or an entire portfolio,
-                                        Mortar gives you the intelligence to build better.
+                                <div className="p-6 rounded-xl bg-blue-500/10 border border-blue-500/20">
+                                    <p className="text-blue-400 font-medium">
+                                        The market response validated what the industry already knows: execution visibility is the missing layer.
                                     </p>
-                                    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                                </div>
+                            </motion.div>
+                        </section>
+
+                        {/* Why Choose Section */}
+                        <section id="why-choose">
+                            <motion.div
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5 }}
+                                viewport={{ once: true }}
+                            >
+                                <h2 className="text-3xl md:text-4xl font-bold mb-8">Built for Live Industrial Job Sites</h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-12">
+                                    {[
+                                        "No fixed infrastructure required",
+                                        "Works in messy, changing environments",
+                                        "Deployable today",
+                                        "Improves continuously as more work is captured"
+                                    ].map((item, index) => (
+                                        <div key={index} className="flex items-center gap-3 p-4 rounded-xl bg-white/5 border border-white/10">
+                                            <CheckCircle className="w-5 h-5 text-green-400 flex-shrink-0" />
+                                            <span className="text-gray-300">{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                                <p className="text-xl text-gray-400 mb-12">
+                                    Mortar Vault is designed for how industrial work actually runs — not how it's documented after the fact.
+                                </p>
+
+                                <h3 className="text-2xl font-bold mb-6">Why Companies Choose Mortar Vault</h3>
+                                <div className="space-y-4 mb-12">
+                                    {[
+                                        "Labor efficiency is their biggest unrealized opportunity",
+                                        "Existing tools stop at planning and reporting",
+                                        "Visibility beats assumptions — every time"
+                                    ].map((item, index) => (
+                                        <div key={index} className="flex items-start gap-3 text-gray-300">
+                                            <ArrowRight className="w-5 h-5 text-white mt-0.5 flex-shrink-0" />
+                                            <span>{item}</span>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Final CTA */}
+                                <div className="p-8 rounded-3xl bg-gradient-to-r from-white/10 to-white/5 border border-white/10">
+                                    <p className="text-xl text-gray-300 mb-4">
+                                        We don't help you manage work better on paper.
+                                    </p>
+                                    <p className="text-2xl text-white font-bold mb-8">
+                                        We help your crews get more done, with less waste, every day.
+                                    </p>
+                                    <p className="text-lg text-gray-400 mb-8">
+                                        If labor performance matters to your margins, Mortar Vault is built for you.
+                                    </p>
+                                    <div className="flex flex-col sm:flex-row gap-4">
                                         <button className="px-8 py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors inline-flex items-center justify-center gap-2">
-                                            Get Started <ArrowRight className="w-5 h-5" />
+                                            Request Demo <ArrowRight className="w-5 h-5" />
                                         </button>
                                         <button className="px-8 py-4 bg-white/10 text-white rounded-full font-bold hover:bg-white/20 transition-colors border border-white/10">
                                             Talk to Sales
