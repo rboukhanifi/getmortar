@@ -8,8 +8,8 @@ import { ArrowUpRight } from 'lucide-react';
 const Company: React.FC = () => {
     const jobs = [
         "Chief Engineer, ML/RL",
-        "Chief Engineer, Robotics/Hardware",
-        "Research Engineer, World Models",
+        "Chief Engineer, Electrical Engineering",
+        "Research Engineer, ML/RL",
         "Design Engineer"
     ];
 

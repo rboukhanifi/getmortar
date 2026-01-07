@@ -1,5 +1,57 @@
 import React, { useEffect, useRef } from 'react';
 
+class Particle {
+    x: number;
+    y: number;
+    baseX: number;
+    baseY: number;
+    size: number;
+    angle: number;
+    radius: number;
+    speed: number;
+    jitter: number;
+
+    constructor(w: number, h: number) {
+        this.angle = Math.random() * Math.PI * 2;
+        // Distribute particles around the center (hole)
+        // Density higher near the center now
+        const random = Math.random();
+        if (random < 0.4) {
+            // 40% of particles close to orb (20px - 100px)
+            this.radius = Math.random() * 80 + 20;
+        } else {
+            // 60% spread out (80px - 450px)
+            this.radius = Math.random() * 370 + 80;
+        }
+
+        this.baseX = w / 2 + Math.cos(this.angle) * this.radius;
+        this.baseY = h / 2 + Math.sin(this.angle) * this.radius;
+        this.x = this.baseX;
+        this.y = this.baseY;
+
+        // Varied sizes, slightly smaller on average for "star" look
+        this.size = Math.random() * 1.5 + 0.5;
+        this.speed = Math.random() * 0.002 + 0.001;
+        this.jitter = 0;
+    }
+
+    update(w: number, h: number) {
+        // Orbit logic
+        this.angle += this.speed;
+
+        // Normal orbit position
+        this.x = w / 2 + Math.cos(this.angle) * this.radius;
+        this.y = h / 2 + Math.sin(this.angle) * this.radius;
+    }
+
+    draw(ctx: CanvasRenderingContext2D) {
+        ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.3})`;
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fill();
+    }
+}
+
 const WhiteHoleBackground: React.FC = () => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
 
@@ -13,58 +65,6 @@ const WhiteHoleBackground: React.FC = () => {
         let animationFrameId: number;
         let particles: Particle[] = [];
         const particleCount = 500;
-
-        class Particle {
-            x: number;
-            y: number;
-            baseX: number;
-            baseY: number;
-            size: number;
-            angle: number;
-            radius: number;
-            speed: number;
-            jitter: number;
-
-            constructor(w: number, h: number) {
-                this.angle = Math.random() * Math.PI * 2;
-                // Distribute particles around the center (hole)
-                // Density higher near the center now
-                const random = Math.random();
-                if (random < 0.4) {
-                    // 40% of particles close to orb (20px - 100px)
-                    this.radius = Math.random() * 80 + 20;
-                } else {
-                    // 60% spread out (80px - 450px)
-                    this.radius = Math.random() * 370 + 80;
-                }
-
-                this.baseX = w / 2 + Math.cos(this.angle) * this.radius;
-                this.baseY = h / 2 + Math.sin(this.angle) * this.radius;
-                this.x = this.baseX;
-                this.y = this.baseY;
-
-                // Varied sizes, slightly smaller on average for "star" look
-                this.size = Math.random() * 1.5 + 0.5;
-                this.speed = Math.random() * 0.002 + 0.001;
-                this.jitter = 0;
-            }
-
-            update(w: number, h: number) {
-                // Orbit logic
-                this.angle += this.speed;
-
-                // Normal orbit position
-                this.x = w / 2 + Math.cos(this.angle) * this.radius;
-                this.y = h / 2 + Math.sin(this.angle) * this.radius;
-            }
-
-            draw(ctx: CanvasRenderingContext2D) {
-                ctx.fillStyle = `rgba(255, 255, 255, ${Math.random() * 0.5 + 0.3})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
 
         const resize = () => {
             canvas.width = window.innerWidth;

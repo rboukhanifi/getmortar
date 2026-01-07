@@ -5,20 +5,20 @@ import DotBolt from '../components/DotBolt';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
+const sections = [
+    { id: 'problem', label: 'The Problem' },
+    { id: 'traditional', label: 'Why Others Fail' },
+    { id: 'difference', label: 'Why We\'re Different' },
+    { id: 'aegis', label: 'AEGIS' },
+    { id: 'zhora', label: 'Zhora' },
+    { id: 'approach', label: 'Our Approach' },
+    { id: 'roi', label: 'The ROI' },
+    { id: 'proof', label: 'Proof' },
+    { id: 'why-choose', label: 'Why Choose Us' },
+];
+
 const WhyUs: React.FC = () => {
     const [activeSection, setActiveSection] = useState('problem');
-
-    const sections = [
-        { id: 'problem', label: 'The Problem' },
-        { id: 'traditional', label: 'Why Others Fail' },
-        { id: 'difference', label: 'Why We\'re Different' },
-        { id: 'aegis', label: 'AEGIS' },
-        { id: 'zhora', label: 'Zhora' },
-        { id: 'approach', label: 'Our Approach' },
-        { id: 'roi', label: 'The ROI' },
-        { id: 'proof', label: 'Proof' },
-        { id: 'why-choose', label: 'Why Choose Us' },
-    ];
 
     useEffect(() => {
         const handleScroll = () => {

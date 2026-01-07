@@ -35,7 +35,7 @@ const TermsOfService: React.FC = () => {
                     {/* Introduction */}
                     <div className="glass-card p-5 sm:p-6 md:p-8 lg:p-10 rounded-2xl md:rounded-3xl border border-white/10 bg-black/40 backdrop-blur-xl hover:border-white/20 transition-colors duration-500">
                         <p className="text-base md:text-lg text-gray-300 leading-relaxed">
-                            Welcome to Mortar ("we," "our," or "us"). These Terms of Service explain how we collect, use, share, and protect your information when you use our website and related services.
+                            Welcome to Mortar Vault, Inc ("we," "our," or "us"). These Terms of Service explain how we collect, use, share, and protect your information when you use our website and related services.
                         </p>
                     </div>
 

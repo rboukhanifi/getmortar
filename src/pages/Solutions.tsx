@@ -32,13 +32,10 @@ const Solutions: React.FC = () => {
                         <p className="text-base sm:text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-8 md:mb-12 leading-relaxed font-light px-2">
                             Solve the hardest problems in construction with intelligence that adapts to your workflow.
                         </p>
-                        <div className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center px-4 sm:px-0">
+                        <div className="flex justify-center px-4 sm:px-0">
                             <Link to="/get-started" className="px-6 sm:px-8 py-3 sm:py-4 bg-white text-black rounded-full font-bold hover:bg-gray-200 transition-colors text-center">
                                 Request Demo
                             </Link>
-                            <button className="px-6 sm:px-8 py-3 sm:py-4 bg-white/10 text-white rounded-full font-bold hover:bg-white/20 transition-colors border border-white/10">
-                                View Pricing
-                            </button>
                         </div>
                     </motion.div>
                 </div>
