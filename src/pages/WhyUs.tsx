@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import DotBolt from '../components/DotBolt';
 import { motion } from 'framer-motion';
 import {
     Eye, Target, Zap, TrendingUp,
@@ -77,8 +78,12 @@ const WhyUs: React.FC = () => {
             <Navbar initialTextColor="text-white" />
 
             {/* Hero */}
-            <section className="relative pt-40 pb-20 px-6">
-                <div className="max-w-7xl mx-auto">
+            <section className="relative pt-40 pb-20 px-6 overflow-hidden">
+                <div className="absolute inset-0 pointer-events-none">
+                    <DotBolt />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent via-[#050505]/50 to-[#050505]"></div>
+                </div>
+                <div className="max-w-7xl mx-auto relative z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
