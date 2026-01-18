@@ -1,66 +1,60 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
-import WhiteHoleBackground from '../components/WhiteHoleBackground';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 
 const Company: React.FC = () => {
-    const team = [
-        "Rayan Boukhanifi",
-        "Themis Filippidis",
-        "Muhammad Qodirov",
-        "Frederick Khasanto",
-        "Himanshu Rawat",
-        "Ziqi Chen",
-        "Ruby Zhu"
-    ];
-
     return (
-        <div className="relative h-screen bg-black text-white font-sans selection:bg-white/30 overflow-hidden">
+        <div className="relative min-h-screen bg-black text-white font-sans selection:bg-white/30">
             <Navbar />
 
-            <div className="absolute inset-0 z-0">
-                <WhiteHoleBackground />
-            </div>
-
-            <main className="relative z-10 h-full flex flex-col justify-center px-6 md:px-12 lg:px-24">
-                <div className="max-w-4xl">
+            <main className="relative z-10 pt-32 pb-24 px-6 md:px-12 lg:px-24">
+                <div className="max-w-2xl">
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tighter mb-6"
+                        className="text-2xl md:text-3xl font-medium tracking-tight mb-2"
                     >
-                        Build The World.
+                        We are automating industrial labor.
                     </motion.h1>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.1 }}
-                        className="text-sm md:text-base text-gray-400 leading-relaxed max-w-xl mb-12"
+                        transition={{ duration: 0.8, delay: 0.05 }}
+                        className="text-xs text-gray-500 mb-10"
                     >
-                        Mortar is building industrial autonomy with a long-term mission to bridge robotics and AI. We're a team of engineers and researchers developing state-of-the-art industrial site models and self-learning algorithms.
+                        – Jan 16, 2026
                     </motion.p>
 
-                    <motion.section
+                    <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8, delay: 0.2 }}
+                        transition={{ duration: 0.8, delay: 0.1 }}
+                        className="space-y-6 text-sm md:text-base text-gray-400 leading-relaxed"
                     >
-                        <h2 className="text-xs font-medium text-gray-500 tracking-wide mb-4">Team</h2>
+                        <p>
+                            We're pursuing this goal by building Mortar, a data-driven industrial autonomy platform that learns from real-world work at scale and turns continuous site data into reliable autonomy robotic capability.
+                        </p>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2">
-                            {team.map((name, index) => (
-                                <span
-                                    key={index}
-                                    className="text-sm md:text-base text-gray-300"
-                                >
-                                    {name}
-                                </span>
-                            ))}
-                        </div>
-                    </motion.section>
+                        <p>
+                            Industrial work is shaped by millions of small decisions, where to look, what to trust, how to move, when to stop, and how to stay compliant. If we can capture those decisions through visual data and convert them into a persistent site model, we can make machines that operate safely, adapt to new environments, and deliver real productivity in the field.
+                        </p>
+
+                        <p>
+                            We envision autonomy systems that are equal parts hardware, software, and AI, rugged enough for industrial environments, scalable across sites, and deployable in form factors teams actually want to use. Fully realizing this vision demands we think in years of iteration, solve hard problems across robotics and production engineering, and be proactive about safety, privacy, reliability, and operational trust.
+                        </p>
+
+                        <p>
+                            We're starting by building the data and product foundation needed to make autonomy real: capturing what matters, validating performance in the field, and turning learning loops into shipped capability. Our ultimate measure of success is delivering products customers depend on first by augmenting industrial teams with high-leverage perception and performance tools, and ultimately by enabling persistent, high-trust autonomy across industrial environments. Along the way, we'll share what we learn to accelerate progress across the ecosystem.
+                        </p>
+
+                        <p>
+                            If you're excited to contribute to this mission, we'd love to meet you –<br />
+                            <a href="mailto:team@mortar.cv" className="text-white hover:text-gray-300 transition-colors">(send a mail to team@mortar.cv)</a>
+                        </p>
+                    </motion.div>
                 </div>
             </main>
 
