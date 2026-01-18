@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
     return (
-        <section className="relative min-h-screen flex flex-col items-center justify-start pt-24 md:pt-32 px-4 text-center z-10 overflow-hidden">
+        <section className="relative min-h-screen flex flex-col items-center justify-center px-4 text-center z-10 overflow-hidden">
 
             <motion.h1
                 initial={{ opacity: 0, y: 20 }}

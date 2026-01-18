@@ -10,7 +10,7 @@ const Home: React.FC = () => {
             <ParticleBackground color="#000000" />
             <Navbar />
             <Hero />
-            <Footer variant="light" />
+            <Footer />
         </div>
     );
 };
