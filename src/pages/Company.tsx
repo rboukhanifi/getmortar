@@ -1,27 +1,56 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
+import WhiteHoleBackground from '../components/WhiteHoleBackground';
 import Footer from '../components/Footer';
 import { motion } from 'framer-motion';
 
 const Company: React.FC = () => {
+    const team = [
+        "Rayan Boukhanifi",
+        "Themis Filippidis",
+        "Muhammad Qodirov",
+        "Frederick Khasanto",
+        "Himanshu Rawat",
+        "Ziqi Chen",
+        "Ruby Zhu"
+    ];
+
     return (
         <div className="relative min-h-screen bg-black text-white font-sans selection:bg-white/30">
             <Navbar />
 
-            <main className="relative z-10 pt-32 pb-24 px-6 md:px-12 lg:px-24">
+            {/* Hero Section with Background */}
+            <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden">
+                <div className="absolute inset-0 z-0">
+                    <WhiteHoleBackground />
+                </div>
+                <motion.h1
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="relative z-10 text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter text-center"
+                >
+                    Build The World.
+                </motion.h1>
+            </section>
+
+            {/* Content Section */}
+            <main className="relative z-10 py-24 px-6 md:px-12 lg:px-24">
                 <div className="max-w-2xl">
-                    <motion.h1
+                    <motion.h2
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.8 }}
                         className="text-2xl md:text-3xl font-medium tracking-tight mb-2"
                     >
                         We are automating industrial labor.
-                    </motion.h1>
+                    </motion.h2>
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.05 }}
                         className="text-xs text-gray-500 mb-10"
                     >
@@ -30,7 +59,8 @@ const Company: React.FC = () => {
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         transition={{ duration: 0.8, delay: 0.1 }}
                         className="space-y-6 text-sm md:text-base text-gray-400 leading-relaxed"
                     >
@@ -55,6 +85,28 @@ const Company: React.FC = () => {
                             <a href="mailto:team@mortar.cv" className="text-white hover:text-gray-300 transition-colors">(send a mail to team@mortar.cv)</a>
                         </p>
                     </motion.div>
+
+                    {/* Team Section */}
+                    <motion.section
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="mt-20"
+                    >
+                        <h3 className="text-xs font-medium text-gray-500 tracking-wide mb-4">Team</h3>
+
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2">
+                            {team.map((name, index) => (
+                                <span
+                                    key={index}
+                                    className="text-sm md:text-base text-gray-300"
+                                >
+                                    {name}
+                                </span>
+                            ))}
+                        </div>
+                    </motion.section>
                 </div>
             </main>
 
