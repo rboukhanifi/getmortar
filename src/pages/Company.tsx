@@ -15,7 +15,7 @@ const Company: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-black text-white font-sans selection:bg-white/30 overflow-x-hidden">
-            <Navbar initialTextColor="text-white" />
+            <Navbar />
 
             {/* SECTION: HERO (Background Only) */}
             <section className="relative h-[70vh] md:h-screen flex flex-col justify-center items-center px-4 md:px-6 overflow-hidden pointer-events-none">

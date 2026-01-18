@@ -5,7 +5,7 @@ import Footer from '../components/Footer';
 const TermsOfService: React.FC = () => {
     return (
         <div className="min-h-screen bg-[#050505] text-white font-sans selection:bg-blue-500/30 overflow-x-hidden relative">
-            <Navbar initialTextColor="text-white" />
+            <Navbar />
 
             {/* Background 3D Elements - Hidden on mobile */}
             <div className="fixed inset-0 pointer-events-none overflow-hidden hidden sm:block">

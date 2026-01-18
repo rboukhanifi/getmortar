@@ -90,7 +90,7 @@ const GetStarted: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-[#f5f5f5] text-black font-sans selection:bg-black/20">
-            <Navbar initialTextColor="text-black" />
+            <Navbar />
 
             <div className="pt-24 md:pt-32 pb-12 md:pb-20 px-4 md:px-6">
                 <div className="max-w-7xl mx-auto">
@@ -421,7 +421,7 @@ const GetStarted: React.FC = () => {
                 </div>
             </div>
 
-            <Footer />
+            <Footer variant="light" />
         </div>
     );
 };

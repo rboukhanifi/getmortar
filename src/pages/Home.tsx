@@ -11,7 +11,7 @@ const Home: React.FC = () => {
             {/* Light Mode Section (Hero) */}
             <div className="relative bg-white text-black">
                 <ParticleBackground color="#000000" />
-                <Navbar initialTextColor="text-black" />
+                <Navbar />
                 <Hero />
             </div>
 
