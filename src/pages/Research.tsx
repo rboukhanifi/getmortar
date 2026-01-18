@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 
@@ -7,49 +8,28 @@ const Research = () => {
             <Navbar />
 
             <main className="pt-32 pb-24 px-6">
-                <div className="max-w-3xl mx-auto">
-                    <h1 className="text-4xl md:text-6xl font-semibold tracking-tight mb-8">
-                        Research
-                    </h1>
+                <div className="max-w-2xl mx-auto">
+                    <span className="text-sm font-medium text-gray-400 tracking-wide">Mᵢ</span>
 
-                    <p className="text-lg text-gray-600 mb-16 leading-relaxed">
-                        Our work focuses on advancing AI systems for the built environment.
-                        We publish our findings to contribute to the broader scientific community.
+                    <p className="text-lg md:text-xl text-gray-800 mt-6 leading-relaxed">
+                        Mortar is building industrial autonomy with a long-term mission to bridge robotics and AI, reducing human labor while maximizing industrial output and the quality of work. We're a team of engineers and researchers developing state-of-the-art industrial site models and self-learning algorithms to enable the future of robotics.
                     </p>
 
-                    <div className="space-y-16">
-                        <article className="border-t border-gray-200 pt-8">
-                            <time className="text-sm text-gray-400">2025</time>
-                            <h2 className="text-2xl font-medium mt-2 mb-3">
-                                Automated Clash Detection in Construction Documents
-                            </h2>
-                            <p className="text-gray-600 leading-relaxed">
-                                A novel approach to identifying spatial conflicts in building information models
-                                using transformer-based architectures.
-                            </p>
-                        </article>
-
-                        <article className="border-t border-gray-200 pt-8">
-                            <time className="text-sm text-gray-400">2024</time>
-                            <h2 className="text-2xl font-medium mt-2 mb-3">
-                                Predictive Scheduling for Large-Scale Infrastructure
-                            </h2>
-                            <p className="text-gray-600 leading-relaxed">
-                                Machine learning methods for forecasting project timelines and resource allocation
-                                in complex construction environments.
-                            </p>
-                        </article>
-
-                        <article className="border-t border-gray-200 pt-8">
-                            <time className="text-sm text-gray-400">2024</time>
-                            <h2 className="text-2xl font-medium mt-2 mb-3">
-                                Document Understanding in Construction Workflows
-                            </h2>
-                            <p className="text-gray-600 leading-relaxed">
-                                Extracting structured information from unstructured construction documents
-                                using multimodal language models.
-                            </p>
-                        </article>
+                    <div className="mt-16">
+                        <div className="flex items-start gap-4">
+                            <div className="flex flex-col items-center">
+                                <div className="w-2 h-2 rounded-full bg-black"></div>
+                                <div className="w-px h-8 bg-gray-200"></div>
+                            </div>
+                            <Link
+                                to="/research/industrial-autonomy"
+                                className="group -mt-1"
+                            >
+                                <span className="text-base md:text-lg font-medium text-black group-hover:text-gray-600 transition-colors">
+                                    Mortar: Industrial Autonomy via Continuous Data Collection
+                                </span>
+                            </Link>
+                        </div>
                     </div>
                 </div>
             </main>
