@@ -421,7 +421,7 @@ const GetStarted: React.FC = () => {
                 </div>
             </div>
 
-            <Footer variant="light" />
+            <Footer />
         </div>
     );
 };
