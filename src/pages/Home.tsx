@@ -12,7 +12,7 @@ const Home: React.FC = () => {
             <Navbar />
             <CornerFrames color="light" />
             <Hero />
-            <Footer />
+            <Footer variant="light" />
         </div>
     );
 };

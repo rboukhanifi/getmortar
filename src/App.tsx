@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import Company from './pages/Company';
 import TermsOfService from './pages/TermsOfService';
 import Research from './pages/Research';
+import IndustrialAutonomy from './pages/IndustrialAutonomy';
 import GetStarted from './pages/GetStarted';
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Route path="/company" element={<Company />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/research" element={<Research />} />
+        <Route path="/research/industrial-autonomy" element={<IndustrialAutonomy />} />
         <Route path="/get-started" element={<GetStarted />} />
       </Routes>
     </Router>
