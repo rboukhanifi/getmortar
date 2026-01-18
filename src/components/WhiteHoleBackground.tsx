@@ -107,17 +107,6 @@ const WhiteHoleBackground: React.FC = () => {
                 className="absolute inset-0 w-full h-full pointer-events-none"
             />
 
-            {/* Central Interaction Point */}
-            <div
-                className="relative z-10 flex items-center justify-center cursor-pointer group"
-                style={{ width: '10vw', height: '10vw' }} // ~10% of width
-            >
-                {/* Glassmorphism Hexagon */}
-
-
-                {/* Central White Glowing Point */}
-                <div className="w-[20%] h-[20%] bg-white rounded-full shadow-[0_0_20px_rgba(255,255,255,0.8)] animate-pulse"></div>
-            </div>
         </div>
     );
 };

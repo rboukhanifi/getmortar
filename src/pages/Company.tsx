@@ -2,6 +2,7 @@ import React from 'react';
 import Navbar from '../components/Navbar';
 import WhiteHoleBackground from '../components/WhiteHoleBackground';
 import Footer from '../components/Footer';
+import CornerFrames from '../components/CornerFrames';
 import { motion } from 'framer-motion';
 
 const Company: React.FC = () => {
@@ -18,6 +19,7 @@ const Company: React.FC = () => {
     return (
         <div className="relative min-h-screen bg-black text-white font-sans selection:bg-white/30">
             <Navbar />
+            <CornerFrames color="dark" />
 
             {/* Hero Section with Background */}
             <section className="relative h-screen flex flex-col justify-center items-center overflow-hidden">

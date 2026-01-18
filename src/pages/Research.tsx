@@ -1,11 +1,13 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import CornerFrames from '../components/CornerFrames';
 
 const Research = () => {
     return (
         <div className="relative h-screen bg-black text-white overflow-hidden">
             <Navbar />
+            <CornerFrames color="dark" />
 
             <main className="h-full flex flex-col justify-center px-6 md:px-12 lg:px-24">
                 <div className="max-w-3xl">
