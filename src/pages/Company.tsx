@@ -109,6 +109,31 @@ const Company: React.FC = () => {
                             ))}
                         </div>
                     </motion.section>
+
+                    {/* Hiring Section */}
+                    <motion.section
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="mt-16"
+                    >
+                        <h3 className="text-xs font-medium text-gray-500 tracking-wide mb-4">We're looking for</h3>
+
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
+                            <span className="text-sm md:text-base text-gray-300">CTO</span>
+                            <span className="text-sm md:text-base text-gray-300">Chief Engineer, ML/RL</span>
+                            <span className="text-sm md:text-base text-gray-300">Research Engineer, ML/RL</span>
+                            <span className="text-sm md:text-base text-gray-300">Machine Learning Engineer</span>
+                            <span className="text-sm md:text-base text-gray-300">Machine Learning Operations Lead</span>
+                            <span className="text-sm md:text-base text-gray-300">Software Engineer</span>
+                            <span className="text-sm md:text-base text-gray-300">OpSec Engineer</span>
+                            <span className="text-sm md:text-base text-gray-300">Chief Engineer, Electrical Engineering</span>
+                            <span className="text-sm md:text-base text-gray-300">Electrical Engineer</span>
+                            <span className="text-sm md:text-base text-gray-300">Mechanical Design Engineer</span>
+                            <span className="text-sm md:text-base text-gray-300">Robotics Engineer</span>
+                        </div>
+                    </motion.section>
                 </div>
             </main>
 
