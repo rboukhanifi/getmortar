@@ -57,13 +57,13 @@ const IndustrialAutonomy = () => {
                         </h2>
                         <div className="text-base md:text-lg text-gray-700 leading-[1.85] space-y-5">
                             <p>
-                                We introduce <strong className="font-semibold text-black">Mortar</strong>, an industrial intelligence platform designed to enable AI to operate reliably in real-world worksites by continuously building a <strong className="font-semibold text-black">living site model</strong> from continuous data streams. Mortar captures high-frequency on-site reality—<strong className="font-semibold text-black">visual data and sensor signals</strong>—and converts it into structured, actionable understanding: <strong className="font-semibold text-black">geometry, semantics, risk, and compliance constraints</strong>.
+                                We introduce <strong className="font-semibold text-black">Mortar</strong>, an industrial intelligence platform designed to enable AI to operate reliably in real-world worksites by continuously building a <strong className="font-semibold text-black">living site model</strong> from continuous data streams. Mortar captures high-frequency on-site reality, <strong className="font-semibold text-black">visual data and sensor signals</strong>, and converts it into structured, actionable understanding: <strong className="font-semibold text-black">geometry, semantics, risk, and compliance constraints</strong>.
                             </p>
                             <p>
                                 Traditional autonomy pipelines assume environments are static or perfectly mapped upfront; Mortar learns directly from site conditions as they change, so autonomy systems can stay current while work continues.
                             </p>
                             <p>
-                                Mortar is built as a data-driven stack composed of <strong className="font-semibold text-black">(1) AEGIS</strong> (plug-and-play visual data capture hardware) and <strong className="font-semibold text-black">(2) Zhora</strong> (AI software). Together, they create a scalable pipeline for collecting, organizing, and learning from messy site data, forming the missing infrastructure required for safe, reliable, and scalable industrial autonomy.
+                                Mortar is built as a data-driven stack composed of <strong className="font-semibold text-black">(1) AEGIS</strong> (plug-and-play visual data capture hardware) and <strong className="font-semibold text-black">(2) Zhora</strong> (data platform). Together, they create a scalable pipeline for collecting, organizing, and learning from messy site data, forming the missing infrastructure required for safe, reliable, and scalable industrial autonomy.
                             </p>
                         </div>
                     </motion.section>
@@ -81,10 +81,10 @@ const IndustrialAutonomy = () => {
                         </h2>
                         <div className="text-base md:text-lg text-gray-700 leading-[1.85] space-y-5">
                             <p>
-                                An industrial environment is any real-world worksite where physical operations happen continuously—humans, machines, and materials interact to produce, move, assemble, inspect, or maintain things. Examples include construction sites, warehouses, factories, ports, mines, refineries, and logistics yards.
+                                An industrial environment is any real-world worksite where physical operations happen continuously. Humans, machines, and materials interact to produce, move, assemble, inspect, or maintain things. Examples include construction sites, warehouses, factories, ports, mines, refineries, and logistics yards.
                             </p>
                             <p>
-                                Industrial sites are inherently <strong className="font-semibold text-black">non-stationary systems</strong>: the "state of the world" changes as a direct consequence of work being performed. They change because (1) the layout is a process variable (zones are created, removed, re-routed), (2) objects are not fixed (materials are staged temporarily, equipment is repositioned), and (3) people and vehicles are always moving (shared space, unpredictable trajectories). Unlike a lab or a mapped indoor space, an industrial site is not "a place"—it's an active transformation happening in real time.
+                                Industrial sites are inherently <strong className="font-semibold text-black">non-stationary systems</strong>: the "state of the world" changes as a direct consequence of work being performed. They change because (1) the layout is a process variable (zones are created, removed, re-routed), (2) objects are not fixed (materials are staged temporarily, equipment is repositioned), and (3) people and vehicles are always moving (shared space, unpredictable trajectories). Unlike a lab or a mapped indoor space, an industrial site is not "a place", it's an active transformation happening in real time.
                             </p>
                             <p>
                                 These conditions create a mismatch with traditional autonomy pipelines, which rely on static maps, controlled sensing, and one-time calibration. As a result, autonomy becomes fragile: performance degrades as the environment drifts, and scaling across sites requires manual re-integration.
@@ -97,13 +97,13 @@ const IndustrialAutonomy = () => {
                             </p>
                             <ul className="mt-4 space-y-3 pl-5 border-l-2 border-gray-200">
                                 <li className="text-gray-700">
-                                    <span className="font-semibold text-black">(1) Data</span> — provided by continuous visual streams that reflect the site as it actually is
+                                    <span className="font-semibold text-black">(1) Data</span>, provided by continuous visual streams that reflect the site as it actually is
                                 </li>
                                 <li className="text-gray-700">
-                                    <span className="font-semibold text-black">(2) A living site model</span> — structured understanding updated over time (geometry, semantics, risk, constraints)
+                                    <span className="font-semibold text-black">(2) A living site model</span>, structured understanding updated over time (geometry, semantics, risk, constraints)
                                 </li>
                                 <li className="text-gray-700">
-                                    <span className="font-semibold text-black">(3) A control layer</span> — policies that use that model to act safely and reliably under uncertainty
+                                    <span className="font-semibold text-black">(3) A control layer</span>, policies that use that model to act safely and reliably under uncertainty
                                 </li>
                             </ul>
                         </div>
@@ -122,7 +122,7 @@ const IndustrialAutonomy = () => {
                         </h2>
                         <div className="text-base md:text-lg text-gray-700 leading-[1.85] space-y-5">
                             <p>
-                                Industrial autonomy fails less because robots "can't see," and more because the world they operate in does not stay consistent. The main failure mode is <strong className="font-semibold text-black">misalignment between the robot's internal state and the real site state</strong>. On a live site, correctness is not a one-time property—it depends on freshness.
+                                Industrial autonomy fails less because robots "can't see," and more because the world they operate in does not stay consistent. The main failure mode is <strong className="font-semibold text-black">misalignment between the robot's internal state and the real site state</strong>. On a live site, correctness is not a one-time property. It depends on freshness.
                             </p>
 
                             {/* ─────────────── Subsection 1 ─────────────── */}
@@ -183,7 +183,7 @@ const IndustrialAutonomy = () => {
                                 <li>• dynamic agents (humans, forklifts, trucks)</li>
                             </ul>
                             <p className="mt-4">
-                                This matters because perception does not fail once—it fails repeatedly. A system trained for clean conditions gets pushed out-of-distribution constantly.
+                                This matters because perception does not fail once, it fails repeatedly. A system trained for clean conditions gets pushed out-of-distribution constantly.
                             </p>
                             <div className="my-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
@@ -402,18 +402,18 @@ const IndustrialAutonomy = () => {
                         </h2>
                         <div className="text-base md:text-lg text-gray-700 leading-[1.85] space-y-5">
                             <p>
-                                Mortar is built from two coupled components—one to standardize capture, one to standardize structure.
+                                Mortar is built from two coupled components: one to standardize capture, one to standardize structure.
                             </p>
 
                             {/* AEGIS */}
-                            <div className="my-10 p-8 bg-black text-white rounded-xl">
-                                <h3 className="text-xl font-semibold mb-4">(1) AEGIS — plug-and-play visual data capture hardware</h3>
-                                <p className="text-gray-300 leading-relaxed mb-6">
+                            <div className="my-10 p-8 bg-gray-50 rounded-xl border border-gray-200">
+                                <h3 className="text-xl font-semibold text-black mb-4">(1) AEGIS: plug-and-play visual data capture hardware</h3>
+                                <p className="text-gray-600 leading-relaxed mb-6">
                                     AEGIS is deployed on-site to capture continuous visual streams and sensor signals. Its job is not "logging." Its job is to keep the system's view of reality fresh and consistent across sites.
                                 </p>
-                                <div className="space-y-2 text-sm">
-                                    <p className="text-gray-400">AEGIS provides:</p>
-                                    <ul className="space-y-1 text-gray-300 ml-4">
+                                <div className="text-sm">
+                                    <p className="text-gray-500 mb-2">AEGIS provides:</p>
+                                    <ul className="space-y-1 text-gray-600 ml-4">
                                         <li>• continuous visual streams reflecting real site conditions</li>
                                         <li>• consistent data quality across deployments</li>
                                         <li>• a substrate for change detection and model refresh</li>
@@ -423,7 +423,7 @@ const IndustrialAutonomy = () => {
 
                             {/* Zhora */}
                             <div className="my-10 p-8 bg-gray-50 rounded-xl border border-gray-200">
-                                <h3 className="text-xl font-semibold text-black mb-4">(2) Zhora — AI software</h3>
+                                <h3 className="text-xl font-semibold text-black mb-4">(2) Zhora: data platform</h3>
                                 <p className="text-gray-600 leading-relaxed mb-6">
                                     Zhora ingests the streams and converts them into structured site intelligence. It maintains a living site model with four layers:
                                 </p>
@@ -524,7 +524,7 @@ const IndustrialAutonomy = () => {
                         className="mb-20 pt-12 border-t border-gray-200"
                     >
                         <h2 className="text-xs font-semibold text-gray-400 tracking-[0.2em] uppercase mb-6">
-                            Appendix A — Metrics and Definitions
+                            Appendix A: Metrics and Definitions
                         </h2>
                         <div className="space-y-8 text-sm text-gray-700">
                             <div>
