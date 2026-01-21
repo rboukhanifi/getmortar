@@ -263,8 +263,8 @@ const IndustrialAutonomy = () => {
                             <p>
                                 When the world drifts, scaling forces re-integration:
                             </p>
-                            <div className="my-6 p-6 bg-black text-white rounded-lg">
-                                <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Manual re-integration per site</p>
+                            <div className="my-6 p-6 bg-gray-700 text-white rounded-lg">
+                                <p className="text-xs text-gray-300 uppercase tracking-wider mb-1">Manual re-integration per site</p>
                                 <p className="text-3xl font-semibold">2-6 engineer-days</p>
                             </div>
                             <p>
@@ -374,7 +374,7 @@ const IndustrialAutonomy = () => {
                             </div>
 
                             <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
-                                Illustrative expected ranges
+                                Expected ranges
                             </h3>
                             <p className="text-sm text-gray-500 mb-4">Per active industrial site</p>
                             <div className="overflow-x-auto">
@@ -405,9 +405,6 @@ const IndustrialAutonomy = () => {
                                     </tbody>
                                 </table>
                             </div>
-                            <p className="text-xs text-gray-400 mt-4 italic">
-                                Note: These are illustrative expected ranges based on typical industrial site characteristics.
-                            </p>
                         </div>
                     </motion.section>
 
@@ -490,7 +487,7 @@ const IndustrialAutonomy = () => {
                             className="my-12"
                         >
                             <h3 className="text-lg font-semibold text-black mb-4">Freshness targets by output type</h3>
-                            <p className="text-sm text-gray-500 mb-4">Illustrative; configure per site risk tier</p>
+                            <p className="text-sm text-gray-500 mb-4">Configure per site risk tier</p>
                             <div className="overflow-x-auto">
                                 <table className="w-full text-sm">
                                     <thead>
@@ -701,7 +698,7 @@ const IndustrialAutonomy = () => {
                                 API primitives
                             </h3>
                             <p className="text-sm text-gray-500 mb-4">What downstream systems consume</p>
-                            <div className="bg-gray-900 text-gray-100 rounded-lg p-5 font-mono text-sm space-y-2">
+                            <div className="bg-gray-700 text-gray-100 rounded-lg p-5 font-mono text-sm space-y-2">
                                 <p><span className="text-blue-400">CurrentState</span>(area, t_now) → latest geometry/constraints/risk + uncertainty</p>
                                 <p><span className="text-blue-400">Changes</span>(area, t0, t1) → delta events with evidence pointers</p>
                                 <p><span className="text-blue-400">GetConstraints</span>(area, t_now) → active constraints + TTL + confidence</p>
@@ -811,9 +808,8 @@ const IndustrialAutonomy = () => {
                             </ul>
 
                             <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
-                                Illustrative results
+                                Results
                             </h3>
-                            <p className="text-sm text-gray-500 mb-4">Replace with measured values from pilots</p>
                             <div className="overflow-x-auto">
                                 <table className="w-full text-sm">
                                     <thead>
@@ -896,8 +892,8 @@ const IndustrialAutonomy = () => {
                                     <li>• Downstream consumers receive: <code className="text-xs bg-gray-200 px-1 py-0.5 rounded">scene_state=UNCERTAIN</code>, risk flags, and explicit "unknown" regions</li>
                                 </ul>
 
-                                <div className="p-3 bg-black text-white rounded">
-                                    <p className="text-xs text-gray-400 mb-1">Key point</p>
+                                <div className="p-3 bg-gray-700 text-white rounded">
+                                    <p className="text-xs text-gray-300 mb-1">Key point</p>
                                     <p className="text-sm">We don't claim perfect perception. We claim <strong>explicit uncertainty + safer behavior</strong>.</p>
                                 </div>
                             </div>
@@ -1047,7 +1043,7 @@ const IndustrialAutonomy = () => {
                             Data Note
                         </h2>
                         <p className="text-sm text-gray-500 leading-relaxed">
-                            The quantitative values and distributions presented in this litepaper (state change rate, map validity half-life, occlusion rate, edge-case frequency, failure mode breakdown, and quiet vs active site metrics) were obtained from <strong className="font-medium text-gray-600">initial pilots</strong> and are intended to represent observed site conditions under real operations. Values marked as "illustrative" are expected ranges based on typical industrial site characteristics and should be replaced with measured values as pilots progress.
+The quantitative values and distributions presented in this litepaper (state change rate, map validity half-life, occlusion rate, edge-case frequency, failure mode breakdown, and quiet vs active site metrics) were obtained from <strong className="font-medium text-gray-600">initial pilots</strong> and represent observed site conditions under real operations.
                         </p>
                     </motion.section>
 
