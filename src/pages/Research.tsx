@@ -17,7 +17,28 @@ const Research = () => {
                         Mortar is building industrial autonomy with a long-term mission to bridge robotics and AI, reducing human labor while maximizing industrial output and the quality of work. We're a team of engineers and researchers developing state-of-the-art industrial site models and self-learning algorithms to enable the future of robotics.
                     </p>
 
-                    <div className="mt-10">
+                    <div className="mt-10 space-y-6">
+                        {/* New paper - Feb 2026 */}
+                        <div className="flex items-start gap-4">
+                            <div className="flex flex-col items-center pt-1">
+                                <div className="w-2 h-2 rounded-full bg-black"></div>
+                                <div className="w-px h-12 bg-gray-300"></div>
+                            </div>
+                            <Link
+                                to="/research/sensor-paradox"
+                                className="group"
+                            >
+                                <span className="text-xs text-gray-400">Feb. 2026</span>
+                                <h2 className="text-base md:text-lg font-medium text-black group-hover:text-gray-500 transition-colors mt-1">
+                                    2+2=3: More Sensors Produce Less Information in Robotics Data Pipelines
+                                </h2>
+                                <p className="text-sm text-gray-500 mt-1">
+                                    [redacted]
+                                </p>
+                            </Link>
+                        </div>
+
+                        {/* Original paper - Jan 2025 */}
                         <div className="flex items-start gap-4">
                             <div className="flex flex-col items-center pt-1">
                                 <div className="w-2 h-2 rounded-full bg-black"></div>
