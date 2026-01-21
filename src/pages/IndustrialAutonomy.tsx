@@ -93,7 +93,7 @@ const IndustrialAutonomy = () => {
                                 These conditions create a mismatch with traditional autonomy pipelines, which rely on static maps, controlled sensing, and one-time calibration. As a result, autonomy becomes fragile: performance degrades as the environment drifts, and scaling across sites requires manual re-integration.
                             </p>
                             <p>
-                                Robotics hardware is improving quickly. Sensors are cheaper, compute is more available, and robots are becoming more capable mechanically. But without a persistent intelligence layer that can continuously track the state of the world, hardware alone does not translate into scalable autonomy.
+                                Automation hardware is improving quickly. Sensors are cheaper, compute is more available, and machines are becoming more capable. But without a persistent intelligence layer that can continuously track the state of the world, hardware alone does not translate into scalable autonomy.
                             </p>
                             <p className="mt-8">
                                 To make autonomy real we need:
@@ -125,7 +125,7 @@ const IndustrialAutonomy = () => {
                         </h2>
                         <div className="text-base md:text-lg text-gray-700 leading-[1.85] space-y-5">
                             <p>
-                                Industrial autonomy fails less because robots "can't see," and more because the world they operate in does not stay consistent. The main failure mode is <strong className="font-semibold text-black">misalignment between the robot's internal state and the real site state</strong>. On a live site, correctness is not a one-time property. It depends on freshness.
+                                Industrial autonomy fails less because machines "can't see," and more because the world they operate in does not stay consistent. The main failure mode is <strong className="font-semibold text-black">misalignment between the system's internal state and the real site state</strong>. On a live site, correctness is not a one-time property. It depends on freshness.
                             </p>
 
                             {/* ─────────────── Subsection 1 ─────────────── */}
@@ -138,7 +138,7 @@ const IndustrialAutonomy = () => {
                             <div className="my-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
                                 <h4 className="text-sm font-semibold text-black mb-3">Observed site change rate</h4>
                                 <p className="text-sm text-gray-600 leading-relaxed">
-                                    A typical industrial worksite experiences <strong className="font-semibold text-black">20-100 meaningful state changes/day</strong>. We define a "state change" as one of:
+                                    In early pilots, we observed <strong className="font-semibold text-black">20-100 meaningful state changes/day</strong> across mixed-activity sites. We define a "state change" as one of:
                                 </p>
                                 <ul className="mt-3 text-sm text-gray-600 space-y-1 ml-4">
                                     <li>• a moved material stack</li>
@@ -150,7 +150,7 @@ const IndustrialAutonomy = () => {
                             <div className="my-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
                                 <h4 className="text-sm font-semibold text-black mb-3">Map validity half-life</h4>
                                 <p className="text-sm text-gray-600 leading-relaxed">
-                                    Static map validity half-life is <strong className="font-semibold text-black">~24-72 hours</strong>, depending on activity level. After that window, a static representation starts producing wrong decisions: it routes through blocked paths, misses temporary hazards, and assumes wrong free space.
+                                    In our observations, static map validity half-life ranges from <strong className="font-semibold text-black">~24-72 hours</strong>, depending on activity level. After that window, a static representation starts producing wrong decisions: it routes through blocked paths, misses temporary hazards, and assumes wrong free space.
                                 </p>
                             </div>
                         </div>
@@ -197,12 +197,12 @@ const IndustrialAutonomy = () => {
                             </p>
                             <div className="my-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
-                                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Edge-case frequency</p>
+                                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Edge-case frequency (observed)</p>
                                     <p className="text-2xl font-semibold text-black">1 every 2-10 min</p>
-                                    <p className="text-sm text-gray-500 mt-1">of robot runtime in messy sites</p>
+                                    <p className="text-sm text-gray-500 mt-1">of operation in messy sites</p>
                                 </div>
                                 <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
-                                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Occlusion rate</p>
+                                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Occlusion rate (observed)</p>
                                     <p className="text-2xl font-semibold text-black">30-60%</p>
                                     <p className="text-sm text-gray-500 mt-1">of frames partially occluded</p>
                                 </div>
@@ -255,10 +255,10 @@ const IndustrialAutonomy = () => {
                             <div className="my-6 p-6 bg-gray-50 rounded-lg border border-gray-100">
                                 <h4 className="text-sm font-semibold text-black mb-3">Examples of stale failure:</h4>
                                 <ul className="text-sm text-gray-600 space-y-2">
-                                    <li>• the robot routes through a path that was clear yesterday but is blocked now</li>
-                                    <li>• the robot enters a zone that is restricted today</li>
-                                    <li>• the robot treats an object as static when it is being moved</li>
-                                    <li>• the robot assumes free space where clutter was staged</li>
+                                    <li>• the system routes through a path that was clear yesterday but is blocked now</li>
+                                    <li>• the system enters a zone that is restricted today</li>
+                                    <li>• the system treats an object as static when it is being moved</li>
+                                    <li>• the system assumes free space where clutter was staged</li>
                                 </ul>
                             </div>
                             <p>
@@ -593,70 +593,72 @@ const IndustrialAutonomy = () => {
 
                             {/* AEGIS Spec Box */}
                             <div className="my-10 p-8 bg-black rounded-xl text-white">
-                                <h3 className="text-lg font-semibold mb-6 tracking-wide">AEGIS v0.x - Capture Node (Production Spec)</h3>
+                                <div className="flex items-center justify-between mb-6">
+                                    <h3 className="text-lg font-semibold tracking-wide">AEGIS - Capture Node Target Envelope</h3>
+                                    <span className="text-xs text-gray-500 uppercase tracking-wider">Design Goals</span>
+                                </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
                                     {/* Imaging */}
                                     <div>
                                         <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Imaging</h4>
                                         <ul className="space-y-1.5 text-gray-300">
-                                            <li>• 4K UHD sensor (2160p30 / 1440p30 / 1080p30)</li>
-                                            <li>• Wide-angle lens: <span className="text-white font-medium">140° FOV</span></li>
-                                            <li>• ISP: <span className="text-white font-medium">WDR + 3D denoise</span></li>
-                                            <li>• IR + white illumination</li>
+                                            <li>• Up to 4K capture (1080p30 typical)</li>
+                                            <li>• Wide-angle lens: <span className="text-white font-medium">130-150° FOV</span></li>
+                                            <li>• WDR + low-light enhancement</li>
+                                            <li>• IR or white illumination option</li>
                                         </ul>
                                     </div>
                                     {/* Compute */}
                                     <div>
                                         <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Compute</h4>
                                         <ul className="space-y-1.5 text-gray-300">
-                                            <li>• 32-bit RISC CPU @ 1 GHz</li>
-                                            <li>• 1 GB DDR3L</li>
-                                            <li>• Hardware H.264 / H.265 encode</li>
+                                            <li>• Video-capable SoC with hardware encoder</li>
+                                            <li>• H.264 / H.265 encode</li>
+                                            <li>• On-device health metrics</li>
                                         </ul>
                                     </div>
                                     {/* Power */}
                                     <div>
                                         <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Power</h4>
                                         <ul className="space-y-1.5 text-gray-300">
-                                            <li>• <span className="text-white font-medium">3500 mAh Li-ion</span></li>
-                                            <li>• <span className="text-white font-medium">8+ hours @ 1080p30</span>, LCD off</li>
+                                            <li>• <span className="text-white font-medium">Full-shift runtime (8+ hours)</span></li>
                                             <li>• Safe shutdown + segment finalization</li>
-                                            <li>• USB-C, operable while charging</li>
+                                            <li>• USB-C charging, operable while charging</li>
                                         </ul>
                                     </div>
                                     {/* Storage */}
                                     <div>
                                         <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Storage</h4>
                                         <ul className="space-y-1.5 text-gray-300">
-                                            <li>• 32-512 GB removable</li>
-                                            <li>• Segment sizes: 1 / 5 / 10 min</li>
-                                            <li>• Hashing + watermark (device ID, timestamp)</li>
+                                            <li>• Removable media (32-512 GB)</li>
+                                            <li>• Configurable segment sizes</li>
+                                            <li>• Integrity hashing + device watermark</li>
                                         </ul>
                                     </div>
                                     {/* Time & Identity */}
                                     <div>
                                         <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Time & Identity</h4>
                                         <ul className="space-y-1.5 text-gray-300">
-                                            <li>• Monotonic clock + wall-time</li>
+                                            <li>• Monotonic clock + wall-time sync</li>
+                                            <li>• Device-unique ID</li>
                                             <li>• Optional GPS time anchor</li>
-                                            <li>• Device-unique ID burned at manufacture</li>
                                         </ul>
                                     </div>
                                     {/* Ruggedization */}
                                     <div>
                                         <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Ruggedization</h4>
                                         <ul className="space-y-1.5 text-gray-300">
-                                            <li>• <span className="text-white font-medium">IP66 / IP67</span></li>
-                                            <li>• -20°C to +65°C operating</li>
-                                            <li>• Metal 360° clip, harness-mountable</li>
+                                            <li>• <span className="text-white font-medium">IP65+ ingress protection</span></li>
+                                            <li>• Wide operating temperature range</li>
+                                            <li>• Clip or harness-mountable</li>
                                         </ul>
                                     </div>
                                     {/* Human I/O */}
                                     <div className="md:col-span-2">
                                         <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Human I/O</h4>
                                         <ul className="space-y-1.5 text-gray-300">
-                                            <li>• Physical record button with haptic + LED + audio confirmation</li>
-                                            <li>• 2" IPS LCD (auto-off for power savings)</li>
+                                            <li>• Physical record button with confirmation feedback</li>
+                                            <li>• Optional status display</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -830,6 +832,21 @@ const IndustrialAutonomy = () => {
                                 </div>
                             </div>
 
+                            {/* Representation Choices */}
+                            <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
+                                Representation choices
+                            </h3>
+                            <p className="text-sm text-gray-500 mb-4">Current implementation approach</p>
+                            <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
+                                <ul className="text-sm text-gray-600 space-y-2">
+                                    <li>• <strong className="text-black">Geometry:</strong> 2.5D occupancy grid + route graph with edge confidence</li>
+                                    <li>• <strong className="text-black">Zones:</strong> Polygon regions with semantic labels and time bounds</li>
+                                    <li>• <strong className="text-black">Updates:</strong> Time-indexed TTL with confidence decay on staleness</li>
+                                    <li>• <strong className="text-black">Fusion:</strong> Multi-device observations merged via timestamp + spatial alignment</li>
+                                    <li>• <strong className="text-black">Auditability:</strong> Evidence pointers to source frames for every state change</li>
+                                </ul>
+                            </div>
+
                             {/* Constraint Lifecycle Example */}
                             <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
                                 Example: Temporary No-Entry Zone
@@ -927,9 +944,112 @@ const IndustrialAutonomy = () => {
                                     </li>
                                     <li className="flex items-start gap-3">
                                         <span className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-2 flex-shrink-0"></span>
-                                        <span>A robot-specific autonomy stack</span>
+                                        <span>A machine-specific autonomy stack</span>
                                     </li>
                                 </ul>
+                            </div>
+                        </div>
+                    </motion.section>
+
+                    {/* ═══════════════════════════════════════════════════════════
+                        FAILURE MODE HANDLING
+                    ═══════════════════════════════════════════════════════════ */}
+                    <motion.section
+                        {...fadeIn}
+                        transition={{ duration: 0.7, delay: 0.345 }}
+                        className="mb-20"
+                    >
+                        <h2 className="text-xs font-semibold text-gray-400 tracking-[0.2em] uppercase mb-6">
+                            When We're Wrong
+                        </h2>
+                        <div className="text-base md:text-lg text-gray-700 leading-[1.85] space-y-5">
+                            <p>
+                                No perception system is perfect. Mortar is designed to <strong className="font-semibold text-black">fail gracefully</strong> rather than fail silently.
+                            </p>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-8">
+                                <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-2">False positives</h4>
+                                    <p className="text-sm text-gray-600">Change detection flags something that didn't change</p>
+                                    <p className="text-xs text-gray-400 mt-2">→ TTL + confidence gating prevents over-reaction; false constraints expire naturally</p>
+                                </div>
+                                <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-2">False negatives</h4>
+                                    <p className="text-sm text-gray-600">Change happens but isn't detected</p>
+                                    <p className="text-xs text-gray-400 mt-2">→ Staleness decay expands uncertainty; regions become "unknown" over time</p>
+                                </div>
+                                <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-2">Occlusion spikes</h4>
+                                    <p className="text-sm text-gray-600">Visibility drops across devices</p>
+                                    <p className="text-xs text-gray-400 mt-2">→ Uncertainty field expands; downstream systems slow down or request human review</p>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.section>
+
+                    {/* ═══════════════════════════════════════════════════════════
+                        WHY NOW
+                    ═══════════════════════════════════════════════════════════ */}
+                    <motion.section
+                        {...fadeIn}
+                        transition={{ duration: 0.7, delay: 0.347 }}
+                        className="mb-20"
+                    >
+                        <h2 className="text-xs font-semibold text-gray-400 tracking-[0.2em] uppercase mb-6">
+                            Why Now
+                        </h2>
+                        <div className="text-base md:text-lg text-gray-700 leading-[1.85] space-y-5">
+                            <p>
+                                Continuous capture + continuous structuring is now feasible because of converging trends:
+                            </p>
+                            <ul className="my-6 space-y-3 ml-4">
+                                <li className="flex items-start gap-3">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 flex-shrink-0"></span>
+                                    <span><strong className="text-black">Edge video encode</strong> is solved: hardware encoders are cheap, power-efficient, and reliable</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 flex-shrink-0"></span>
+                                    <span><strong className="text-black">Storage + upload scheduling</strong> is trivial: cheap flash storage + scheduled sync removes bandwidth constraints</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 flex-shrink-0"></span>
+                                    <span><strong className="text-black">Foundation models</strong> enable semantic extraction at scale: visual understanding no longer requires per-site training</span>
+                                </li>
+                                <li className="flex items-start gap-3">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-black mt-2.5 flex-shrink-0"></span>
+                                    <span><strong className="text-black">Autonomy stacks want interfaces</strong>, not bespoke pipelines: the market is ready for a "world state API"</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </motion.section>
+
+                    {/* ═══════════════════════════════════════════════════════════
+                        PRIVACY & COMPLIANCE
+                    ═══════════════════════════════════════════════════════════ */}
+                    <motion.section
+                        {...fadeIn}
+                        transition={{ duration: 0.7, delay: 0.349 }}
+                        className="mb-20"
+                    >
+                        <h2 className="text-xs font-semibold text-gray-400 tracking-[0.2em] uppercase mb-6">
+                            Privacy & Compliance
+                        </h2>
+                        <div className="text-base md:text-lg text-gray-700 leading-[1.85] space-y-5">
+                            <p>
+                                Continuous video capture on worksites requires explicit attention to privacy and data governance.
+                            </p>
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 my-6">
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-2">PII handling</h4>
+                                    <p className="text-xs text-gray-600">Face and badge redaction in processing pipeline; configurable blur/mask options</p>
+                                </div>
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-2">Retention policies</h4>
+                                    <p className="text-xs text-gray-600">Configurable retention windows; automatic purge of raw footage after model extraction</p>
+                                </div>
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-2">Access controls</h4>
+                                    <p className="text-xs text-gray-600">Role-based access; audit logs for all data queries; tenant isolation</p>
+                                </div>
                             </div>
                         </div>
                     </motion.section>
@@ -982,7 +1102,7 @@ const IndustrialAutonomy = () => {
                                 This also explains why Mortar generalizes across industries. Construction, logistics, manufacturing, mining, and ports differ in details, but share the same autonomy failure modes: uncertainty, change, occlusion, novelty, and missing ground truth.
                             </p>
                             <p className="mt-6 p-6 bg-gray-50 rounded-lg border-l-4 border-black">
-                                <strong className="font-semibold text-black">Mortar becomes the missing infrastructure layer between robots and the physical world:</strong> a continuously updated living site model that downstream autonomy can depend on.
+                                <strong className="font-semibold text-black">Mortar becomes the missing infrastructure layer between automation and the physical world:</strong> a continuously updated living site model that downstream autonomy systems can depend on.
                             </p>
                         </div>
                     </motion.section>
