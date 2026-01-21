@@ -27,12 +27,12 @@ const Research = () => {
                                 to="/research/industrial-autonomy"
                                 className="group"
                             >
-                                <span className="text-xs text-gray-400">24 Jan. 2026</span>
+                                <span className="text-xs text-gray-400">Jan. 2025</span>
                                 <h2 className="text-base md:text-lg font-medium text-black group-hover:text-gray-500 transition-colors mt-1">
-                                    Mortar: Industrial Autonomy via Continuous Data Collection
+                                    Mortar: Bringing Messy Sites to Autonomy via Continuous Visual Data
                                 </h2>
                                 <p className="text-sm text-gray-500 mt-1">
-                                    We're building an industrial intelligence platform that enables autonomy by continuously collecting real-world site data (video + sensors).
+                                    Litepaper v1.0 — We introduce Mortar, an industrial intelligence platform designed to enable AI to operate reliably in real-world worksites by continuously building a living site model.
                                 </p>
                             </Link>
                         </div>
