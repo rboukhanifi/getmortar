@@ -5,6 +5,7 @@ import CornerFrames from '../components/CornerFrames';
 import MapDecayChart from '../components/charts/MapDecayChart';
 import AutonomyReliabilityChart from '../components/charts/AutonomyReliabilityChart';
 import FailureModeChart from '../components/charts/FailureModeChart';
+import DataflowDiagram from '../components/charts/DataflowDiagram';
 
 const IndustrialAutonomy = () => {
     const fadeIn = {
@@ -135,7 +136,7 @@ const IndustrialAutonomy = () => {
                             <div className="my-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
                                 <h4 className="text-sm font-semibold text-black mb-3">Observed site change rate</h4>
                                 <p className="text-sm text-gray-600 leading-relaxed">
-                                    A typical industrial worksite experiences <strong className="font-semibold text-black">20–100 meaningful state changes/day</strong>. We define a "state change" as one of:
+                                    A typical industrial worksite experiences <strong className="font-semibold text-black">20-100 meaningful state changes/day</strong>. We define a "state change" as one of:
                                 </p>
                                 <ul className="mt-3 text-sm text-gray-600 space-y-1 ml-4">
                                     <li>• a moved material stack</li>
@@ -147,7 +148,7 @@ const IndustrialAutonomy = () => {
                             <div className="my-8 p-6 bg-gray-50 rounded-lg border border-gray-100">
                                 <h4 className="text-sm font-semibold text-black mb-3">Map validity half-life</h4>
                                 <p className="text-sm text-gray-600 leading-relaxed">
-                                    Static map validity half-life is <strong className="font-semibold text-black">~24–72 hours</strong>, depending on activity level. After that window, a static representation starts producing wrong decisions: it routes through blocked paths, misses temporary hazards, and assumes wrong free space.
+                                    Static map validity half-life is <strong className="font-semibold text-black">~24-72 hours</strong>, depending on activity level. After that window, a static representation starts producing wrong decisions: it routes through blocked paths, misses temporary hazards, and assumes wrong free space.
                                 </p>
                             </div>
                         </div>
@@ -188,12 +189,12 @@ const IndustrialAutonomy = () => {
                             <div className="my-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
                                     <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Edge-case frequency</p>
-                                    <p className="text-2xl font-semibold text-black">1 every 2–10 min</p>
+                                    <p className="text-2xl font-semibold text-black">1 every 2-10 min</p>
                                     <p className="text-sm text-gray-500 mt-1">of robot runtime in messy sites</p>
                                 </div>
                                 <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
                                     <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Occlusion rate</p>
-                                    <p className="text-2xl font-semibold text-black">30–60%</p>
+                                    <p className="text-2xl font-semibold text-black">30-60%</p>
                                     <p className="text-sm text-gray-500 mt-1">of frames partially occluded</p>
                                 </div>
                             </div>
@@ -264,7 +265,7 @@ const IndustrialAutonomy = () => {
                             </p>
                             <div className="my-6 p-6 bg-black text-white rounded-lg">
                                 <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Manual re-integration per site</p>
-                                <p className="text-3xl font-semibold">2–6 engineer-days</p>
+                                <p className="text-3xl font-semibold">2-6 engineer-days</p>
                             </div>
                             <p>
                                 This cost compounds across deployments. It becomes the bottleneck unless the system can keep itself aligned with reality through data.
@@ -322,7 +323,7 @@ const IndustrialAutonomy = () => {
                                         </tr>
                                         <tr>
                                             <td className="py-4 pr-4">Map validity (days)</td>
-                                            <td className="text-right py-4 px-4 font-medium">3–7</td>
+                                            <td className="text-right py-4 px-4 font-medium">3-7</td>
                                             <td className="text-right py-4 pl-4 font-medium text-black">&lt;1</td>
                                         </tr>
                                     </tbody>
@@ -332,6 +333,82 @@ const IndustrialAutonomy = () => {
                                 <span className="font-medium text-gray-700">Table 1:</span> Activity level drives map validity and obstacle rate. Active sites invalidate static representations quickly.
                             </figcaption>
                         </motion.figure>
+                    </motion.section>
+
+                    {/* ═══════════════════════════════════════════════════════════
+                        DATA CHARACTERISTICS & DEFINITIONS
+                    ═══════════════════════════════════════════════════════════ */}
+                    <motion.section
+                        {...fadeIn}
+                        transition={{ duration: 0.7, delay: 0.22 }}
+                        className="mb-20"
+                    >
+                        <h2 className="text-xs font-semibold text-gray-400 tracking-[0.2em] uppercase mb-6">
+                            Data Characteristics
+                        </h2>
+                        <div className="text-base md:text-lg text-gray-700 leading-[1.85] space-y-5">
+                            <p>
+                                Mortar treats worksites as non-stationary systems and measures non-stationarity directly from continuous capture.
+                            </p>
+
+                            <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
+                                Observed signals (computed continuously)
+                            </h3>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-1">Change event rate</h4>
+                                    <p className="text-sm text-gray-600">Count of meaningful deltas/hour (route blockage, new obstacle, zone boundary change, equipment relocation)</p>
+                                </div>
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-1">Occlusion rate</h4>
+                                    <p className="text-sm text-gray-600">Fraction of frames where critical regions are partially blocked (people/vehicles/clutter/dust)</p>
+                                </div>
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-1">Scene novelty</h4>
+                                    <p className="text-sm text-gray-600">Fraction of detections belonging to unknown/rare classes or unseen configurations</p>
+                                </div>
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-1">Staleness</h4>
+                                    <p className="text-sm text-gray-600">Time since last confirmed observation for a region/route/constraint</p>
+                                </div>
+                            </div>
+
+                            <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
+                                Illustrative expected ranges
+                            </h3>
+                            <p className="text-sm text-gray-500 mb-4">Per active industrial site</p>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-sm">
+                                    <thead>
+                                        <tr className="border-b-2 border-black">
+                                            <th className="text-left py-3 pr-4 font-semibold text-black">Signal</th>
+                                            <th className="text-right py-3 pl-4 font-semibold text-black">Expected Range</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-gray-700">
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-4">Meaningful change events</td>
+                                            <td className="text-right py-3 pl-4 font-medium text-black">1-6/hour (20-120/day)</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-4">Occlusion</td>
+                                            <td className="text-right py-3 pl-4 font-medium text-black">25-65% of frames</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-4">Visibility degradation episodes (dust/glare)</td>
+                                            <td className="text-right py-3 pl-4 font-medium text-black">2-10 events/day, 1-20 min each</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="py-3 pr-4">Edge-case triggers (static assumptions broken)</td>
+                                            <td className="text-right py-3 pl-4 font-medium text-black">1 per 2-15 min of runtime</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p className="text-xs text-gray-400 mt-4 italic">
+                                Note: These are illustrative expected ranges based on typical industrial site characteristics.
+                            </p>
+                        </div>
                     </motion.section>
 
                     {/* ═══════════════════════════════════════════════════════════
@@ -387,6 +464,93 @@ const IndustrialAutonomy = () => {
                                 ))}
                             </div>
                         </div>
+
+                        {/* Figure D - Dataflow Diagram */}
+                        <motion.figure
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.6 }}
+                            className="my-12"
+                        >
+                            <div className="bg-white border border-gray-200 rounded-xl p-6 md:p-8">
+                                <DataflowDiagram />
+                            </div>
+                            <figcaption className="mt-4 text-sm text-gray-500 text-center">
+                                <span className="font-medium text-gray-700">Figure D:</span> Mortar converts continuous capture into a time-indexed site model and exposes state + deltas to both humans and autonomy stacks.
+                            </figcaption>
+                        </motion.figure>
+
+                        {/* Table - Freshness Targets */}
+                        <motion.figure
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, margin: "-50px" }}
+                            transition={{ duration: 0.6 }}
+                            className="my-12"
+                        >
+                            <h3 className="text-lg font-semibold text-black mb-4">Freshness targets by output type</h3>
+                            <p className="text-sm text-gray-500 mb-4">Illustrative; configure per site risk tier</p>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-sm">
+                                    <thead>
+                                        <tr className="border-b-2 border-black">
+                                            <th className="text-left py-3 pr-3 font-semibold text-black">Output</th>
+                                            <th className="text-left py-3 px-3 font-semibold text-black">Trigger</th>
+                                            <th className="text-right py-3 px-3 font-semibold text-black">Cadence</th>
+                                            <th className="text-right py-3 pl-3 font-semibold text-black">Latency</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-gray-700">
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-3 text-xs">Edge state (IDLE/ACTIVE/UNCERTAIN)</td>
+                                            <td className="py-3 px-3 text-xs text-gray-500">CV + QoS</td>
+                                            <td className="text-right py-3 px-3 font-medium text-xs">5-20 Hz</td>
+                                            <td className="text-right py-3 pl-3 font-medium text-xs">&lt;1s</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-3 text-xs">Change-log events</td>
+                                            <td className="py-3 px-3 text-xs text-gray-500">Delta detection</td>
+                                            <td className="text-right py-3 px-3 font-medium text-xs">Event-driven</td>
+                                            <td className="text-right py-3 pl-3 font-medium text-xs">10-60s</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-3 text-xs">Dynamic-agent risk field</td>
+                                            <td className="py-3 px-3 text-xs text-gray-500">Motion + detection</td>
+                                            <td className="text-right py-3 px-3 font-medium text-xs">5-30s</td>
+                                            <td className="text-right py-3 pl-3 font-medium text-xs">10-60s</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-3 text-xs">Uncertainty field</td>
+                                            <td className="py-3 px-3 text-xs text-gray-500">Quality metrics</td>
+                                            <td className="text-right py-3 px-3 font-medium text-xs">1-5 min</td>
+                                            <td className="text-right py-3 pl-3 font-medium text-xs">2-10 min</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-3 text-xs">Semantics (objects/zones)</td>
+                                            <td className="py-3 px-3 text-xs text-gray-500">Perception</td>
+                                            <td className="text-right py-3 px-3 font-medium text-xs">5-30 min</td>
+                                            <td className="text-right py-3 pl-3 font-medium text-xs">10-60 min</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-3 text-xs">Constraints (restricted access)</td>
+                                            <td className="py-3 px-3 text-xs text-gray-500">System + human</td>
+                                            <td className="text-right py-3 px-3 font-medium text-xs">Event + periodic</td>
+                                            <td className="text-right py-3 pl-3 font-medium text-xs">5-30 min</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="py-3 pr-3 text-xs">Geometry/traversability</td>
+                                            <td className="py-3 px-3 text-xs text-gray-500">Observations</td>
+                                            <td className="text-right py-3 px-3 font-medium text-xs">1-5 min</td>
+                                            <td className="text-right py-3 pl-3 font-medium text-xs">2-10 min</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <figcaption className="mt-4 text-sm text-gray-500">
+                                <span className="font-medium text-gray-700">Table 2:</span> Targets degrade gracefully under occlusion/connectivity; the system prioritizes fast propagation of safety-relevant deltas and explicit uncertainty when observation quality falls.
+                            </figcaption>
+                        </motion.figure>
                     </motion.section>
 
                     {/* ═══════════════════════════════════════════════════════════
@@ -466,6 +630,89 @@ const IndustrialAutonomy = () => {
                     </motion.section>
 
                     {/* ═══════════════════════════════════════════════════════════
+                        LIVING SITE MODEL: REPRESENTATION
+                    ═══════════════════════════════════════════════════════════ */}
+                    <motion.section
+                        {...fadeIn}
+                        transition={{ duration: 0.7, delay: 0.32 }}
+                        className="mb-20"
+                    >
+                        <h2 className="text-xs font-semibold text-gray-400 tracking-[0.2em] uppercase mb-6">
+                            Living Site Model: Representation
+                        </h2>
+                        <div className="text-base md:text-lg text-gray-700 leading-[1.85] space-y-5">
+                            <p>
+                                Mortar's living site model is a <strong className="font-semibold text-black">time-indexed belief store</strong> over space. Each layer is versioned and includes provenance and uncertainty.
+                            </p>
+
+                            <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
+                                Core objects
+                            </h3>
+                            <div className="space-y-3">
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-1">Region</h4>
+                                    <p className="text-sm text-gray-600">A site partition (grid cell, polygon, or semantic zone) with <code className="text-xs bg-gray-200 px-1 py-0.5 rounded">(site_id, region_id, t_valid_from, t_valid_to)</code></p>
+                                </div>
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-1">Evidence</h4>
+                                    <p className="text-sm text-gray-600">Pointer(s) to source observations (frame/segment IDs, timestamps, ROI boxes) used to justify an update</p>
+                                </div>
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black text-sm mb-1">Confidence</h4>
+                                    <p className="text-sm text-gray-600">Per-field confidence and a global "uncertainty" scalar</p>
+                                </div>
+                            </div>
+
+                            <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
+                                Layers
+                            </h3>
+                            <div className="space-y-4">
+                                <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black mb-2">1. Geometry</h4>
+                                    <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                                        <li>• Traversability/occupancy (coarse OK initially): <code className="text-xs bg-gray-200 px-1 py-0.5 rounded">free / occupied / unknown</code></li>
+                                        <li>• Optional route graph edges with confidence and last-seen timestamps</li>
+                                    </ul>
+                                </div>
+                                <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black mb-2">2. Semantics</h4>
+                                    <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                                        <li>• Zone labels (work zone, staging, exclusion)</li>
+                                        <li>• Object instances (equipment, stacks) with track persistence and last-seen</li>
+                                    </ul>
+                                </div>
+                                <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black mb-2">3. Risk</h4>
+                                    <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                                        <li>• Hazard fields (e.g., "dynamic-agent density", "edge-of-work-zone proximity")</li>
+                                        <li>• Uncertainty field driven by occlusion/visibility/staleness</li>
+                                    </ul>
+                                </div>
+                                <div className="p-5 bg-gray-50 rounded-lg border border-gray-100">
+                                    <h4 className="font-semibold text-black mb-2">4. Constraints</h4>
+                                    <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                                        <li>• Access rules as <strong>time-scoped boundaries</strong> with TTL and provenance</li>
+                                        <li>• Example: "No-entry polygon valid 08:00-17:00; created by supervisor; last confirmed at 10:12"</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
+                                API primitives
+                            </h3>
+                            <p className="text-sm text-gray-500 mb-4">What downstream systems consume</p>
+                            <div className="bg-gray-900 text-gray-100 rounded-lg p-5 font-mono text-sm space-y-2">
+                                <p><span className="text-blue-400">CurrentState</span>(area, t_now) → latest geometry/constraints/risk + uncertainty</p>
+                                <p><span className="text-blue-400">Changes</span>(area, t0, t1) → delta events with evidence pointers</p>
+                                <p><span className="text-blue-400">GetConstraints</span>(area, t_now) → active constraints + TTL + confidence</p>
+                            </div>
+                            <p className="text-sm text-gray-500 mt-4 italic">
+                                This is the "integration contract" autonomy stacks care about.
+                            </p>
+                        </div>
+                    </motion.section>
+
+                    {/* ═══════════════════════════════════════════════════════════
                         RATIONALE
                     ═══════════════════════════════════════════════════════════ */}
                     <motion.section
@@ -516,12 +763,154 @@ const IndustrialAutonomy = () => {
                     </motion.section>
 
                     {/* ═══════════════════════════════════════════════════════════
-                        APPENDIX
+                        EARLY EVALUATION
+                    ═══════════════════════════════════════════════════════════ */}
+                    <motion.section
+                        {...fadeIn}
+                        transition={{ duration: 0.7, delay: 0.38 }}
+                        className="mb-20"
+                    >
+                        <h2 className="text-xs font-semibold text-gray-400 tracking-[0.2em] uppercase mb-6">
+                            Early Evaluation: Freshness vs Reliability
+                        </h2>
+                        <div className="text-base md:text-lg text-gray-700 leading-[1.85] space-y-5">
+                            <p>
+                                We evaluate whether continuous updates reduce failures attributable to stale state.
+                            </p>
+
+                            <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
+                                Protocol
+                            </h3>
+                            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 my-6">
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100 text-center">
+                                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Sites</p>
+                                    <p className="text-xl font-semibold text-black">N = 3-6</p>
+                                    <p className="text-sm text-gray-500">mixed activity levels</p>
+                                </div>
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100 text-center">
+                                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Duration</p>
+                                    <p className="text-xl font-semibold text-black">2-4 weeks</p>
+                                    <p className="text-sm text-gray-500">per site</p>
+                                </div>
+                                <div className="p-4 bg-gray-50 rounded-lg border border-gray-100 text-center">
+                                    <p className="text-xs text-gray-400 uppercase tracking-wider mb-1">Compare</p>
+                                    <p className="text-xl font-semibold text-black">A/B</p>
+                                    <p className="text-sm text-gray-500">static vs continuous</p>
+                                </div>
+                            </div>
+
+                            <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
+                                Primary metrics
+                            </h3>
+                            <ul className="space-y-2 ml-4 text-gray-600">
+                                <li>• <strong className="text-black">Stale-route incidents</strong> / 100 runtime-hours</li>
+                                <li>• <strong className="text-black">Constraint violation incidents</strong> / 100 runtime-hours</li>
+                                <li>• <strong className="text-black">Mean time-to-detect</strong> route blockage</li>
+                                <li>• <strong className="text-black">Manual intervention rate</strong> (stops/reroutes) per hour</li>
+                                <li>• <strong className="text-black">Coverage freshness</strong>: fraction of navigable area observed in last X minutes</li>
+                            </ul>
+
+                            <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
+                                Illustrative results
+                            </h3>
+                            <p className="text-sm text-gray-500 mb-4">Replace with measured values from pilots</p>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-sm">
+                                    <thead>
+                                        <tr className="border-b-2 border-black">
+                                            <th className="text-left py-3 pr-4 font-semibold text-black">Metric</th>
+                                            <th className="text-right py-3 px-4 font-semibold text-black">Baseline</th>
+                                            <th className="text-right py-3 px-4 font-semibold text-black">Mortar</th>
+                                            <th className="text-right py-3 pl-4 font-semibold text-black">Change</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-gray-700">
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-4">Stale-route incidents / 100 hrs</td>
+                                            <td className="text-right py-3 px-4">6.5</td>
+                                            <td className="text-right py-3 px-4 font-medium">1.4</td>
+                                            <td className="text-right py-3 pl-4 font-semibold text-green-600">-78%</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-4">Constraint violations / 100 hrs</td>
+                                            <td className="text-right py-3 px-4">3.0</td>
+                                            <td className="text-right py-3 px-4 font-medium">0.8</td>
+                                            <td className="text-right py-3 pl-4 font-semibold text-green-600">-73%</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-4">Mean time-to-detect blockage</td>
+                                            <td className="text-right py-3 px-4">6.0 hrs</td>
+                                            <td className="text-right py-3 px-4 font-medium">2.5 min</td>
+                                            <td className="text-right py-3 pl-4 font-semibold text-green-600">~144x faster</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 pr-4">Manual interventions/hour</td>
+                                            <td className="text-right py-3 px-4">0.42</td>
+                                            <td className="text-right py-3 px-4 font-medium">0.18</td>
+                                            <td className="text-right py-3 pl-4 font-semibold text-green-600">-57%</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="py-3 pr-4">Fresh coverage (seen ≤ 30 min)</td>
+                                            <td className="text-right py-3 px-4">0.55</td>
+                                            <td className="text-right py-3 px-4 font-medium">0.86</td>
+                                            <td className="text-right py-3 pl-4 font-semibold text-green-600">+56%</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p className="text-sm text-gray-600 mt-4">
+                                We attribute improvements primarily to reduced staleness: blocked routes and shifting access boundaries are detected as deltas rather than discovered during execution.
+                            </p>
+
+                            {/* Case Study */}
+                            <div className="mt-12 p-6 bg-gray-50 rounded-xl border border-gray-200">
+                                <h4 className="text-base font-semibold text-black mb-4">Case Study: Visibility Degradation (dust/glare/occlusion)</h4>
+                                <p className="text-sm text-gray-600 mb-4">
+                                    During a 12-minute episode (cutting dust + forklift traffic), observation quality degrades sharply.
+                                </p>
+
+                                <h5 className="text-sm font-semibold text-black mb-2">Measured signals during episode:</h5>
+                                <div className="grid grid-cols-2 gap-3 mb-4">
+                                    <div className="p-3 bg-white rounded border border-gray-200">
+                                        <p className="text-xs text-gray-400">Occlusion rate</p>
+                                        <p className="text-sm font-medium">25% → <span className="text-red-600">65%</span></p>
+                                    </div>
+                                    <div className="p-3 bg-white rounded border border-gray-200">
+                                        <p className="text-xs text-gray-400">Blur/low-light score</p>
+                                        <p className="text-sm font-medium"><span className="text-red-600">2-3x increase</span></p>
+                                    </div>
+                                    <div className="p-3 bg-white rounded border border-gray-200">
+                                        <p className="text-xs text-gray-400">Detection disagreement</p>
+                                        <p className="text-sm font-medium"><span className="text-red-600">~2x increase</span></p>
+                                    </div>
+                                    <div className="p-3 bg-white rounded border border-gray-200">
+                                        <p className="text-xs text-gray-400">High-uncertainty area</p>
+                                        <p className="text-sm font-medium">8% → <span className="text-red-600">35%</span></p>
+                                    </div>
+                                </div>
+
+                                <h5 className="text-sm font-semibold text-black mb-2">System behavior:</h5>
+                                <ul className="text-sm text-gray-600 space-y-1 ml-4 mb-4">
+                                    <li>• Edge state transitions <strong>ACTIVE → UNCERTAIN</strong> within &lt;10s</li>
+                                    <li>• Change-log marks affected regions "low confidence"</li>
+                                    <li>• Downstream consumers receive: <code className="text-xs bg-gray-200 px-1 py-0.5 rounded">scene_state=UNCERTAIN</code>, risk flags, and explicit "unknown" regions</li>
+                                </ul>
+
+                                <div className="p-3 bg-black text-white rounded">
+                                    <p className="text-xs text-gray-400 mb-1">Key point</p>
+                                    <p className="text-sm">We don't claim perfect perception. We claim <strong>explicit uncertainty + safer behavior</strong>.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </motion.section>
+
+                    {/* ═══════════════════════════════════════════════════════════
+                        APPENDIX A
                     ═══════════════════════════════════════════════════════════ */}
                     <motion.section
                         {...fadeIn}
                         transition={{ duration: 0.7, delay: 0.4 }}
-                        className="mb-20 pt-12 border-t border-gray-200"
+                        className="mb-16 pt-12 border-t border-gray-200"
                     >
                         <h2 className="text-xs font-semibold text-gray-400 tracking-[0.2em] uppercase mb-6">
                             Appendix A: Metrics and Definitions
@@ -571,6 +960,82 @@ const IndustrialAutonomy = () => {
                     </motion.section>
 
                     {/* ═══════════════════════════════════════════════════════════
+                        APPENDIX B
+                    ═══════════════════════════════════════════════════════════ */}
+                    <motion.section
+                        {...fadeIn}
+                        transition={{ duration: 0.7, delay: 0.42 }}
+                        className="mb-16"
+                    >
+                        <h2 className="text-xs font-semibold text-gray-400 tracking-[0.2em] uppercase mb-6">
+                            Appendix B: Measurement Methodology
+                        </h2>
+                        <div className="space-y-8 text-sm text-gray-700">
+                            <div>
+                                <h4 className="font-semibold text-black mb-2">State change events</h4>
+                                <p className="text-gray-600 mb-2">We count an event when a delta affects navigation, safety, or access:</p>
+                                <ul className="space-y-1 text-gray-600 ml-4 mb-3">
+                                    <li>• route becomes blocked/unblocked</li>
+                                    <li>• obstacle appears in a previously free corridor</li>
+                                    <li>• zone boundary created/removed/rerouted</li>
+                                    <li>• equipment parked/relocated affecting paths</li>
+                                </ul>
+                                <p className="text-gray-500 text-xs"><strong>How detected:</strong> automated delta proposals from change detection + perception, confirmation by (i) repeated observation across time and/or (ii) sampled human review.</p>
+                            </div>
+                            <div>
+                                <h4 className="font-semibold text-black mb-2">Occlusion rate</h4>
+                                <p className="text-gray-600 mb-2">Computed from motion/foreground masks + ROI obstruction metrics. Reported as median and IQR per site/day.</p>
+                            </div>
+                            <div>
+                                <h4 className="font-semibold text-black mb-2">Staleness</h4>
+                                <p className="text-gray-600 mb-2">For each region/edge/constraint: <code className="text-xs bg-gray-200 px-1 py-0.5 rounded">staleness = now - last_confirmed_time</code></p>
+                                <p className="text-gray-600">"Fresh coverage ≤ X min" computed over navigable regions.</p>
+                            </div>
+                            <div>
+                                <h4 className="font-semibold text-black mb-2">Reporting</h4>
+                                <p className="text-gray-600">Report <strong>median + IQR across sites</strong>, plus a "quiet vs active" stratification.</p>
+                            </div>
+                        </div>
+                    </motion.section>
+
+                    {/* ═══════════════════════════════════════════════════════════
+                        APPENDIX C
+                    ═══════════════════════════════════════════════════════════ */}
+                    <motion.section
+                        {...fadeIn}
+                        transition={{ duration: 0.7, delay: 0.44 }}
+                        className="mb-16"
+                    >
+                        <h2 className="text-xs font-semibold text-gray-400 tracking-[0.2em] uppercase mb-6">
+                            Appendix C: Dataset Scale and Supervision
+                        </h2>
+                        <div className="text-sm text-gray-700 space-y-4">
+                            <p>
+                                Continuous capture yields <strong className="text-black">10-80 hours/site/week</strong> depending on deployment size.
+                            </p>
+                            <p>
+                                We maintain a stratified sample for review:
+                            </p>
+                            <ul className="space-y-1 text-gray-600 ml-4">
+                                <li>• <strong className="text-black">30-60 minutes/day</strong> sampled for audit/labeling</li>
+                                <li>• Oversample UNCERTAIN periods and change events</li>
+                            </ul>
+                            <p>
+                                Labels focus on <strong className="text-black">deltas and constraints</strong>, not exhaustive segmentation:
+                            </p>
+                            <ul className="space-y-1 text-gray-600 ml-4">
+                                <li>• route blocked/unblocked</li>
+                                <li>• access boundary changes</li>
+                                <li>• hazard flags and evidence pointers</li>
+                                <li>• "unknown/uncertain" regions</li>
+                            </ul>
+                            <p className="text-gray-500 italic mt-4">
+                                This keeps labeling tractable and directly tied to staleness failures.
+                            </p>
+                        </div>
+                    </motion.section>
+
+                    {/* ═══════════════════════════════════════════════════════════
                         DATA NOTE
                     ═══════════════════════════════════════════════════════════ */}
                     <motion.section
@@ -582,7 +1047,7 @@ const IndustrialAutonomy = () => {
                             Data Note
                         </h2>
                         <p className="text-sm text-gray-500 leading-relaxed">
-                            The quantitative values and distributions presented in this litepaper (state change rate, map validity half-life, occlusion rate, edge-case frequency, failure mode breakdown, and quiet vs active site metrics) were obtained from <strong className="font-medium text-gray-600">initial pilots</strong> and are intended to represent observed site conditions under real operations.
+                            The quantitative values and distributions presented in this litepaper (state change rate, map validity half-life, occlusion rate, edge-case frequency, failure mode breakdown, and quiet vs active site metrics) were obtained from <strong className="font-medium text-gray-600">initial pilots</strong> and are intended to represent observed site conditions under real operations. Values marked as "illustrative" are expected ranges based on typical industrial site characteristics and should be replaced with measured values as pilots progress.
                         </p>
                     </motion.section>
 
