@@ -155,6 +155,13 @@ const IndustrialAutonomy = () => {
                             </div>
                         </div>
 
+                        {/* Measurement Context */}
+                        <div className="my-10 p-6 bg-amber-50 border border-amber-200 rounded-xl">
+                            <p className="text-sm text-amber-900 leading-relaxed">
+                                <strong className="font-semibold">Measurement context:</strong> All quantitative values reported below are derived from live industrial pilots using continuous capture from AEGIS devices operating 6-10 hours/day across mixed-activity sites. Events are counted only when a change affects navigation, access, or safety constraints, and are confirmed via repeated observation and/or sampled human review. Metrics are reported as medians across sites unless stated otherwise.
+                            </p>
+                        </div>
+
                         {/* Figure A */}
                         <motion.figure
                             initial={{ opacity: 0, y: 20 }}
@@ -584,6 +591,77 @@ const IndustrialAutonomy = () => {
                                 </div>
                             </div>
 
+                            {/* AEGIS Spec Box */}
+                            <div className="my-10 p-8 bg-black rounded-xl text-white">
+                                <h3 className="text-lg font-semibold mb-6 tracking-wide">AEGIS v0.x - Capture Node (Production Spec)</h3>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
+                                    {/* Imaging */}
+                                    <div>
+                                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Imaging</h4>
+                                        <ul className="space-y-1.5 text-gray-300">
+                                            <li>• 4K UHD sensor (2160p30 / 1440p30 / 1080p30)</li>
+                                            <li>• Wide-angle lens: <span className="text-white font-medium">140° FOV</span></li>
+                                            <li>• ISP: <span className="text-white font-medium">WDR + 3D denoise</span></li>
+                                            <li>• IR + white illumination</li>
+                                        </ul>
+                                    </div>
+                                    {/* Compute */}
+                                    <div>
+                                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Compute</h4>
+                                        <ul className="space-y-1.5 text-gray-300">
+                                            <li>• 32-bit RISC CPU @ 1 GHz</li>
+                                            <li>• 1 GB DDR3L</li>
+                                            <li>• Hardware H.264 / H.265 encode</li>
+                                        </ul>
+                                    </div>
+                                    {/* Power */}
+                                    <div>
+                                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Power</h4>
+                                        <ul className="space-y-1.5 text-gray-300">
+                                            <li>• <span className="text-white font-medium">3500 mAh Li-ion</span></li>
+                                            <li>• <span className="text-white font-medium">8+ hours @ 1080p30</span>, LCD off</li>
+                                            <li>• Safe shutdown + segment finalization</li>
+                                            <li>• USB-C, operable while charging</li>
+                                        </ul>
+                                    </div>
+                                    {/* Storage */}
+                                    <div>
+                                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Storage</h4>
+                                        <ul className="space-y-1.5 text-gray-300">
+                                            <li>• 32-512 GB removable</li>
+                                            <li>• Segment sizes: 1 / 5 / 10 min</li>
+                                            <li>• Hashing + watermark (device ID, timestamp)</li>
+                                        </ul>
+                                    </div>
+                                    {/* Time & Identity */}
+                                    <div>
+                                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Time & Identity</h4>
+                                        <ul className="space-y-1.5 text-gray-300">
+                                            <li>• Monotonic clock + wall-time</li>
+                                            <li>• Optional GPS time anchor</li>
+                                            <li>• Device-unique ID burned at manufacture</li>
+                                        </ul>
+                                    </div>
+                                    {/* Ruggedization */}
+                                    <div>
+                                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Ruggedization</h4>
+                                        <ul className="space-y-1.5 text-gray-300">
+                                            <li>• <span className="text-white font-medium">IP66 / IP67</span></li>
+                                            <li>• -20°C to +65°C operating</li>
+                                            <li>• Metal 360° clip, harness-mountable</li>
+                                        </ul>
+                                    </div>
+                                    {/* Human I/O */}
+                                    <div className="md:col-span-2">
+                                        <h4 className="text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Human I/O</h4>
+                                        <ul className="space-y-1.5 text-gray-300">
+                                            <li>• Physical record button with haptic + LED + audio confirmation</li>
+                                            <li>• 2" IPS LCD (auto-off for power savings)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
                             {/* Zhora */}
                             <div className="my-10 p-8 bg-gray-50 rounded-xl border border-gray-200">
                                 <h3 className="text-xl font-semibold text-black mb-4">(2) Zhora: data platform</h3>
@@ -625,6 +703,62 @@ const IndustrialAutonomy = () => {
                                 <li>• change logs that explain what drifted and when</li>
                                 <li>• interfaces for downstream systems to request the current site state</li>
                             </ul>
+
+                            {/* Edge vs Cloud Table */}
+                            <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
+                                Where computation happens
+                            </h3>
+                            <div className="overflow-x-auto">
+                                <table className="w-full text-sm border border-gray-200 rounded-lg overflow-hidden">
+                                    <thead>
+                                        <tr className="bg-gray-50">
+                                            <th className="text-left py-3 px-4 font-semibold text-black border-b border-gray-200">Function</th>
+                                            <th className="text-center py-3 px-4 font-semibold text-black border-b border-gray-200">Edge (AEGIS)</th>
+                                            <th className="text-center py-3 px-4 font-semibold text-black border-b border-gray-200">Backend (Zhora)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody className="text-gray-700">
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 px-4">Capture + encode</td>
+                                            <td className="text-center py-3 px-4 text-green-600 font-medium">&#10003;</td>
+                                            <td className="text-center py-3 px-4"></td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100 bg-gray-50/50">
+                                            <td className="py-3 px-4">Health / occlusion metrics</td>
+                                            <td className="text-center py-3 px-4 text-green-600 font-medium">&#10003;</td>
+                                            <td className="text-center py-3 px-4"></td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 px-4">Event triggers</td>
+                                            <td className="text-center py-3 px-4 text-green-600 font-medium">&#10003;</td>
+                                            <td className="text-center py-3 px-4"></td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100 bg-gray-50/50">
+                                            <td className="py-3 px-4">Cross-device alignment</td>
+                                            <td className="text-center py-3 px-4"></td>
+                                            <td className="text-center py-3 px-4 text-green-600 font-medium">&#10003;</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100">
+                                            <td className="py-3 px-4">Change confirmation</td>
+                                            <td className="text-center py-3 px-4"></td>
+                                            <td className="text-center py-3 px-4 text-green-600 font-medium">&#10003;</td>
+                                        </tr>
+                                        <tr className="border-b border-gray-100 bg-gray-50/50">
+                                            <td className="py-3 px-4">Living site model</td>
+                                            <td className="text-center py-3 px-4"></td>
+                                            <td className="text-center py-3 px-4 text-green-600 font-medium">&#10003;</td>
+                                        </tr>
+                                        <tr>
+                                            <td className="py-3 px-4">APIs / dashboards</td>
+                                            <td className="text-center py-3 px-4"></td>
+                                            <td className="text-center py-3 px-4 text-green-600 font-medium">&#10003;</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <p className="text-sm text-gray-500 mt-4 italic">
+                                Safety-critical freshness signals propagate even under degraded bandwidth; richer semantics degrade gracefully.
+                            </p>
                         </div>
                     </motion.section>
 
@@ -696,6 +830,46 @@ const IndustrialAutonomy = () => {
                                 </div>
                             </div>
 
+                            {/* Constraint Lifecycle Example */}
+                            <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
+                                Example: Temporary No-Entry Zone
+                            </h3>
+                            <p className="text-sm text-gray-500 mb-4">How constraints evolve in practice</p>
+                            <div className="space-y-3">
+                                <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <div className="w-8 h-8 rounded-full bg-green-500 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">1</div>
+                                    <div>
+                                        <h4 className="font-semibold text-black text-sm mb-1">Created</h4>
+                                        <p className="text-sm text-gray-600">Forklift + cutting operation detected → hazard polygon proposed</p>
+                                        <p className="text-xs text-gray-400 mt-1">Evidence: 12 frames, 2 devices, 90s apart</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <div className="w-8 h-8 rounded-full bg-blue-500 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">2</div>
+                                    <div>
+                                        <h4 className="font-semibold text-black text-sm mb-1">Active</h4>
+                                        <p className="text-sm text-gray-600">Constraint published with TTL = 30 min, confidence = 0.82</p>
+                                        <p className="text-xs text-gray-400 mt-1">Downstream state: <code className="bg-gray-200 px-1 rounded">GetConstraints()</code></p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <div className="w-8 h-8 rounded-full bg-amber-500 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">3</div>
+                                    <div>
+                                        <h4 className="font-semibold text-black text-sm mb-1">Uncertain</h4>
+                                        <p className="text-sm text-gray-600">Occlusion rises to 65% → confidence decays</p>
+                                        <p className="text-xs text-gray-400 mt-1">Zone marked "UNCERTAIN," risk field expanded</p>
+                                    </div>
+                                </div>
+                                <div className="flex gap-4 p-4 bg-gray-50 rounded-lg border border-gray-100">
+                                    <div className="w-8 h-8 rounded-full bg-gray-500 text-white flex items-center justify-center text-xs font-bold flex-shrink-0">4</div>
+                                    <div>
+                                        <h4 className="font-semibold text-black text-sm mb-1">Expired / Refreshed</h4>
+                                        <p className="text-sm text-gray-600">No confirmation for TTL → auto-expire</p>
+                                        <p className="text-xs text-gray-400 mt-1">Or: reconfirmed → TTL reset</p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <h3 className="text-lg md:text-xl font-semibold text-black mt-10 mb-4">
                                 API primitives
                             </h3>
@@ -708,6 +882,55 @@ const IndustrialAutonomy = () => {
                             <p className="text-sm text-gray-500 mt-4 italic">
                                 This is the "integration contract" autonomy stacks care about.
                             </p>
+                        </div>
+                    </motion.section>
+
+                    {/* ═══════════════════════════════════════════════════════════
+                        WHAT MORTAR IS / IS NOT
+                    ═══════════════════════════════════════════════════════════ */}
+                    <motion.section
+                        {...fadeIn}
+                        transition={{ duration: 0.7, delay: 0.34 }}
+                        className="mb-20"
+                    >
+                        <h2 className="text-xs font-semibold text-gray-400 tracking-[0.2em] uppercase mb-6">
+                            Positioning
+                        </h2>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="p-6 bg-gray-50 rounded-xl border border-gray-200">
+                                <h3 className="text-lg font-semibold text-black mb-4">Mortar is</h3>
+                                <ul className="space-y-3 text-gray-700">
+                                    <li className="flex items-start gap-3">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-black mt-2 flex-shrink-0"></span>
+                                        <span>Continuous site-state infrastructure</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-black mt-2 flex-shrink-0"></span>
+                                        <span>A freshness-first world model</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-black mt-2 flex-shrink-0"></span>
+                                        <span>An integration layer for autonomy stacks</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div className="p-6 bg-white rounded-xl border border-gray-200">
+                                <h3 className="text-lg font-semibold text-black mb-4">Mortar is not</h3>
+                                <ul className="space-y-3 text-gray-500">
+                                    <li className="flex items-start gap-3">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-2 flex-shrink-0"></span>
+                                        <span>A one-time mapping or SLAM system</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-2 flex-shrink-0"></span>
+                                        <span>A dashboard-only VLM analytics tool</span>
+                                    </li>
+                                    <li className="flex items-start gap-3">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-gray-300 mt-2 flex-shrink-0"></span>
+                                        <span>A robot-specific autonomy stack</span>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
                     </motion.section>
 
@@ -752,6 +975,9 @@ const IndustrialAutonomy = () => {
                                     </div>
                                 ))}
                             </div>
+                            <p className="text-gray-600 text-base italic">
+                                Continuous capture is feasible at full-shift timescales (8+ hours per device), enabling freshness-driven autonomy rather than periodic re-mapping.
+                            </p>
                             <p>
                                 This also explains why Mortar generalizes across industries. Construction, logistics, manufacturing, mining, and ports differ in details, but share the same autonomy failure modes: uncertainty, change, occlusion, novelty, and missing ground truth.
                             </p>
