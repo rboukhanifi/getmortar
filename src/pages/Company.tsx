@@ -98,15 +98,22 @@ const Company: React.FC = () => {
                     >
                         <h3 className="text-xs font-medium text-gray-500 tracking-wide mb-4">Team</h3>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2">
-                            {team.map((name, index) => (
-                                <span
-                                    key={index}
-                                    className="text-sm md:text-base text-gray-300"
-                                >
-                                    {name}
-                                </span>
-                            ))}
+                        <div className="flex flex-col md:flex-row gap-8 items-start">
+                            <div className="grid grid-cols-2 gap-x-8 gap-y-2">
+                                {team.map((name, index) => (
+                                    <span
+                                        key={index}
+                                        className="text-sm md:text-base text-gray-300"
+                                    >
+                                        {name}
+                                    </span>
+                                ))}
+                            </div>
+                            <img
+                                src="/team.png"
+                                alt="Mortar team"
+                                className="w-full md:w-80 rounded-lg object-cover"
+                            />
                         </div>
                     </motion.section>
 
