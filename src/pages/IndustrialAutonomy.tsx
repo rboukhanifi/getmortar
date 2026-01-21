@@ -6,6 +6,7 @@ import MapDecayChart from '../components/charts/MapDecayChart';
 import AutonomyReliabilityChart from '../components/charts/AutonomyReliabilityChart';
 import FailureModeChart from '../components/charts/FailureModeChart';
 import DataflowDiagram from '../components/charts/DataflowDiagram';
+import PasswordProtect from '../components/PasswordProtect';
 
 const IndustrialAutonomy = () => {
     const fadeIn = {
@@ -15,6 +16,7 @@ const IndustrialAutonomy = () => {
     };
 
     return (
+        <PasswordProtect password="mortar1trillion" storageKey="litepaper-access">
         <div className="relative min-h-screen bg-white text-black overflow-x-hidden">
             <Navbar />
             <CornerFrames color="light" />
@@ -1060,6 +1062,7 @@ The quantitative values and distributions presented in this litepaper (state cha
 
             <Footer variant="light" />
         </div>
+        </PasswordProtect>
     );
 };
 
