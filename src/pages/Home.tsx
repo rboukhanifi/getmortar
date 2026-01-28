@@ -20,10 +20,10 @@ const Home: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="absolute bottom-10 left-8 z-10 flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors"
+                className="absolute bottom-16 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-8 sm:bottom-10 z-10 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-400 sm:text-gray-500 hover:text-black transition-colors"
             >
                 Backed by
-                <svg viewBox="0 0 570 64" className="h-3.5 w-auto" fill="currentColor">
+                <svg viewBox="0 0 570 64" className="h-3 sm:h-3.5 w-auto" fill="currentColor">
                     <path d="M139.492 12.9945H160.265V62.9392H173.525V12.9945H194.298V1.06077H139.492V12.9945Z" />
                     <path d="M116.066 44.3757L88.221 1.06077H73.1934V62.9392H86.011V19.6243L113.856 62.9392H128.884V1.06077H116.066V44.3757Z" />
                     <path d="M247.337 25.7238H218.166V1.06077H204.906V62.9392H218.166V37.6575H247.337V62.9392H260.597V1.06077H247.337V25.7238Z" />
