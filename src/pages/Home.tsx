@@ -20,7 +20,7 @@ const Home: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="absolute bottom-10 right-6 z-10 flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors"
+                className="absolute bottom-10 left-8 z-10 flex items-center gap-2 text-sm text-gray-500 hover:text-black transition-colors"
             >
                 Backed by
                 <svg viewBox="0 0 570 64" className="h-3.5 w-auto" fill="currentColor">
