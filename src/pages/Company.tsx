@@ -13,7 +13,8 @@ const Company: React.FC = () => {
         "Frederick Khasanto",
         "Himanshu Rawat",
         "Ziqi Chen",
-        "Ruby Zhu"
+        "Ruby Zhu",
+        "Connor Tate"
     ];
 
     return (
