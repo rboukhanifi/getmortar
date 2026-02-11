@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import WhiteHoleBackground from '../components/WhiteHoleBackground';
 import Footer from '../components/Footer';
@@ -10,10 +11,7 @@ const Company: React.FC = () => {
         "Rayan Boukhanifi",
         "Themis Filippidis",
         "Muhammad Qodirov",
-        "Frederick Khasanto",
         "Himanshu Rawat",
-        "Ziqi Chen",
-        "Ruby Zhu",
         "Connor Tate"
     ];
 
@@ -118,7 +116,7 @@ const Company: React.FC = () => {
                         </div>
                     </motion.section>
 
-                    {/* Hiring Section */}
+                    {/* Join Us CTA */}
                     <motion.section
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -126,21 +124,16 @@ const Company: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         className="mt-16"
                     >
-                        <h3 className="text-xs font-medium text-gray-500 tracking-wide mb-4">We're looking for</h3>
-
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2">
-                            <span className="text-sm md:text-base text-gray-300">CTO</span>
-                            <span className="text-sm md:text-base text-gray-300">Chief Engineer, ML/RL</span>
-                            <span className="text-sm md:text-base text-gray-300">Research Engineer, ML/RL</span>
-                            <span className="text-sm md:text-base text-gray-300">Machine Learning Engineer</span>
-                            <span className="text-sm md:text-base text-gray-300">Machine Learning Operations Lead</span>
-                            <span className="text-sm md:text-base text-gray-300">Software Engineer</span>
-                            <span className="text-sm md:text-base text-gray-300">OpSec Engineer</span>
-                            <span className="text-sm md:text-base text-gray-300">Chief Engineer, Electrical Engineering</span>
-                            <span className="text-sm md:text-base text-gray-300">Electrical Engineer</span>
-                            <span className="text-sm md:text-base text-gray-300">Mechanical Design Engineer</span>
-                            <span className="text-sm md:text-base text-gray-300">Robotics Engineer</span>
-                        </div>
+                        <h3 className="text-xs font-medium text-gray-500 tracking-wide mb-4">Careers</h3>
+                        <p className="text-sm md:text-base text-gray-400 mb-4">
+                            We're hiring across ML, software, hardware, and robotics.
+                        </p>
+                        <Link
+                            to="/join"
+                            className="inline-block text-sm md:text-base text-white hover:text-gray-300 transition-colors"
+                        >
+                            View open roles &rarr;
+                        </Link>
                     </motion.section>
                 </div>
             </main>

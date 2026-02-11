@@ -18,6 +18,7 @@ const Navbar: React.FC = () => {
                     <div className="hidden md:flex items-center gap-6 font-medium text-gray-300 text-sm">
                         <Link to="/research" className="hover:text-white transition-colors">Research</Link>
                         <Link to="/company" className="hover:text-white transition-colors">Company</Link>
+                        <Link to="/join" className="hover:text-white transition-colors">Join Us</Link>
                     </div>
 
                     <div className="flex items-center gap-3">
@@ -56,6 +57,13 @@ const Navbar: React.FC = () => {
                                 className="text-lg font-medium py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors"
                             >
                                 Company
+                            </Link>
+                            <Link
+                                to="/join"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="text-lg font-medium py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors"
+                            >
+                                Join Us
                             </Link>
                             <hr className="my-2 border-white/10" />
                             <Link

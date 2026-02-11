@@ -6,6 +6,7 @@ import Research from './pages/Research';
 import IndustrialAutonomy from './pages/IndustrialAutonomy';
 import SensorParadox from './pages/SensorParadox';
 import GetStarted from './pages/GetStarted';
+import JoinUs from './pages/JoinUs';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/company" element={<Company />} />
+        <Route path="/join" element={<JoinUs />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/research" element={<Research />} />
         <Route path="/research/industrial-autonomy" element={<IndustrialAutonomy />} />
