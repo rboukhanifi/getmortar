@@ -1,40 +1,66 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
     return (
-        <section className="absolute inset-0 flex flex-col items-center justify-center px-6 text-center z-10">
-            <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-black leading-[1.1] mb-6"
-            >
-                AI that builds<br />the World.
-            </motion.h1>
-
-            <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="text-sm md:text-base text-gray-500 max-w-md leading-relaxed mb-8"
-            >
-                Improve labor efficiency, predict delays, and automate compliance for megaprojects.
-            </motion.p>
-
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-            >
-                <Link
-                    to="/get-started"
-                    className="inline-block px-8 py-4 bg-black text-white font-medium rounded-lg hover:bg-gray-800 transition-colors"
+        <section className="absolute inset-0 flex items-center px-6 md:px-12 lg:px-24 z-10">
+            <div className="max-w-2xl">
+                <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8 }}
+                    className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-black leading-[1.05]"
                 >
-                    Get Started
-                </Link>
-            </motion.div>
+                    Mortar
+                </motion.h1>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.1 }}
+                    className="mt-3 text-sm md:text-base text-gray-400 italic"
+                >
+                    (n.) /ˈmɔːr.tər/ : the bond that unites things, people and ideas into something stronger.
+                </motion.p>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.2 }}
+                    className="mt-6 text-sm md:text-base text-gray-600 leading-relaxed"
+                >
+                    Mortar makes sure that every human experience is valuable.
+                </motion.p>
+
+                <motion.ol
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.3 }}
+                    className="mt-6 space-y-2 text-sm md:text-base text-gray-500 leading-relaxed"
+                >
+                    <li className="flex gap-2">
+                        <span className="text-black font-medium shrink-0">1.</span>
+                        Manufacturing of Hardware for Enterprise Data Collection
+                    </li>
+                    <li className="flex gap-2">
+                        <span className="text-black font-medium shrink-0">2.</span>
+                        Operational advancement of the industrial world by using Enterprise Data to boost operations.
+                    </li>
+                    <li className="flex gap-2">
+                        <span className="text-black font-medium shrink-0">3.</span>
+                        Labelling of Data for dedicated models and training of foundational models.
+                    </li>
+                </motion.ol>
+
+                <motion.p
+                    initial={{ opacity: 0, y: 15 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: 0.4 }}
+                    className="mt-6 text-base md:text-lg font-semibold text-black tracking-tight"
+                >
+                    ⇒ Build Real Autonomy.
+                </motion.p>
+            </div>
         </section>
     );
 };

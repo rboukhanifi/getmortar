@@ -2,17 +2,17 @@ import React, { useEffect, useRef } from 'react';
 import { rotate3D, perspectiveProject, generateSpherePoints, FOV } from '../utils/canvas';
 import type { Point3D } from '../utils/canvas';
 
-// Constants
-const PARTICLE_COUNT_DESKTOP = 6000;
-const PARTICLE_COUNT_MOBILE = 3000;
+// Constants — fewer particles for visible neural-net connections
+const PARTICLE_COUNT_DESKTOP = 180;
+const PARTICLE_COUNT_MOBILE = 100;
 const BASE_RADIUS = 350;
-const REFERENCE_SIZE = 800; // Reference viewport size for scaling
-const ROTATION_SPEED_X = 0.2;
-const ROTATION_SPEED_Y = 0.1;
+const REFERENCE_SIZE = 800;
+const ROTATION_SPEED_X = 0.15;
+const ROTATION_SPEED_Y = 0.08;
 const Z_CULL_THRESHOLD = 300;
-const DITHER_THRESHOLD = 0.3;
 const TARGET_FPS = 30;
 const FRAME_TIME = 1000 / TARGET_FPS;
+const CONNECTION_DISTANCE_BASE = 140; // px threshold at reference size
 
 interface ParticleBackgroundProps {
     color?: string;
@@ -33,13 +33,11 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
         let lastFrameTime = 0;
         let particles: Point3D[] = [];
 
-        // Calculate responsive radius based on viewport
         const getResponsiveRadius = (width: number, height: number): number => {
             const viewportScale = Math.min(width, height) / REFERENCE_SIZE;
             return BASE_RADIUS * viewportScale;
         };
 
-        // Initialize or reinitialize particles
         const initParticles = (width: number, height: number) => {
             const isMobile = width < 768;
             const count = isMobile ? PARTICLE_COUNT_MOBILE : PARTICLE_COUNT_DESKTOP;
@@ -50,7 +48,6 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
         const resize = () => {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-            // Regenerate particles with new radius to maintain centering and circular form
             initParticles(canvas.width, canvas.height);
         };
 
@@ -58,7 +55,6 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
         resize();
 
         const render = (currentTime: number) => {
-            // Frame throttling for performance
             if (currentTime - lastFrameTime < FRAME_TIME) {
                 animationFrameId = requestAnimationFrame(render);
                 return;
@@ -74,8 +70,13 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
             const rotX = time * ROTATION_SPEED_X;
             const rotY = time * ROTATION_SPEED_Y;
 
-            // Set fill style once outside the loop
-            ctx.fillStyle = color;
+            // Scale connection distance with viewport
+            const viewportScale = Math.min(canvas.width, canvas.height) / REFERENCE_SIZE;
+            const connectionDist = CONNECTION_DISTANCE_BASE * viewportScale;
+            const connectionDistSq = connectionDist * connectionDist;
+
+            // Project all visible particles
+            const projected: { x: number; y: number; depth: number }[] = [];
 
             particles.forEach(p => {
                 const rotated = rotate3D(p.x, p.y, p.z, rotX, rotY);
@@ -84,16 +85,46 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
                     centerX, centerY, FOV
                 );
 
-                // Draw only if in front
                 if (rotated.z < Z_CULL_THRESHOLD) {
-                    // Dithered effect: Randomly skip some pixels
-                    if (Math.random() > DITHER_THRESHOLD) {
-                        const size = (scale * 1.5) * (Math.random() * 0.5 + 0.5);
-                        ctx.fillRect(screenX, screenY, size, size);
-                    }
+                    projected.push({ x: screenX, y: screenY, depth: rotated.z });
+
+                    // Draw node dot
+                    const size = scale * 2.5;
+                    const depthAlpha = Math.max(0.2, 1 - (rotated.z + 350) / 700);
+                    ctx.globalAlpha = depthAlpha;
+                    ctx.fillStyle = color;
+                    ctx.beginPath();
+                    ctx.arc(screenX, screenY, size, 0, Math.PI * 2);
+                    ctx.fill();
                 }
             });
 
+            // Draw connections between nearby projected particles
+            ctx.lineWidth = 0.6;
+
+            for (let i = 0; i < projected.length; i++) {
+                for (let j = i + 1; j < projected.length; j++) {
+                    const dx = projected[i].x - projected[j].x;
+                    const dy = projected[i].y - projected[j].y;
+                    const distSq = dx * dx + dy * dy;
+
+                    if (distSq < connectionDistSq) {
+                        const dist = Math.sqrt(distSq);
+                        const proximity = 1 - dist / connectionDist;
+                        // Factor in depth of both particles
+                        const avgDepth = (projected[i].depth + projected[j].depth) / 2;
+                        const depthFade = Math.max(0.05, 1 - (avgDepth + 350) / 700);
+                        ctx.globalAlpha = proximity * depthFade * 0.25;
+                        ctx.strokeStyle = color;
+                        ctx.beginPath();
+                        ctx.moveTo(projected[i].x, projected[i].y);
+                        ctx.lineTo(projected[j].x, projected[j].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+
+            ctx.globalAlpha = 1;
             animationFrameId = requestAnimationFrame(render);
         };
 
