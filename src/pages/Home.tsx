@@ -20,11 +20,8 @@ const Home: React.FC = () => {
                 className="absolute bottom-16 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-8 sm:bottom-10 z-10 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-400 sm:text-gray-500"
             >
                 Backed by
-                <a
-                    href="https://www.anthropic.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="hover:text-black transition-colors flex items-center"
+                <span
+                    className="flex items-center"
                 >
                     <svg viewBox="0 0 570 64" className="h-3 sm:h-3.5 w-auto" fill="currentColor">
                         <path d="M139.492 12.9945H160.265V62.9392H173.525V12.9945H194.298V1.06077H139.492V12.9945Z" />
@@ -37,7 +34,7 @@ const Home: React.FC = () => {
                         <path d="M443.403 1.06077H413.171V62.9392H426.431V40.4862H443.403C457.459 40.4862 466.033 33.0608 466.033 20.7735C466.033 8.48619 457.459 1.06077 443.403 1.06077ZM442.784 28.5525H426.431V12.9945H442.784C449.326 12.9945 452.773 15.6464 452.773 20.7735C452.773 25.9006 449.326 28.5525 442.784 28.5525Z" />
                         <path d="M329.812 19.8895C329.812 8.22099 321.238 1.06077 307.182 1.06077H276.95V62.9392H290.21V38.7182H304.971L318.232 62.9392H332.906L318.223 36.8734C325.593 34.0402 329.812 28.0743 329.812 19.8895ZM290.21 12.9945H306.564C313.105 12.9945 316.552 15.3812 316.552 19.8895C316.552 24.3978 313.105 26.7845 306.564 26.7845H290.21V12.9945Z" />
                     </svg>
-                </a>
+                </span>
                 <span>&</span>
                 <a
                     href="https://www.nvidia.com/en-us/startups/"
