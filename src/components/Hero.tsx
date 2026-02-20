@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
@@ -52,14 +53,19 @@ const Hero: React.FC = () => {
                     </li>
                 </motion.ol>
 
-                <motion.p
+                <motion.div
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}
-                    className="mt-6 text-base md:text-lg font-semibold text-black tracking-tight"
+                    className="mt-8"
                 >
-                    ⇒ Build Real Autonomy.
-                </motion.p>
+                    <Link
+                        to="/get-started"
+                        className="inline-block px-8 py-3 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors"
+                    >
+                        Get Started
+                    </Link>
+                </motion.div>
             </div>
         </section>
     );

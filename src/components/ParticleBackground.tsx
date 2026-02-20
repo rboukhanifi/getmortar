@@ -2,17 +2,18 @@ import React, { useEffect, useRef } from 'react';
 import { rotate3D, perspectiveProject, generateSpherePoints, FOV } from '../utils/canvas';
 import type { Point3D } from '../utils/canvas';
 
-// Constants — fewer particles for visible neural-net connections
-const PARTICLE_COUNT_DESKTOP = 180;
-const PARTICLE_COUNT_MOBILE = 100;
-const BASE_RADIUS = 350;
+// More nodes + wider connection radius for a dense, organic neural-net look
+const PARTICLE_COUNT_DESKTOP = 300;
+const PARTICLE_COUNT_MOBILE = 150;
+const BASE_RADIUS = 380;
 const REFERENCE_SIZE = 800;
-const ROTATION_SPEED_X = 0.15;
-const ROTATION_SPEED_Y = 0.08;
-const Z_CULL_THRESHOLD = 300;
+const ROTATION_SPEED_X = 0.12;
+const ROTATION_SPEED_Y = 0.06;
+const Z_CULL_THRESHOLD = 350;
 const TARGET_FPS = 30;
 const FRAME_TIME = 1000 / TARGET_FPS;
-const CONNECTION_DISTANCE_BASE = 140; // px threshold at reference size
+const CONNECTION_DISTANCE_BASE = 120;
+const MAX_CONNECTIONS_PER_NODE = 6;
 
 interface ParticleBackgroundProps {
     color?: string;
@@ -61,7 +62,7 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
             }
             lastFrameTime = currentTime;
 
-            time += 0.005;
+            time += 0.004;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             const centerX = canvas.width / 2;
@@ -76,7 +77,7 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
             const connectionDistSq = connectionDist * connectionDist;
 
             // Project all visible particles
-            const projected: { x: number; y: number; depth: number }[] = [];
+            const projected: { x: number; y: number; depth: number; alpha: number }[] = [];
 
             particles.forEach(p => {
                 const rotated = rotate3D(p.x, p.y, p.z, rotX, rotY);
@@ -86,12 +87,12 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
                 );
 
                 if (rotated.z < Z_CULL_THRESHOLD) {
-                    projected.push({ x: screenX, y: screenY, depth: rotated.z });
+                    const depthAlpha = Math.max(0.15, 1 - (rotated.z + 380) / 760);
+                    projected.push({ x: screenX, y: screenY, depth: rotated.z, alpha: depthAlpha });
 
-                    // Draw node dot
-                    const size = scale * 2.5;
-                    const depthAlpha = Math.max(0.2, 1 - (rotated.z + 350) / 700);
-                    ctx.globalAlpha = depthAlpha;
+                    // Draw node — small crisp circles
+                    const size = Math.max(1, scale * 2);
+                    ctx.globalAlpha = depthAlpha * 0.9;
                     ctx.fillStyle = color;
                     ctx.beginPath();
                     ctx.arc(screenX, screenY, size, 0, Math.PI * 2);
@@ -99,11 +100,18 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
                 }
             });
 
-            // Draw connections between nearby projected particles
-            ctx.lineWidth = 0.6;
+            // Draw connections — batch into a single path per alpha band for performance
+            // Sort by depth so back-to-front lines layer naturally
+            ctx.lineCap = 'round';
+
+            const connectionCounts = new Uint8Array(projected.length);
 
             for (let i = 0; i < projected.length; i++) {
+                if (connectionCounts[i] >= MAX_CONNECTIONS_PER_NODE) continue;
+
                 for (let j = i + 1; j < projected.length; j++) {
+                    if (connectionCounts[j] >= MAX_CONNECTIONS_PER_NODE) continue;
+
                     const dx = projected[i].x - projected[j].x;
                     const dy = projected[i].y - projected[j].y;
                     const distSq = dx * dx + dy * dy;
@@ -111,15 +119,19 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
                     if (distSq < connectionDistSq) {
                         const dist = Math.sqrt(distSq);
                         const proximity = 1 - dist / connectionDist;
-                        // Factor in depth of both particles
-                        const avgDepth = (projected[i].depth + projected[j].depth) / 2;
-                        const depthFade = Math.max(0.05, 1 - (avgDepth + 350) / 700);
-                        ctx.globalAlpha = proximity * depthFade * 0.25;
+                        const pairAlpha = Math.min(projected[i].alpha, projected[j].alpha);
+                        const lineAlpha = proximity * proximity * pairAlpha * 0.35;
+
+                        ctx.globalAlpha = lineAlpha;
                         ctx.strokeStyle = color;
+                        ctx.lineWidth = proximity * 1.2 + 0.2;
                         ctx.beginPath();
                         ctx.moveTo(projected[i].x, projected[i].y);
                         ctx.lineTo(projected[j].x, projected[j].y);
                         ctx.stroke();
+
+                        connectionCounts[i]++;
+                        connectionCounts[j]++;
                     }
                 }
             }
