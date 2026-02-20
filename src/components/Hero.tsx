@@ -4,8 +4,10 @@ import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
     return (
-        <section className="absolute inset-0 flex items-center px-6 md:px-12 lg:px-24 z-10">
-            <div className="max-w-2xl">
+        <section className="absolute inset-0 flex items-center z-10">
+            {/* Soft gradient backdrop so text is readable over particles */}
+            <div className="absolute inset-y-0 left-0 w-[65%] bg-gradient-to-r from-white via-white/90 to-transparent pointer-events-none" />
+            <div className="relative max-w-2xl px-6 md:px-12 lg:px-24">
                 <motion.h1
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
