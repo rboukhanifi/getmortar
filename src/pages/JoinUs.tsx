@@ -22,22 +22,22 @@ const categories: Category[] = [
         roles: [
             {
                 title: "Chief Engineer, ML/RL",
-                location: "SF, California / Austin, TX / Shenzhen, China",
+                location: "Shenzhen, China",
             },
             {
                 title: "Research Engineer, ML/RL",
                 description: "Applied ML research with model prototyping",
-                location: "SF, California / Austin, TX",
+                location: "Shenzhen, China",
             },
             {
                 title: "Machine Learning Engineer",
                 description: "Training, deploying production ML models for perception and intelligence",
-                location: "SF, California / Austin, TX",
+                location: "Shenzhen, China",
             },
             {
                 title: "Machine Learning Operations Lead",
                 description: "Deployment pipelines, monitoring, scalability, model infrastructure",
-                location: "Austin, TX",
+                location: "Shenzhen, China",
             },
         ],
     },
@@ -47,12 +47,12 @@ const categories: Category[] = [
             {
                 title: "Software Engineer",
                 description: "Core backend/platform systems lead",
-                location: "SF, California / Austin, TX",
+                location: "Shenzhen, China",
             },
             {
                 title: "Software Engineer, Real-Time Video Systems",
                 description: "Low-latency video capture, streaming, compression, ML video integration",
-                location: "SF, California / Shenzhen, China",
+                location: "Shenzhen, China",
             },
         ],
     },
@@ -62,7 +62,7 @@ const categories: Category[] = [
             {
                 title: "OpSec Engineer",
                 description: "Operational security, secure deployments, access control, incident response",
-                location: "Austin, TX",
+                location: "Shenzhen, China",
             },
         ],
     },
@@ -72,12 +72,12 @@ const categories: Category[] = [
             {
                 title: "Chief Engineer, Electrical Engineering",
                 description: "Overall electronics architecture, sensor systems, manufacturing alignment",
-                location: "SF, California / Austin, TX / Shenzhen, China",
+                location: "Shenzhen, China",
             },
             {
                 title: "Electrical Engineer",
                 description: "PCB design, power systems, embedded electronics testing, production support",
-                location: "Austin, TX / Shenzhen, China",
+                location: "Shenzhen, China",
             },
         ],
     },
@@ -97,7 +97,7 @@ const categories: Category[] = [
             {
                 title: "Robotics Engineer",
                 description: "Robotics integration, perception/control systems, real-world deployment",
-                location: "SF, California / Shenzhen, China",
+                location: "Shenzhen, China",
             },
         ],
     },
