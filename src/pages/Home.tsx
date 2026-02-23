@@ -19,7 +19,7 @@ const Home: React.FC = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="absolute bottom-16 left-1/2 -translate-x-1/2 sm:translate-x-0 sm:left-8 sm:bottom-10 z-10 flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-400 sm:text-gray-500"
             >
-                Backed by
+                Supported by
                 <span
                     className="flex items-center"
                 >
