@@ -18,7 +18,7 @@ const GetStarted: React.FC = () => {
                         transition={{ duration: 0.8 }}
                         className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6"
                     >
-                        Save millions on your projects
+                        Work with us
                     </motion.h1>
 
                     <motion.p
@@ -27,7 +27,7 @@ const GetStarted: React.FC = () => {
                         transition={{ duration: 0.8, delay: 0.1 }}
                         className="text-sm md:text-base text-gray-500 leading-relaxed mb-10"
                     >
-                        We deploy an operations AI stack for industrial companies (construction, mining, oil & gas) that improves labor productivity, detects safety issues, and automates compliance. In 8 weeks, we signed $800K in contracts with multi-billion-dollar operators. Apply here to work with us—if you're a fit for a pilot, we'll reach out.
+                        We deploy AI wearables for industrial companies (construction, mining, oil & gas). Apply here to work with us—if you're a fit for a pilot, we'll reach out.
                     </motion.p>
 
                     <motion.div
