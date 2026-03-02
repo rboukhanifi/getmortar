@@ -16,25 +16,20 @@ const Navbar: React.FC = () => {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-6 font-medium text-gray-300 text-sm">
+                        <Link to="/product" className="hover:text-white transition-colors">Product</Link>
+                        <Link to="/platform" className="hover:text-white transition-colors">Platform</Link>
                         <Link to="/research" className="hover:text-white transition-colors">Research</Link>
                         <Link to="/company" className="hover:text-white transition-colors">Company</Link>
-                        <Link to="/join" className="hover:text-white transition-colors">Join Us</Link>
                     </div>
 
-                    <div className="flex items-center gap-3">
-                        <Link to="/get-started" className="rounded-full font-medium hidden sm:block px-4 py-2 text-sm bg-white text-black hover:bg-gray-200 transition-colors">
-                            Get Started
-                        </Link>
-
-                        {/* Mobile Menu Button */}
-                        <button
-                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                            className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
-                            aria-label="Toggle menu"
-                        >
-                            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                        </button>
-                    </div>
+                    {/* Mobile Menu Button */}
+                    <button
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        className="md:hidden p-2 rounded-lg text-white hover:bg-white/10 transition-colors"
+                        aria-label="Toggle menu"
+                    >
+                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
                 </div>
             </nav>
 
@@ -44,6 +39,20 @@ const Navbar: React.FC = () => {
                     <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setMobileMenuOpen(false)} />
                     <div className="absolute top-20 left-4 right-4 rounded-2xl p-6 shadow-2xl bg-[#050505] border border-white/10">
                         <div className="flex flex-col gap-4">
+                            <Link
+                                to="/product"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="text-lg font-medium py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors"
+                            >
+                                Product
+                            </Link>
+                            <Link
+                                to="/platform"
+                                onClick={() => setMobileMenuOpen(false)}
+                                className="text-lg font-medium py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors"
+                            >
+                                Platform
+                            </Link>
                             <Link
                                 to="/research"
                                 onClick={() => setMobileMenuOpen(false)}
@@ -57,21 +66,6 @@ const Navbar: React.FC = () => {
                                 className="text-lg font-medium py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors"
                             >
                                 Company
-                            </Link>
-                            <Link
-                                to="/join"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="text-lg font-medium py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors"
-                            >
-                                Join Us
-                            </Link>
-                            <hr className="my-2 border-white/10" />
-                            <Link
-                                to="/get-started"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="text-lg font-semibold py-3 px-4 rounded-lg text-center bg-white text-black hover:bg-gray-200 transition-colors"
-                            >
-                                Get Started
                             </Link>
                         </div>
                     </div>
