@@ -14,7 +14,7 @@ const AegisP1: React.FC = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImage((prev) => (prev + 1) % images.length);
-        }, 2000);
+        }, 5000);
         return () => clearInterval(interval);
     }, []);
 
@@ -53,9 +53,9 @@ const AegisP1: React.FC = () => {
                                 className="space-y-4 text-sm md:text-base leading-relaxed text-gray-300 max-w-lg"
                             >
                                 <p>
-                                    Our AEGIS P1 AR Glasses is a passive stereo capture system engineered
-                                    around the geometry of human vision, because the tasks robots must learn
-                                    are the tasks humans already perform.
+                                    AEGIS P1 is a passive stereo capture system engineered around the geometry
+                                    of human vision, because the tasks robots must learn are the tasks humans
+                                    already perform.
                                 </p>
 
                                 <p>
@@ -115,7 +115,7 @@ const AegisP1: React.FC = () => {
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.6 }}
-                                    className="w-full max-w-lg object-contain"
+                                    className="w-full max-w-2xl object-contain"
                                 />
                             </AnimatePresence>
                         </div>
