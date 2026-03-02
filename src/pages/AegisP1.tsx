@@ -50,20 +50,12 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="space-y-3 text-base leading-relaxed text-gray-300"
+                                className="space-y-3 text-base leading-relaxed text-white font-bold"
                             >
                                 <p>
                                     AEGIS P1 is a passive stereo capture system engineered around the geometry
-                                    of human vision, because the tasks robots must learn are the tasks humans
-                                    already perform.
-                                </p>
-
-                                <p>
-                                    Two global-shutter 8 MP sensors capture high-speed RGBD video at 1080p,
-                                    60 fps, preserving motion fidelity without rolling-shutter distortion. The
-                                    stereo pair is integrated into a compact, enterprise-grade AR glasses form
-                                    factor, delivering depth perception that mirrors how humans perceive and
-                                    interact with their environment.
+                                    of human vision. With Two global-shutter 8 MP sensors capture high-speed
+                                    RGBD video at 1080p, 60 fps, without rolling-shutter distortion.
                                 </p>
 
                                 <p>
@@ -73,10 +65,10 @@ const AegisP1: React.FC = () => {
                                 </p>
 
                                 <p>
-                                    To maintain depth stability during motion, AEGIS P1 integrates a 6-axis
-                                    IMU, tightly fused with visual data at ultra-low latency. This reduces
-                                    motion artifacts and preserves temporal coherence for downstream robotics
-                                    training and evaluation.
+                                    To maintain depth stability during motion, an 6-axis IMU is integrated,
+                                    tightly fused with visual data at ultra-low latency. This reduces motion
+                                    artifacts and preserves temporal coherence for downstream robotics training
+                                    and evaluation.
                                 </p>
 
                                 <p>
