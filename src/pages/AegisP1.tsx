@@ -23,9 +23,9 @@ const AegisP1: React.FC = () => {
             <Navbar />
             <CornerFrames color="dark" />
 
-            <main className="relative z-10 h-full flex items-center px-6 md:px-12 lg:px-24 pt-20 pb-14">
-                <div className="max-w-7xl mx-auto w-full">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+            <main className="relative z-10 h-full flex items-center px-6 md:px-10 lg:px-16 pt-20 pb-14">
+                <div className="w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-6 lg:gap-10 items-center">
                         {/* Left: Text Content */}
                         <div>
                             <motion.p
@@ -41,7 +41,7 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.1 }}
-                                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4"
+                                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-3"
                             >
                                 AEGIS P1
                             </motion.h1>
@@ -50,7 +50,7 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="space-y-5 text-lg leading-relaxed text-white font-bold"
+                                className="space-y-4 text-lg leading-snug text-white font-bold"
                             >
                                 <p>
                                     AEGIS P1 is a passive stereo capture system engineered around the geometry
