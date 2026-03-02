@@ -13,13 +13,29 @@ const Z_CULL_THRESHOLD = 300;
 const DITHER_THRESHOLD = 0.3;
 const TARGET_FPS = 30;
 const FRAME_TIME = 1000 / TARGET_FPS;
+const TRANSITION_DURATION = 3000; // 3 seconds
 
 interface ParticleBackgroundProps {
     color?: string;
+    transitioning?: boolean;
+    onTransitionComplete?: () => void;
 }
 
-const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#ffffff' }) => {
+const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#ffffff', transitioning = false, onTransitionComplete }) => {
     const canvasRef = useRef<HTMLCanvasElement>(null);
+    const transitionStartTime = useRef<number | null>(null);
+    const hasCalledComplete = useRef(false);
+
+    // Start transition timing when transitioning becomes true
+    useEffect(() => {
+        if (transitioning) {
+            transitionStartTime.current = performance.now();
+            hasCalledComplete.current = false;
+        } else {
+            transitionStartTime.current = null;
+            hasCalledComplete.current = false;
+        }
+    }, [transitioning]);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -58,14 +74,54 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
         resize();
 
         const render = (currentTime: number) => {
-            // Frame throttling for performance
-            if (currentTime - lastFrameTime < FRAME_TIME) {
+            // Frame throttling for performance — skip throttle during transition
+            if (transitionStartTime.current === null && currentTime - lastFrameTime < FRAME_TIME) {
                 animationFrameId = requestAnimationFrame(render);
                 return;
             }
             lastFrameTime = currentTime;
 
-            time += 0.005;
+            // Compute transition progress
+            let t = 0;
+            if (transitionStartTime.current !== null) {
+                const elapsed = currentTime - transitionStartTime.current;
+                t = Math.min(elapsed / TRANSITION_DURATION, 1.0);
+            }
+
+            // Derive per-phase multipliers
+            let rotSpeedMultiplier = 1;
+            let radiusMultiplier = 1;
+            let sizeMultiplier = 1;
+            let ditherThreshold = DITHER_THRESHOLD;
+            let zCullThreshold = Z_CULL_THRESHOLD;
+            let extraFill = 0;
+
+            if (t > 0) {
+                if (t <= 0.33) {
+                    // Phase 1: spin accelerates 1x → 5x (quadratic ease-in)
+                    const p = t / 0.33;
+                    rotSpeedMultiplier = 1 + 4 * p * p;
+                } else if (t <= 0.75) {
+                    // Phase 2: speed 5→8, radius 1→4, size 1→5, dither 0.3→0.03, zCull 300→800
+                    const p = (t - 0.33) / 0.42;
+                    rotSpeedMultiplier = 5 + 3 * p;
+                    radiusMultiplier = 1 + 3 * p;
+                    sizeMultiplier = 1 + 4 * p;
+                    ditherThreshold = 0.3 - 0.27 * p;
+                    zCullThreshold = 300 + 500 * p;
+                } else {
+                    // Phase 3: radius 4→6, size 5→13, overlay 0→1
+                    const p = (t - 0.75) / 0.25;
+                    rotSpeedMultiplier = 8;
+                    radiusMultiplier = 4 + 2 * p;
+                    sizeMultiplier = 5 + 8 * p;
+                    ditherThreshold = 0.03;
+                    zCullThreshold = 800;
+                    extraFill = p;
+                }
+            }
+
+            time += 0.005 * rotSpeedMultiplier;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
 
             const centerX = canvas.width / 2;
@@ -78,21 +134,38 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
             ctx.fillStyle = color;
 
             particles.forEach(p => {
-                const rotated = rotate3D(p.x, p.y, p.z, rotX, rotY);
+                const rotated = rotate3D(
+                    p.x * radiusMultiplier,
+                    p.y * radiusMultiplier,
+                    p.z * radiusMultiplier,
+                    rotX, rotY
+                );
                 const { screenX, screenY, scale } = perspectiveProject(
                     rotated.x, rotated.y, rotated.z,
                     centerX, centerY, FOV
                 );
 
                 // Draw only if in front
-                if (rotated.z < Z_CULL_THRESHOLD) {
+                if (rotated.z < zCullThreshold) {
                     // Dithered effect: Randomly skip some pixels
-                    if (Math.random() > DITHER_THRESHOLD) {
-                        const size = (scale * 1.5) * (Math.random() * 0.5 + 0.5);
+                    if (Math.random() > ditherThreshold) {
+                        const size = (scale * 1.5 * sizeMultiplier) * (Math.random() * 0.5 + 0.5);
                         ctx.fillRect(screenX, screenY, size, size);
                     }
                 }
             });
+
+            // Black overlay during phase 3
+            if (extraFill > 0) {
+                ctx.fillStyle = `rgba(0, 0, 0, ${extraFill})`;
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+            }
+
+            // Fire completion callback once
+            if (t >= 1.0 && !hasCalledComplete.current) {
+                hasCalledComplete.current = true;
+                onTransitionComplete?.();
+            }
 
             animationFrameId = requestAnimationFrame(render);
         };
@@ -103,12 +176,13 @@ const ParticleBackground: React.FC<ParticleBackgroundProps> = ({ color = '#fffff
             window.removeEventListener('resize', resize);
             cancelAnimationFrame(animationFrameId);
         };
-    }, [color]);
+    }, [color, onTransitionComplete]);
 
     return (
         <canvas
             ref={canvasRef}
             className="absolute top-0 left-0 w-full h-full pointer-events-none"
+            style={{ zIndex: transitioning ? 60 : 0 }}
         />
     );
 };

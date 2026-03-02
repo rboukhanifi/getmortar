@@ -1,16 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 import ParticleBackground from '../components/ParticleBackground';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CornerFrames from '../components/CornerFrames';
 
 const CompanyIntro: React.FC = () => {
+    const navigate = useNavigate();
+    const [transitioning, setTransitioning] = useState(false);
+
     return (
         <div className="relative h-screen bg-white text-black selection:bg-black/20 overflow-hidden">
-            <ParticleBackground color="#000000" />
+            <ParticleBackground color="#000000" transitioning={transitioning} onTransitionComplete={() => navigate('/company/mission')} />
             <Navbar />
             <CornerFrames color="light" />
+
+            {/* Invisible click zone over the sphere */}
+            {!transitioning && (
+                <div
+                    onClick={() => setTransitioning(true)}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] md:w-[500px] md:h-[500px] rounded-full z-20 cursor-pointer"
+                />
+            )}
 
             {/* Hero – inlined from Hero.tsx with "Our Mission" button */}
             <section className="absolute inset-0 flex items-center z-10">
