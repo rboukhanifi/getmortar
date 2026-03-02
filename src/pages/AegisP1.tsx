@@ -115,7 +115,7 @@ const AegisP1: React.FC = () => {
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.6 }}
-                                    className="w-full max-w-2xl object-contain"
+                                    className="w-full object-contain scale-110"
                                 />
                             </AnimatePresence>
                         </div>
