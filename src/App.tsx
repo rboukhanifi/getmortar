@@ -7,6 +7,7 @@ import IndustrialAutonomy from './pages/IndustrialAutonomy';
 import SensorParadox from './pages/SensorParadox';
 import GetStarted from './pages/GetStarted';
 import JoinUs from './pages/JoinUs';
+import AegisP1 from './pages/AegisP1';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/research/industrial-autonomy" element={<IndustrialAutonomy />} />
         <Route path="/research/sensor-paradox" element={<SensorParadox />} />
         <Route path="/get-started" element={<GetStarted />} />
+        <Route path="/aegisp1" element={<AegisP1 />} />
       </Routes>
     </Router>
   );
