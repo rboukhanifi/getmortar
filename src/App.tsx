@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
-import Company from './pages/Company';
+import CompanyIntro from './pages/CompanyIntro';
+import CompanyMission from './pages/CompanyMission';
 import TermsOfService from './pages/TermsOfService';
 import Research from './pages/Research';
 import IndustrialAutonomy from './pages/IndustrialAutonomy';
@@ -14,7 +15,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/company" element={<Company />} />
+        <Route path="/company" element={<CompanyIntro />} />
+        <Route path="/company/mission" element={<CompanyMission />} />
         <Route path="/join" element={<JoinUs />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/research" element={<Research />} />

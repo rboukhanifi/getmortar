@@ -6,7 +6,7 @@ import Footer from '../components/Footer';
 import CornerFrames from '../components/CornerFrames';
 import { motion } from 'framer-motion';
 
-const Company: React.FC = () => {
+const CompanyMission: React.FC = () => {
     const team = [
         "Rayan Boukhanifi",
         "Themis Filippidis",
@@ -135,4 +135,4 @@ const Company: React.FC = () => {
     );
 };
 
-export default Company;
+export default CompanyMission;
