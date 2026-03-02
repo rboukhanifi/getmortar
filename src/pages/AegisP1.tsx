@@ -1,26 +1,38 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { X } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CornerFrames from '../components/CornerFrames';
 
+const images = ['/aegisp1front.png', '/AEGISP1.png'];
+
 const AegisP1: React.FC = () => {
+    const [currentImage, setCurrentImage] = useState(0);
+    const [showModal, setShowModal] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % images.length);
+        }, 2000);
+        return () => clearInterval(interval);
+    }, []);
+
     return (
-        <div className="relative min-h-screen bg-black text-white font-sans selection:bg-white/20">
+        <div className="relative h-screen bg-black text-white font-sans selection:bg-white/20 overflow-hidden">
             <Navbar />
             <CornerFrames color="dark" />
 
-            <main className="relative z-10 pt-28 pb-24 px-6 md:px-12 lg:px-24">
-                {/* Hero Section */}
-                <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+            <main className="relative z-10 h-full flex items-center px-6 md:px-12 lg:px-24">
+                <div className="max-w-7xl mx-auto w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                         {/* Left: Text Content */}
                         <div>
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
-                                className="text-sm uppercase tracking-widest text-gray-400 mb-3"
+                                className="text-xs uppercase tracking-widest text-gray-400 mb-2"
                             >
                                 AR Glass
                             </motion.p>
@@ -29,7 +41,7 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.1 }}
-                                className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8"
+                                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
                             >
                                 AEGIS P1
                             </motion.h1>
@@ -38,7 +50,7 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="space-y-6 text-base md:text-lg leading-relaxed text-gray-300 max-w-xl"
+                                className="space-y-4 text-sm md:text-base leading-relaxed text-gray-300 max-w-lg"
                             >
                                 <p>
                                     Our AEGIS P1 AR Glasses is a passive stereo capture system engineered
@@ -81,76 +93,111 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.35 }}
-                                className="mt-10"
+                                className="mt-8"
                             >
-                                <a
-                                    href="mailto:team@mortar.cv?subject=AEGIS P1 Pre-order"
-                                    className="inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-semibold text-sm tracking-wide hover:bg-gray-200 transition-colors"
+                                <button
+                                    onClick={() => setShowModal(true)}
+                                    className="px-8 py-4 bg-white text-black font-semibold text-sm tracking-wide hover:bg-gray-200 transition-colors cursor-pointer"
                                 >
                                     Pre-order
-                                    <span className="text-gray-500">$298.99</span>
-                                </a>
+                                </button>
                             </motion.div>
                         </div>
 
-                        {/* Right: Product Images */}
-                        <div className="flex flex-col gap-8 lg:pt-12">
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.8, delay: 0.2 }}
-                            >
-                                <img
-                                    src="/aegisp1front.png"
-                                    alt="AEGIS P1 AR Glasses — front view"
-                                    className="w-full object-contain"
+                        {/* Right: Cycling Product Image */}
+                        <div className="relative flex items-center justify-center">
+                            <AnimatePresence mode="wait">
+                                <motion.img
+                                    key={currentImage}
+                                    src={images[currentImage]}
+                                    alt="AEGIS P1 AR Glasses"
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    exit={{ opacity: 0 }}
+                                    transition={{ duration: 0.6 }}
+                                    className="w-full max-w-lg object-contain"
                                 />
-                            </motion.div>
-
-                            <motion.div
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.8, delay: 0.4 }}
-                            >
-                                <img
-                                    src="/AEGISP1.png"
-                                    alt="AEGIS P1 AR Glasses — perspective view"
-                                    className="w-full object-contain"
-                                />
-                            </motion.div>
+                            </AnimatePresence>
                         </div>
                     </div>
-
-                    {/* Specs Grid */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: 0.5 }}
-                        className="mt-24 border-t border-white/10 pt-12"
-                    >
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                            <div>
-                                <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">Resolution</p>
-                                <p className="text-lg font-medium">8 MP &middot; 1080p</p>
-                            </div>
-                            <div>
-                                <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">Frame Rate</p>
-                                <p className="text-lg font-medium">60 fps</p>
-                            </div>
-                            <div>
-                                <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">Field of View</p>
-                                <p className="text-lg font-medium">120&deg; diagonal</p>
-                            </div>
-                            <div>
-                                <p className="text-xs uppercase tracking-widest text-gray-500 mb-2">IMU</p>
-                                <p className="text-lg font-medium">6-axis</p>
-                            </div>
-                        </div>
-                    </motion.div>
                 </div>
             </main>
 
             <Footer variant="dark" />
+
+            {/* Pre-order Modal */}
+            <AnimatePresence>
+                {showModal && (
+                    <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="fixed inset-0 z-[100] flex items-center justify-center px-4"
+                    >
+                        {/* Backdrop */}
+                        <div
+                            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
+                            onClick={() => setShowModal(false)}
+                        />
+
+                        {/* Modal */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.95, y: 20 }}
+                            transition={{ duration: 0.25 }}
+                            className="relative bg-white text-black rounded-lg w-full max-w-lg p-8"
+                        >
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setShowModal(false)}
+                                className="absolute top-4 right-4 p-1 text-gray-400 hover:text-black transition-colors cursor-pointer"
+                            >
+                                <X size={24} />
+                            </button>
+
+                            {/* Modal Header */}
+                            <h2 className="text-2xl font-bold mb-1">Mortar AEGIS P1 Pre-order</h2>
+                            <p className="text-gray-500 mb-6">Complete your purchase</p>
+
+                            <hr className="border-gray-200 mb-6" />
+
+                            {/* Product Card */}
+                            <div className="border-2 border-black rounded-sm p-5 mb-6">
+                                <div className="flex items-center gap-4 mb-4">
+                                    <img
+                                        src="/aegisp1front.png"
+                                        alt="AEGIS P1"
+                                        className="w-16 h-12 object-contain"
+                                    />
+                                    <div>
+                                        <p className="font-semibold text-lg">Mortar AEGIS P1</p>
+                                        <p className="text-gray-500 text-sm">Intelligent Human to Robot Vision Glass Camera</p>
+                                    </div>
+                                </div>
+
+                                <hr className="border-gray-200 mb-4" />
+
+                                <div className="flex items-center justify-between">
+                                    <span className="font-medium">Price:</span>
+                                    <span className="text-lg font-semibold">$ 298.99</span>
+                                </div>
+                            </div>
+
+                            {/* Pre-order CTA */}
+                            <a
+                                href="mailto:team@mortar.cv?subject=AEGIS P1 Pre-order&body=I'd like to pre-order the Mortar AEGIS P1 AR Glasses."
+                                className="block w-full py-4 bg-black text-white text-center font-semibold text-lg hover:bg-gray-900 transition-colors"
+                            >
+                                Pre-order Now - $ 298.99
+                            </a>
+
+                            <p className="text-center text-gray-400 text-sm mt-3">Ships in April 2026</p>
+                        </motion.div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </div>
     );
 };
