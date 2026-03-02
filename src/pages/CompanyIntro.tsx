@@ -75,6 +75,22 @@ const CompanyIntro: React.FC = () => {
                         </li>
                     </motion.ol>
 
+                    {!transitioning && (
+                        <motion.div
+                            initial={{ opacity: 0, y: 15 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: 0.4 }}
+                            className="mt-8"
+                        >
+                            <button
+                                onClick={() => setTransitioning(true)}
+                                className="inline-block px-8 py-3 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer"
+                            >
+                                Our Mission
+                            </button>
+                        </motion.div>
+                    )}
+
                 </div>
             </section>
 
