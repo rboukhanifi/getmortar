@@ -23,7 +23,7 @@ const AegisP1: React.FC = () => {
             <Navbar />
             <CornerFrames color="dark" />
 
-            <main className="relative z-10 h-full flex items-center px-6 md:px-12 lg:px-24">
+            <main className="relative z-10 h-full flex items-center px-6 md:px-12 lg:px-24 pt-20 pb-14">
                 <div className="max-w-7xl mx-auto w-full">
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
                         {/* Left: Text Content */}
@@ -32,7 +32,7 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6 }}
-                                className="text-xs uppercase tracking-widest text-gray-400 mb-2"
+                                className="text-xs uppercase tracking-widest text-gray-400 mb-1"
                             >
                                 AR Glass
                             </motion.p>
@@ -41,7 +41,7 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.1 }}
-                                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
+                                className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4"
                             >
                                 AEGIS P1
                             </motion.h1>
@@ -50,7 +50,7 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="space-y-4 text-sm md:text-base leading-relaxed text-gray-300 max-w-lg"
+                                className="space-y-3 text-sm leading-relaxed text-gray-300 max-w-lg"
                             >
                                 <p>
                                     AEGIS P1 is a passive stereo capture system engineered around the geometry
@@ -93,11 +93,11 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.35 }}
-                                className="mt-8"
+                                className="mt-5"
                             >
                                 <button
                                     onClick={() => setShowModal(true)}
-                                    className="px-8 py-4 bg-white text-black font-semibold text-sm tracking-wide hover:bg-gray-200 transition-colors cursor-pointer"
+                                    className="px-6 py-3 bg-white text-black font-semibold text-sm tracking-wide hover:bg-gray-200 transition-colors cursor-pointer"
                                 >
                                     Pre-order
                                 </button>
@@ -147,7 +147,7 @@ const AegisP1: React.FC = () => {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             transition={{ duration: 0.25 }}
-                            className="relative bg-white text-black rounded-lg w-full max-w-lg p-8"
+                            className="relative bg-white text-black w-full max-w-lg p-8"
                         >
                             {/* Close Button */}
                             <button
