@@ -1,15 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { X } from 'lucide-react';
+import { X, ChevronDown } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CornerFrames from '../components/CornerFrames';
 
 const images = ['/aegisp1front.png', '/AEGISP1.png'];
 
+const CyclingImage: React.FC<{ currentImage: number; className?: string }> = ({ currentImage, className }) => (
+    <AnimatePresence mode="wait">
+        <motion.img
+            key={currentImage}
+            src={images[currentImage]}
+            alt="AEGIS P1 AR Glasses"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className={className}
+        />
+    </AnimatePresence>
+);
+
 const AegisP1: React.FC = () => {
     const [currentImage, setCurrentImage] = useState(0);
     const [showModal, setShowModal] = useState(false);
+    const [showSpecs, setShowSpecs] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -23,10 +39,129 @@ const AegisP1: React.FC = () => {
             <Navbar />
             <CornerFrames color="dark" />
 
-            <main className="relative z-10 h-full flex items-center px-6 md:px-10 lg:px-16 pt-20 pb-14">
+            {/* Mobile Layout */}
+            <main className="relative z-10 h-full flex flex-col justify-center px-6 pt-16 pb-12 lg:hidden">
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="text-xs uppercase tracking-widest text-gray-400 mb-1"
+                >
+                    AR Glass
+                </motion.p>
+
+                <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="text-3xl font-normal tracking-tight mb-2"
+                >
+                    AEGIS P1
+                </motion.h1>
+
+                {/* Mobile Image */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.15 }}
+                    className="relative flex items-center justify-center max-h-48 my-2"
+                >
+                    <CyclingImage currentImage={currentImage} className="w-full max-h-48 object-contain" />
+                </motion.div>
+
+                {/* Pre-order Button */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="mt-1 mb-3"
+                >
+                    <button
+                        onClick={() => setShowModal(true)}
+                        className="px-6 py-3 bg-white text-black font-semibold text-sm tracking-wide hover:bg-gray-200 transition-colors cursor-pointer"
+                    >
+                        Pre-order
+                    </button>
+                </motion.div>
+
+                {/* First paragraph - always visible */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.25 }}
+                    className="text-sm leading-snug text-white font-bold"
+                >
+                    <p>
+                        AEGIS P1 is a passive stereo capture system engineered around the geometry
+                        of human vision. With Two global-shutter 8 MP sensors capture high-speed
+                        RGBD video at 1080p, 60 fps, without rolling-shutter distortion.
+                    </p>
+                </motion.div>
+
+                {/* Specs toggle */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.6, delay: 0.3 }}
+                >
+                    <button
+                        onClick={() => setShowSpecs(!showSpecs)}
+                        className="flex items-center gap-1 text-sm text-gray-400 hover:text-white transition-colors mt-3 mb-2 cursor-pointer"
+                    >
+                        <motion.span
+                            animate={{ rotate: showSpecs ? 180 : 0 }}
+                            transition={{ duration: 0.2 }}
+                        >
+                            <ChevronDown size={16} />
+                        </motion.span>
+                        Specs
+                    </button>
+
+                    <AnimatePresence>
+                        {showSpecs && (
+                            <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: 'auto', opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.3 }}
+                                className="overflow-hidden"
+                            >
+                                <div className="space-y-3 text-sm leading-snug text-white font-bold pb-1">
+                                    <p>
+                                        Each module provides a 120&deg; diagonal field of view, ensuring wide
+                                        environmental coverage while maintaining strong stereo overlap for reliable
+                                        depth estimation.
+                                    </p>
+                                    <p>
+                                        To maintain depth stability during motion, an 6-axis IMU is integrated,
+                                        tightly fused with visual data at ultra-low latency. This reduces motion
+                                        artifacts and preserves temporal coherence for downstream robotics training
+                                        and evaluation.
+                                    </p>
+                                    <p>
+                                        We built with the idea of having hands-free, human-perspective data
+                                        collection operating across multiple users and environments. Synchronized
+                                        stereo and inertial streams are captured and processed directly on the
+                                        PCB, enabling efficient acquisition, structured output, and repeatable
+                                        datasets at industrial scale for robot learning.
+                                    </p>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+                </motion.div>
+            </main>
+
+            {/* Desktop Layout */}
+            <main className="relative z-10 h-full hidden lg:flex items-center px-6 md:px-10 lg:px-16 pt-20 pb-14">
                 <div className="w-full">
-                    <div className="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-6 lg:gap-10 items-center">
-                        {/* Left: Text Content */}
+                    <div className="grid grid-cols-[45fr_55fr] gap-10 items-center">
+                        {/* Left: Cycling Product Image */}
+                        <div className="relative flex items-center justify-center">
+                            <CyclingImage currentImage={currentImage} className="w-full object-contain scale-110" />
+                        </div>
+
+                        {/* Right: Text Content */}
                         <div>
                             <motion.p
                                 initial={{ opacity: 0, y: 20 }}
@@ -95,22 +230,6 @@ const AegisP1: React.FC = () => {
                                 </button>
                             </motion.div>
                         </div>
-
-                        {/* Right: Cycling Product Image */}
-                        <div className="relative flex items-center justify-center">
-                            <AnimatePresence mode="wait">
-                                <motion.img
-                                    key={currentImage}
-                                    src={images[currentImage]}
-                                    alt="AEGIS P1 AR Glasses"
-                                    initial={{ opacity: 0 }}
-                                    animate={{ opacity: 1 }}
-                                    exit={{ opacity: 0 }}
-                                    transition={{ duration: 0.6 }}
-                                    className="w-full object-contain scale-110"
-                                />
-                            </AnimatePresence>
-                        </div>
                     </div>
                 </div>
             </main>
@@ -139,7 +258,7 @@ const AegisP1: React.FC = () => {
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
                             transition={{ duration: 0.25 }}
-                            className="relative bg-white text-black w-full max-w-lg p-8"
+                            className="relative bg-white text-black w-full max-w-lg p-6 lg:p-8"
                         >
                             {/* Close Button */}
                             <button
@@ -150,8 +269,8 @@ const AegisP1: React.FC = () => {
                             </button>
 
                             {/* Modal Header */}
-                            <h2 className="text-2xl font-bold mb-1">Mortar AEGIS P1 Pre-order</h2>
-                            <p className="text-gray-500 mb-6">Complete your purchase</p>
+                            <h2 className="text-xl lg:text-2xl font-bold mb-1">Mortar AEGIS P1 Pre-order</h2>
+                            <p className="text-gray-500 text-sm lg:text-base mb-6">Complete your purchase</p>
 
                             <hr className="border-gray-200 mb-6" />
 
