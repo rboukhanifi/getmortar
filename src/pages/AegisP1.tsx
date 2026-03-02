@@ -30,7 +30,7 @@ const AegisP1: React.FC = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImage((prev) => (prev + 1) % images.length);
-        }, 5000);
+        }, 10000);
         return () => clearInterval(interval);
     }, []);
 
@@ -64,9 +64,9 @@ const AegisP1: React.FC = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.6, delay: 0.15 }}
-                    className="relative flex items-center justify-center max-h-48 my-2"
+                    className="relative h-48 my-2"
                 >
-                    <CyclingImage currentImage={currentImage} className="w-full max-h-48 object-contain" />
+                    <CyclingImage currentImage={currentImage} className="absolute inset-0 w-full h-full object-contain" />
                 </motion.div>
 
                 {/* Pre-order Button */}
@@ -74,7 +74,7 @@ const AegisP1: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mt-1 mb-3"
+                    className="mt-1 mb-3 flex justify-center"
                 >
                     <button
                         onClick={() => setShowModal(true)}
@@ -126,7 +126,7 @@ const AegisP1: React.FC = () => {
                                 transition={{ duration: 0.3 }}
                                 className="overflow-hidden"
                             >
-                                <div className="space-y-3 text-sm leading-snug text-white pb-1">
+                                <div className="space-y-3 text-sm leading-snug text-white px-2 pb-2">
                                     <p>
                                         Each module provides a 120&deg; diagonal field of view, ensuring wide
                                         environmental coverage while maintaining strong stereo overlap for reliable
