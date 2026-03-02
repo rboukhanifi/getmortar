@@ -50,7 +50,7 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="space-y-3 text-sm leading-relaxed text-gray-300 max-w-lg"
+                                className="space-y-3 text-base leading-relaxed text-gray-300"
                             >
                                 <p>
                                     AEGIS P1 is a passive stereo capture system engineered around the geometry
