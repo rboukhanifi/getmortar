@@ -89,7 +89,7 @@ const AegisP1: React.FC = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.25 }}
-                    className="text-sm leading-snug text-white font-bold"
+                    className="text-sm leading-snug text-white"
                 >
                     <p>
                         AEGIS P1 is a passive stereo capture system engineered around the geometry
@@ -126,7 +126,7 @@ const AegisP1: React.FC = () => {
                                 transition={{ duration: 0.3 }}
                                 className="overflow-hidden"
                             >
-                                <div className="space-y-3 text-sm leading-snug text-white font-bold pb-1">
+                                <div className="space-y-3 text-sm leading-snug text-white pb-1">
                                     <p>
                                         Each module provides a 120&deg; diagonal field of view, ensuring wide
                                         environmental coverage while maintaining strong stereo overlap for reliable
@@ -176,7 +176,7 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.1 }}
-                                className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-3"
+                                className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-5"
                             >
                                 AEGIS P1
                             </motion.h1>
@@ -185,7 +185,7 @@ const AegisP1: React.FC = () => {
                                 initial={{ opacity: 0, y: 20 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.6, delay: 0.2 }}
-                                className="space-y-4 text-lg leading-snug text-white font-bold"
+                                className="space-y-6 text-lg leading-relaxed text-white"
                             >
                                 <p>
                                     AEGIS P1 is a passive stereo capture system engineered around the geometry
