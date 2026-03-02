@@ -179,7 +179,9 @@ const AegisP1: React.FC = () => {
 
                             {/* Pre-order CTA */}
                             <a
-                                href="mailto:team@mortar.cv?subject=AEGIS P1 Pre-order&body=I'd like to pre-order the Mortar AEGIS P1 AR Glasses."
+                                href="https://buy.stripe.com/5kQdRabQVcg1gA6dmL7IY00"
+                                target="_blank"
+                                rel="noopener noreferrer"
                                 className="block w-full py-4 bg-black text-white text-center font-semibold text-lg hover:bg-gray-900 transition-colors"
                             >
                                 Pre-order Now - $ 298.99
