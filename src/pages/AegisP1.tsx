@@ -68,14 +68,11 @@ const AegisP1: React.FC = () => {
                 </motion.h1>
 
                 {/* Mobile Image */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.15 }}
-                    className="relative h-48 my-2"
+                <div
+                    className="relative h-64 sm:h-72 my-2"
                 >
                     <CyclingImage currentImage={currentImage} initial={isInitial} className="absolute inset-0 w-full h-full object-contain" />
-                </motion.div>
+                </div>
 
                 {/* Pre-order Button */}
                 <motion.div
