@@ -7,13 +7,19 @@ import CornerFrames from '../components/CornerFrames';
 
 const images = ['/aegisp1front.png', '/AEGISP1.png'];
 
-const CyclingImage: React.FC<{ currentImage: number; className?: string }> = ({ currentImage, className }) => (
+// Preload images so they're cached before render
+images.forEach(src => {
+    const img = new Image();
+    img.src = src;
+});
+
+const CyclingImage: React.FC<{ currentImage: number; className?: string; initial?: boolean }> = ({ currentImage, className, initial: isInitial }) => (
     <AnimatePresence mode="wait">
         <motion.img
             key={currentImage}
             src={images[currentImage]}
             alt="AEGIS P1 AR Glasses"
-            initial={{ opacity: 0 }}
+            initial={isInitial ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.6 }}
@@ -24,12 +30,14 @@ const CyclingImage: React.FC<{ currentImage: number; className?: string }> = ({ 
 
 const AegisP1: React.FC = () => {
     const [currentImage, setCurrentImage] = useState(0);
+    const [isInitial, setIsInitial] = useState(true);
     const [showModal, setShowModal] = useState(false);
     const [showSpecs, setShowSpecs] = useState(false);
 
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImage((prev) => (prev + 1) % images.length);
+            setIsInitial(false);
         }, 10000);
         return () => clearInterval(interval);
     }, []);
@@ -66,7 +74,7 @@ const AegisP1: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.15 }}
                     className="relative h-48 my-2"
                 >
-                    <CyclingImage currentImage={currentImage} className="absolute inset-0 w-full h-full object-contain" />
+                    <CyclingImage currentImage={currentImage} initial={isInitial} className="absolute inset-0 w-full h-full object-contain" />
                 </motion.div>
 
                 {/* Pre-order Button */}
@@ -158,7 +166,7 @@ const AegisP1: React.FC = () => {
                     <div className="grid grid-cols-[45fr_55fr] gap-10 items-center">
                         {/* Left: Cycling Product Image */}
                         <div className="relative flex items-center justify-center">
-                            <CyclingImage currentImage={currentImage} className="w-full object-contain scale-110" />
+                            <CyclingImage currentImage={currentImage} initial={isInitial} className="w-full object-contain scale-110" />
                         </div>
 
                         {/* Right: Text Content */}
