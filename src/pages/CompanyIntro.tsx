@@ -86,7 +86,7 @@ const CompanyIntro: React.FC = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="absolute bottom-16 left-8 right-8 sm:bottom-10 z-10 flex items-center justify-center"
+                className="absolute bottom-16 left-8 right-8 sm:bottom-10 z-10 flex items-center justify-start"
             >
                 <div className="flex items-center gap-1.5 sm:gap-2 text-xs sm:text-sm text-gray-400 sm:text-gray-500">
                     Supported by
