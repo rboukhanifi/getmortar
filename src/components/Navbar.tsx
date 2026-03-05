@@ -19,7 +19,7 @@ const Navbar: React.FC = () => {
                         <Link to="/aegisp1" className="hover:text-white transition-colors">Product</Link>
                         <Link to="/company" className="hover:text-white transition-colors">Company</Link>
                         <Link to="/research" className="hover:text-white transition-colors">Research</Link>
-                        <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
+
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -60,13 +60,7 @@ const Navbar: React.FC = () => {
                             >
                                 Research
                             </Link>
-                            <Link
-                                to="/contact"
-                                onClick={() => setMobileMenuOpen(false)}
-                                className="text-lg font-medium py-3 px-4 rounded-lg text-white hover:bg-white/10 transition-colors"
-                            >
-                                Contact
-                            </Link>
+
                         </div>
                     </div>
                 </div>

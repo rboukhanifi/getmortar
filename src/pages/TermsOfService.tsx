@@ -95,7 +95,7 @@ const TermsOfService: React.FC = () => {
                         <div className="absolute -left-1.5 top-0 w-3 h-3 bg-white/50 rounded-full"></div>
                         <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6 text-white">5. Your Choices</h2>
                         <p className="text-sm md:text-base text-gray-400 leading-relaxed">
-                            You can manage how we communicate with you and request updates or deletion of your personal data at any time by contacting <a href="mailto:founder@getmortar.ai" className="text-white underline hover:text-gray-300 transition-colors">founder@getmortar.ai</a>
+                            You can manage how we communicate with you and request updates or deletion of your personal data at any time by contacting <a href="mailto:rayan@mortar.cv" className="text-white underline hover:text-gray-300 transition-colors">rayan@mortar.cv</a>
                         </p>
                     </div>
                 </div>

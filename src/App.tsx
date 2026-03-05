@@ -8,7 +8,6 @@ import SensorParadox from './pages/SensorParadox';
 import GetStarted from './pages/GetStarted';
 import JoinUs from './pages/JoinUs';
 import AegisP1 from './pages/AegisP1';
-import Contact from './pages/Contact';
 
 function App() {
   return (
@@ -16,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<CompanyIntro />} />
         <Route path="/company" element={<CompanyMission />} />
-        <Route path="/contact" element={<Contact />} />
+
         <Route path="/join" element={<JoinUs />} />
         <Route path="/terms" element={<TermsOfService />} />
         <Route path="/research" element={<Research />} />
