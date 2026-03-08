@@ -44,11 +44,11 @@ const CompanyIntro: React.FC = () => {
     }, []);
 
     return (
-        <div className="overflow-y-auto">
+        <div className="h-screen overflow-y-auto snap-y snap-mandatory">
             <Navbar />
 
             {/* ── Section 1: Hero ── */}
-            <section className="relative h-screen bg-white text-black selection:bg-black/20 overflow-hidden">
+            <section className="relative h-screen bg-white text-black selection:bg-black/20 overflow-hidden snap-start">
                 <ParticleBackground color="#000000" />
                 <CornerFrames color="light" />
 
@@ -151,11 +151,11 @@ const CompanyIntro: React.FC = () => {
             </section>
 
             {/* ── Section 2: AEGIS P1 ── */}
-            <section id="aegis" className="relative min-h-screen bg-black text-white font-sans selection:bg-white/20">
+            <section id="aegis" className="relative h-screen bg-black text-white font-sans selection:bg-white/20 overflow-hidden snap-start">
                 <CornerFrames color="dark" />
 
                 {/* Mobile Layout */}
-                <main className="relative z-10 min-h-screen flex flex-col justify-center px-6 pt-16 pb-12 lg:hidden">
+                <main className="relative z-10 h-full flex flex-col justify-center px-6 pt-16 pb-12 lg:hidden">
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
@@ -268,7 +268,7 @@ const CompanyIntro: React.FC = () => {
                 </main>
 
                 {/* Desktop Layout */}
-                <main className="relative z-10 min-h-screen hidden lg:flex items-center px-6 md:px-10 lg:px-16 pt-20 pb-14">
+                <main className="relative z-10 h-full hidden lg:flex items-center px-6 md:px-10 lg:px-16 pt-20 pb-14">
                     <div className="w-full">
                         <div className="grid grid-cols-[45fr_55fr] gap-10 items-center">
                             {/* Left: Cycling Product Image */}
@@ -352,9 +352,9 @@ const CompanyIntro: React.FC = () => {
                         </div>
                     </div>
                 </main>
-            </section>
 
-            <Footer variant="dark" />
+                <Footer variant="dark" />
+            </section>
 
             {/* Pre-order Modal */}
             <AnimatePresence>
