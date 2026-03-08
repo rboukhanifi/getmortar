@@ -148,6 +148,24 @@ const CompanyIntro: React.FC = () => {
                         </a>
                     </div>
                 </motion.div>
+
+                {/* Scroll hint */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ duration: 0.8, delay: 1.2 }}
+                    className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 cursor-pointer"
+                    onClick={() => document.getElementById('aegis')?.scrollIntoView({ behavior: 'smooth' })}
+                >
+                    <motion.div
+                        animate={{ y: [0, 6, 0] }}
+                        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                        className="flex flex-col items-center gap-0.5"
+                    >
+                        <div className="w-px h-6 bg-gray-300" />
+                        <div className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                    </motion.div>
+                </motion.div>
             </section>
 
             {/* ── Section 2: AEGIS P1 ── */}
