@@ -11,7 +11,6 @@ const CompanyMission: React.FC = () => {
         "Rayan Boukhanifi",
         "Themis Filippidis",
         "Muhammad Qodirov",
-        "Himanshu Rawat"
     ];
 
     return (

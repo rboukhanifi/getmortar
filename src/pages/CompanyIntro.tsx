@@ -105,12 +105,12 @@ const CompanyIntro: React.FC = () => {
                             >
                                 Request Sample Dataset
                             </a>
-                            <a
-                                href="#aegis"
+                            <button
+                                onClick={() => document.getElementById('aegis')?.scrollIntoView({ behavior: 'smooth' })}
                                 className="inline-block px-8 py-3 border border-black text-black text-sm font-medium rounded-lg hover:bg-black hover:text-white transition-colors cursor-pointer"
                             >
                                 Deploy Hardware
-                            </a>
+                            </button>
                         </motion.div>
                     </div>
                 </div>
