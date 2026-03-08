@@ -41,40 +41,37 @@ const CompanyIntro: React.FC = () => {
                         transition={{ duration: 0.8, delay: 0.2 }}
                         className="mt-6 text-sm md:text-base text-gray-600 leading-relaxed"
                     >
-                        Mortar makes sure that every human experience is valuable.
+                        Mortar is building the hardware and data layer for physical AI.
                     </motion.p>
 
-                    <motion.ol
+                    <motion.p
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.3 }}
-                        className="mt-6 space-y-2 text-sm md:text-base text-gray-500 leading-relaxed"
+                        className="mt-4 text-sm md:text-base text-gray-500 leading-relaxed max-w-xl"
                     >
-                        <li className="flex gap-2">
-                            <span className="text-black font-medium shrink-0">1.</span>
-                            Manufacturing of Hardware for Enterprise Data Collection
-                        </li>
-                        <li className="flex gap-2">
-                            <span className="text-black font-medium shrink-0">2.</span>
-                            Operational advancement of the industrial world by using Enterprise Data to boost operations.
-                        </li>
-                        <li className="flex gap-2">
-                            <span className="text-black font-medium shrink-0">3.</span>
-                            Labelling of Data for dedicated models and training of foundational models.
-                        </li>
-                    </motion.ol>
+                        We develop wearable capture systems and collect multimodal first-person data to train robotics, embodied AI, and real-world foundation models.
+                    </motion.p>
 
                     <motion.div
                         initial={{ opacity: 0, y: 15 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8, delay: 0.4 }}
-                        className="mt-8"
+                        className="mt-8 flex gap-4"
                     >
-                        <Link
-                            to="/company"
+                        <a
+                            href="https://cal.com/rayanboukhanifi/intro-meeting"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="inline-block px-8 py-3 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer"
                         >
-                            Our Mission
+                            Request Sample Dataset
+                        </a>
+                        <Link
+                            to="/aegisp1"
+                            className="inline-block px-8 py-3 border border-black text-black text-sm font-medium rounded-lg hover:bg-black hover:text-white transition-colors cursor-pointer"
+                        >
+                            Deploy Hardware
                         </Link>
                     </motion.div>
 
