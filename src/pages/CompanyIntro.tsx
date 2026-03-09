@@ -53,7 +53,7 @@ const CompanyIntro: React.FC = () => {
                 <CornerFrames color="light" />
 
                 <div className="absolute inset-0 flex items-center z-10">
-                    <div className="absolute inset-y-0 left-0 w-[65%] bg-gradient-to-r from-white via-white/90 to-transparent pointer-events-none" />
+                    <div className="absolute inset-y-0 left-0 w-[85%] sm:w-[65%] bg-gradient-to-r from-white via-white/90 to-transparent pointer-events-none" />
                     <div className="relative max-w-2xl px-6 md:px-12 lg:px-24">
                         <motion.h1
                             initial={{ opacity: 0, y: 20 }}
@@ -68,7 +68,7 @@ const CompanyIntro: React.FC = () => {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.1 }}
-                            className="mt-3 text-sm md:text-base text-gray-400 italic"
+                            className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-gray-400 italic"
                         >
                             (n.) /ˈmɔːr.tər/ : the bond that unites things, people and ideas into something stronger.
                         </motion.p>
@@ -77,7 +77,7 @@ const CompanyIntro: React.FC = () => {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.2 }}
-                            className="mt-6 text-sm md:text-base text-gray-600 leading-relaxed"
+                            className="mt-4 sm:mt-6 text-sm md:text-base text-gray-600 leading-relaxed"
                         >
                             Mortar is building the hardware and data layer for physical AI.
                         </motion.p>
@@ -86,7 +86,7 @@ const CompanyIntro: React.FC = () => {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.3 }}
-                            className="mt-4 text-sm md:text-base text-gray-500 leading-relaxed max-w-xl"
+                            className="mt-3 sm:mt-4 text-sm md:text-base text-gray-500 leading-relaxed max-w-xl"
                         >
                             We develop wearable capture systems and collect multimodal first-person data to train robotics, embodied AI, and real-world foundation models.
                         </motion.p>
@@ -95,19 +95,19 @@ const CompanyIntro: React.FC = () => {
                             initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 0.8, delay: 0.4 }}
-                            className="mt-8 flex gap-4"
+                            className="mt-6 sm:mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4"
                         >
                             <a
                                 href="https://cal.com/rayanboukhanifi/intro-meeting"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-block px-8 py-3 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer"
+                                className="inline-block px-6 sm:px-8 py-3 bg-black text-white text-sm font-medium rounded-lg hover:bg-gray-800 transition-colors cursor-pointer text-center"
                             >
                                 Request Sample Dataset
                             </a>
                             <button
                                 onClick={() => document.getElementById('aegis')?.scrollIntoView({ behavior: 'smooth' })}
-                                className="inline-block px-8 py-3 border border-black text-black text-sm font-medium rounded-lg hover:bg-black hover:text-white transition-colors cursor-pointer"
+                                className="inline-block px-6 sm:px-8 py-3 border border-black text-black text-sm font-medium rounded-lg hover:bg-black hover:text-white transition-colors cursor-pointer text-center"
                             >
                                 Deploy Hardware
                             </button>
