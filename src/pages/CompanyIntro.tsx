@@ -157,14 +157,13 @@ const CompanyIntro: React.FC = () => {
                     className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 cursor-pointer"
                     onClick={() => document.getElementById('aegis')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                    <motion.div
-                        animate={{ y: [0, 6, 0] }}
+                    <motion.span
+                        animate={{ y: [0, 4, 0] }}
                         transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                        className="flex flex-col items-center gap-0.5"
+                        className="text-xs tracking-widest uppercase text-black"
                     >
-                        <div className="w-px h-6 bg-gray-300" />
-                        <div className="w-1.5 h-1.5 rounded-full bg-gray-300" />
-                    </motion.div>
+                        Scroll Down
+                    </motion.span>
                 </motion.div>
             </section>
 
