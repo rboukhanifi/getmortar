@@ -284,7 +284,7 @@ const CompanyIntro: React.FC = () => {
                     </motion.div>
 
                     <p className="text-xs text-gray-400 absolute bottom-20 right-6">
-                        * Power and compute is offloaded to user's phone or power bank.
+                        * Power and compute are offloaded to the user's phone or power bank.
                     </p>
                 </main>
 
@@ -373,7 +373,7 @@ const CompanyIntro: React.FC = () => {
                         </div>
                     </div>
                     <p className="absolute bottom-20 right-16 text-sm text-gray-400">
-                        * Power and compute is offloaded to user's phone or power bank.
+                        * Power and compute are offloaded to the user's phone or power bank.
                     </p>
                 </main>
 

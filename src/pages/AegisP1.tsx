@@ -151,7 +151,7 @@ const AegisP1: React.FC = () => {
                                         datasets at industrial scale for robot learning.
                                     </p>
                                     <p className="text-xs text-gray-400 mt-4">
-                                        * Power and compute is offloaded to user's phone or power bank.
+                                        * Power and compute are offloaded to the user's phone or power bank.
                                     </p>
                                 </div>
                             </motion.div>
@@ -223,7 +223,7 @@ const AegisP1: React.FC = () => {
                                 </p>
 
                                 <p className="text-sm text-gray-400 mt-4">
-                                    * Power and compute is offloaded to user's phone or power bank.
+                                    * Power and compute are offloaded to the user's phone or power bank.
                                 </p>
                             </motion.div>
 
