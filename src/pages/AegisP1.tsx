@@ -150,6 +150,9 @@ const AegisP1: React.FC = () => {
                                         PCB, enabling efficient acquisition, structured output, and repeatable
                                         datasets at industrial scale for robot learning.
                                     </p>
+                                    <p className="text-xs text-gray-400 mt-4">
+                                        * Power and compute is offloaded to user's phone or power bank.
+                                    </p>
                                 </div>
                             </motion.div>
                         )}
@@ -217,6 +220,10 @@ const AegisP1: React.FC = () => {
                                     stereo and inertial streams are captured and processed directly on the
                                     PCB, enabling efficient acquisition, structured output, and repeatable
                                     datasets at industrial scale for robot learning.
+                                </p>
+
+                                <p className="text-sm text-gray-400 mt-4">
+                                    * Power and compute is offloaded to user's phone or power bank.
                                 </p>
                             </motion.div>
 
