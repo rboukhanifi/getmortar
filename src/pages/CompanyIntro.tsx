@@ -429,7 +429,7 @@ const CompanyIntro: React.FC = () => {
 
                                 <div className="flex items-center justify-between">
                                     <span className="font-medium">Price:</span>
-                                    <span className="text-lg font-semibold">$ 298.99</span>
+                                    <span className="text-lg font-semibold">$ 398.99</span>
                                 </div>
                             </div>
 
@@ -440,7 +440,7 @@ const CompanyIntro: React.FC = () => {
                                 rel="noopener noreferrer"
                                 className="block w-full py-4 bg-black text-white text-center font-semibold text-lg hover:bg-gray-900 transition-colors"
                             >
-                                Pre-order Now - $ 298.99
+                                Pre-order Now - $ 398.99
                             </a>
 
                             <p className="text-center text-gray-400 text-sm mt-3">Ships in April 2026</p>
