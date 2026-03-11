@@ -99,7 +99,7 @@ const AegisP1: React.FC = () => {
                     <p>
                         AEGIS P1 is a passive stereo capture system engineered around the geometry
                         of human vision. With Two global-shutter 8 MP sensors capture high-speed
-                        RGBD video at 1080p, 60 fps, without rolling-shutter distortion.
+                        RGBD video at 1080p, 30 fps, without rolling-shutter distortion.
                     </p>
                 </motion.div>
 
@@ -138,7 +138,7 @@ const AegisP1: React.FC = () => {
                                         depth estimation.
                                     </p>
                                     <p>
-                                        To maintain depth stability during motion, an 6-axis IMU is integrated,
+                                        To maintain depth stability during motion, 2 IMU 9-axis are integrated,
                                         tightly fused with visual data at ultra-low latency. This reduces motion
                                         artifacts and preserves temporal coherence for downstream robotics training
                                         and evaluation.
@@ -195,7 +195,7 @@ const AegisP1: React.FC = () => {
                                 <p>
                                     AEGIS P1 is a passive stereo capture system engineered around the geometry
                                     of human vision. With Two global-shutter 8 MP sensors capture high-speed
-                                    RGBD video at 1080p, 60 fps, without rolling-shutter distortion.
+                                    RGBD video at 1080p, 30 fps, without rolling-shutter distortion.
                                 </p>
 
                                 <p>
@@ -205,7 +205,7 @@ const AegisP1: React.FC = () => {
                                 </p>
 
                                 <p>
-                                    To maintain depth stability during motion, an 6-axis IMU is integrated,
+                                    To maintain depth stability during motion, 2 IMU 9-axis are integrated,
                                     tightly fused with visual data at ultra-low latency. This reduces motion
                                     artifacts and preserves temporal coherence for downstream robotics training
                                     and evaluation.
