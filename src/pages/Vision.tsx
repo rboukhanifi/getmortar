@@ -1,59 +1,28 @@
 import React from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { motion } from 'framer-motion';
-
-const sectionVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-};
 
 const Vision: React.FC = () => {
     return (
         <div className="relative min-h-screen bg-black text-white font-sans selection:bg-white/30">
             <Navbar />
 
-            {/* Hero Image */}
-            <section className="w-full pt-20">
-                <div className="max-w-5xl mx-auto px-6 md:px-12 pt-12">
-                    <img
-                        src="/vision-hero.jpg"
-                        alt="Ice climber ascending a frozen wall"
-                        className="w-full h-auto object-cover rounded-sm"
-                    />
-                </div>
-            </section>
-
             {/* Content */}
-            <main className="relative z-10 py-24 px-6 md:px-12 lg:px-24">
-                <div className="max-w-2xl">
+            <main className="relative z-10 py-24 px-6 md:px-12 lg:px-24 pt-32">
+                <div className="max-w-2xl mx-auto text-center">
 
                     {/* Section 1 - Mortar's Mission */}
-                    <motion.section
-                        variants={sectionVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="mb-24"
-                    >
+                    <section className="mb-24">
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
                             Mortar's Mission
                         </h1>
                         <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
-                            Scarce physical intelligence, commoditized to build the world.
+                            Commoditise physical experience to build the world.
                         </p>
-                    </motion.section>
+                    </section>
 
                     {/* Section 2 - Our Products */}
-                    <motion.section
-                        variants={sectionVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="mb-24"
-                    >
+                    <section className="mb-24">
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-10">
                             Our Products
                         </h2>
@@ -83,20 +52,13 @@ const Vision: React.FC = () => {
 
                         <div className="mt-10 space-y-6 text-sm md:text-base text-gray-400 leading-relaxed">
                             <p>
-                                At Mortar, we build autonomous and scalable robotics systems that operate for the user, with the goal of creating intelligent abundance for massive production and development. Our aim is to condense decades of product and operational experience into machines that can act on it.
+                                At Mortar, we build autonomous and scalable robotic systems that operate for the user, with the goal of creating intelligent abundance for massive production and development. Our aim is to condense decades of product and operational experience into machines that can act on it.
                             </p>
                         </div>
-                    </motion.section>
+                    </section>
 
                     {/* Section 3 - The Only Real Reality */}
-                    <motion.section
-                        variants={sectionVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="mb-24"
-                    >
+                    <section className="mb-24">
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
                             The Only Real Reality
                         </h2>
@@ -105,9 +67,7 @@ const Vision: React.FC = () => {
                                 In the midst of chaos, only clarity wins. Hardware cannot be commoditized unless the intelligence behind it is commoditized. No organization can rebuild decades of experience unless that experience is logically captured, ingested, and transferred.
                             </p>
                             <p>
-                                You only learn from experience. When someone has performed a task for years, you should expect them to outperform the beginner. The same is true for hardware, for manufacturing, for operations, and for systems. Experience wins.
-                            </p>
-                            <p>
+                                You only learn from experience. When someone has performed a task for years, you should expect them to outperform a beginner. The same is true for hardware, for manufacturing, for operations, and for systems. Experience wins.
                                 It is only by scaling experience that you can commoditize it.
                             </p>
                             <p>
@@ -117,17 +77,10 @@ const Vision: React.FC = () => {
                                 This is the shift away from linear thinking. Pure human transfer of experience is slow, not scalable, and ultimately a bottleneck for civilization.
                             </p>
                         </div>
-                    </motion.section>
+                    </section>
 
                     {/* Section 4 - Experience */}
-                    <motion.section
-                        variants={sectionVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="mb-24"
-                    >
+                    <section className="mb-24">
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
                             Experience
                         </h2>
@@ -145,17 +98,10 @@ const Vision: React.FC = () => {
                                 Experience is the moat. The one who has the most of it is king.
                             </p>
                         </div>
-                    </motion.section>
+                    </section>
 
                     {/* Section 5 - The Inevitable Transfer */}
-                    <motion.section
-                        variants={sectionVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="mb-24"
-                    >
+                    <section className="mb-24">
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
                             The Inevitable Transfer
                         </h2>
@@ -164,10 +110,10 @@ const Vision: React.FC = () => {
                                 Shenzhen is the Mecca of hardware. Many have tried to replicate it around the world. Most have failed.
                             </p>
                             <p>
-                                The reason is simple, Shenzhen is the product of time, density, sweat, blood, repetition, relationships, and industrial memory. It is accumulated experience.
+                                The reason is simple: Shenzhen is the product of time, density, sweat, blood, repetition, relationships, and industrial memory. It is accumulated experience.
                             </p>
                             <p>
-                                But the sheer human determination does not stop. The world will keep trying, again and again, to reproduce this capability elsewhere. Nothing can stop humanity from trying to replicate and expand productive power.
+                                But sheer human determination does not stop. The world will keep trying, again and again, to reproduce this capability elsewhere. Nothing can stop humanity from trying to replicate and expand productive power.
                             </p>
                             <p>
                                 Because it must.
@@ -179,17 +125,10 @@ const Vision: React.FC = () => {
                                 We commoditize centuries of experience.
                             </p>
                         </div>
-                    </motion.section>
+                    </section>
 
                     {/* Section 6 - Commoditizing Experience */}
-                    <motion.section
-                        variants={sectionVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="mb-24"
-                    >
+                    <section className="mb-24">
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
                             Commoditizing Experience with Physical Intelligence
                         </h2>
@@ -199,8 +138,6 @@ const Vision: React.FC = () => {
                             </p>
                             <p>
                                 What do we expect from them?
-                            </p>
-                            <p>
                                 Will they replace human labor in the physical world, or will they rust in containers?
                             </p>
                             <p>
@@ -221,44 +158,37 @@ const Vision: React.FC = () => {
                                 These three steps form the scalable model for transferring human experience into commoditized robotic experience.
                             </p>
                         </div>
-                    </motion.section>
+                    </section>
 
                     {/* Section 7 - Experienced Robots */}
-                    <motion.section
-                        variants={sectionVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="mb-24"
-                    >
+                    <section className="mb-24">
                         <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-8">
                             Experienced Robots
                         </h2>
                         <div className="space-y-6 text-sm md:text-base text-gray-400 leading-relaxed">
                             <p>
-                                What are the chances for a human to be born and know exactly how to build our world?
+                                What are the chances of a human being born and knowing exactly how to build our world?
                             </p>
                             <p>
                                 It's 0%.
                             </p>
                             <p>
-                                We expect something similar from robots. In itself robots are just pieces of metal, components assembled in a factory. AI can learn. Same will go with our future robots, they will be intelligent at a certain extent. Enabling thousands of years of experience being transferred to a robot.
+                                We expect something similar from robots. In themselves, robots are just pieces of metal, components assembled in a factory. AI can learn. The same will go for our future robots; they will be intelligent to a certain extent, enabling thousands of years of experience to be transferred to a robot.
                             </p>
                             <p>
-                                We will be giving them the power to handle our most important piece to our race's evolution. Manufacturing.
+                                We will be giving them the power to handle our most important piece in our race's evolution: manufacturing.
                             </p>
                             <p>
-                                Because manufacturing is the first and sole industry that matters for now. The reason being that if robots can build other robots autonomously this is going to declare the takeoff moment for robotics.
+                                Because manufacturing is the first and sole industry that matters for now, the reason being that if robots can build other robots autonomously, this is going to declare the takeoff moment for robotics.
                             </p>
                             <p>
-                                Pro-industrialisation builders need to be careful with thinking that they can just rebuild a version of Shenzhen just by throwing money at it. They fall for the fascination of having the same architecture with the same culture at the price of lacking this experience.
+                                Pro-industrialisation builders need to be careful when thinking that they can just rebuild a version of Shenzhen just by throwing money at it. They fall for the fascination of having the same architecture with the same culture at the price of lacking this experience.
                             </p>
                             <p>
                                 Having experienced robots means having perfectly suited robots trained on thousands of years of experience for that specific task.
                             </p>
                         </div>
-                    </motion.section>
+                    </section>
 
                 </div>
             </main>
