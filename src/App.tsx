@@ -9,6 +9,7 @@ import GetStarted from './pages/GetStarted';
 import JoinUs from './pages/JoinUs';
 import AegisP1 from './pages/AegisP1';
 import Vision from './pages/Vision';
+import DataRoom from './pages/DataRoom';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/get-started" element={<GetStarted />} />
         <Route path="/aegisp1" element={<AegisP1 />} />
         <Route path="/vision" element={<Vision />} />
+        <Route path="/dataroom" element={<DataRoom />} />
       </Routes>
     </Router>
   );

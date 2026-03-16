@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Raw data room PDFs (only encrypted versions go in public/)
+data room/
