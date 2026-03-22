@@ -6,10 +6,10 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import CornerFrames from '../components/CornerFrames';
 
-const aegisImages = ['/aegisp1front.png', '/AEGISP1.png'];
+const p1Images = ['/aegisp1front.png', '/AEGISP1.png'];
 
 // Preload images so they're cached before render
-aegisImages.forEach(src => {
+p1Images.forEach(src => {
     const img = new Image();
     img.src = src;
 });
@@ -18,8 +18,8 @@ const CyclingImage: React.FC<{ currentImage: number; className?: string; initial
     <AnimatePresence mode="wait">
         <motion.img
             key={currentImage}
-            src={aegisImages[currentImage]}
-            alt="AEGIS P1 AR Glasses"
+            src={p1Images[currentImage]}
+            alt="Mortar P1 AR Glasses"
             initial={isInitial ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -37,7 +37,7 @@ const CompanyIntro: React.FC = () => {
 
     useEffect(() => {
         const interval = setInterval(() => {
-            setCurrentImage((prev) => (prev + 1) % aegisImages.length);
+            setCurrentImage((prev) => (prev + 1) % p1Images.length);
             setIsInitial(false);
         }, 10000);
         return () => clearInterval(interval);
@@ -106,7 +106,7 @@ const CompanyIntro: React.FC = () => {
                                 Request Sample Dataset
                             </a>
                             <button
-                                onClick={() => document.getElementById('aegis')?.scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => document.getElementById('mortar-p1')?.scrollIntoView({ behavior: 'smooth' })}
                                 className="inline-block px-6 sm:px-8 py-3 border border-black text-black text-sm font-medium rounded-lg hover:bg-black hover:text-white transition-colors cursor-pointer text-center"
                             >
                                 Deploy Hardware
@@ -155,7 +155,7 @@ const CompanyIntro: React.FC = () => {
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.8, delay: 1.2 }}
                     className="absolute bottom-4 left-1/2 -translate-x-1/2 z-10 cursor-pointer"
-                    onClick={() => document.getElementById('aegis')?.scrollIntoView({ behavior: 'smooth' })}
+                    onClick={() => document.getElementById('mortar-p1')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                     <motion.span
                         animate={{ y: [0, 4, 0] }}
@@ -167,8 +167,8 @@ const CompanyIntro: React.FC = () => {
                 </motion.div>
             </section>
 
-            {/* ── Section 2: AEGIS P1 ── */}
-            <section id="aegis" className="relative h-screen bg-black text-white font-sans selection:bg-white/20 overflow-hidden snap-start">
+            {/* ── Section 2: Mortar P1 ── */}
+            <section id="mortar-p1" className="relative h-screen bg-black text-white font-sans selection:bg-white/20 overflow-hidden snap-start">
                 <CornerFrames color="dark" />
 
                 {/* Mobile Layout */}
@@ -190,7 +190,7 @@ const CompanyIntro: React.FC = () => {
                         transition={{ duration: 0.6, delay: 0.1 }}
                         className="text-3xl font-normal tracking-tight mb-2"
                     >
-                        AEGIS P1
+                        Mortar P1
                     </motion.h2>
 
                     {/* Mobile Image */}
@@ -223,7 +223,7 @@ const CompanyIntro: React.FC = () => {
                         className="text-sm leading-snug text-white"
                     >
                         <p>
-                            AEGIS P1 is a passive stereo capture system engineered around the geometry
+                            Mortar P1 is a passive stereo capture system engineered around the geometry
                             of human vision. With Two global-shutter 8 MP sensors capture high-speed
                             RGBD video at 1080p, 60 fps, without rolling-shutter distortion.
                         </p>
@@ -316,7 +316,7 @@ const CompanyIntro: React.FC = () => {
                                     transition={{ duration: 0.6, delay: 0.1 }}
                                     className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-5"
                                 >
-                                    AEGIS P1
+                                    Mortar P1
                                 </motion.h2>
 
                                 <motion.div
@@ -327,7 +327,7 @@ const CompanyIntro: React.FC = () => {
                                     className="space-y-6 text-lg leading-relaxed text-white"
                                 >
                                     <p>
-                                        AEGIS P1 is a passive stereo capture system engineered around the geometry
+                                        Mortar P1 is a passive stereo capture system engineered around the geometry
                                         of human vision. With Two global-shutter 8 MP sensors capture high-speed
                                         RGBD video at 1080p, 60 fps, without rolling-shutter distortion.
                                     </p>
@@ -413,7 +413,7 @@ const CompanyIntro: React.FC = () => {
                             </button>
 
                             {/* Modal Header */}
-                            <h2 className="text-xl lg:text-2xl font-bold mb-1">Mortar AEGIS P1 Pre-order</h2>
+                            <h2 className="text-xl lg:text-2xl font-bold mb-1">Mortar P1 Pre-order</h2>
                             <p className="text-gray-500 text-sm lg:text-base mb-6">Complete your purchase</p>
 
                             <hr className="border-gray-200 mb-6" />
@@ -423,11 +423,11 @@ const CompanyIntro: React.FC = () => {
                                 <div className="flex items-center gap-4 mb-4">
                                     <img
                                         src="/aegisp1front.png"
-                                        alt="AEGIS P1"
+                                        alt="Mortar P1"
                                         className="w-16 h-12 object-contain"
                                     />
                                     <div>
-                                        <p className="font-semibold text-lg">Mortar AEGIS P1</p>
+                                        <p className="font-semibold text-lg">Mortar P1</p>
                                         <p className="text-gray-500 text-sm">Intelligent Human to Robot Vision Glass Camera</p>
                                     </div>
                                 </div>

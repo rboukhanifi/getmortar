@@ -66,7 +66,7 @@ const IndustrialAutonomy = () => {
                                 Traditional autonomy pipelines assume environments are static or perfectly mapped upfront; Mortar learns directly from site conditions as they change, so autonomy systems can stay current while work continues.
                             </p>
                             <p>
-                                Mortar is built as a data-driven stack composed of <strong className="font-semibold text-black">(1) AEGIS</strong> (plug-and-play visual data capture hardware) and <strong className="font-semibold text-black">(2) Zhora</strong> (data platform). Together, they create a scalable pipeline for collecting, organizing, and learning from messy site data, forming the missing infrastructure required for safe, reliable, and scalable industrial autonomy.
+                                Mortar is built as a data-driven stack composed of <strong className="font-semibold text-black">(1) Mortar P1</strong> (plug-and-play visual data capture hardware) and <strong className="font-semibold text-black">(2) Zhora</strong> (data platform). Together, they create a scalable pipeline for collecting, organizing, and learning from messy site data, forming the missing infrastructure required for safe, reliable, and scalable industrial autonomy.
                             </p>
                         </div>
                     </motion.section>
@@ -158,7 +158,7 @@ const IndustrialAutonomy = () => {
                         {/* Measurement Context */}
                         <div className="my-10 p-6 bg-amber-50 border border-amber-200 rounded-xl">
                             <p className="text-sm text-amber-900 leading-relaxed">
-                                <strong className="font-semibold">Measurement context:</strong> All quantitative values reported below are derived from live industrial pilots using continuous capture from AEGIS devices operating 6-10 hours/day across mixed-activity sites. Events are counted only when a change affects navigation, access, or safety constraints, and are confirmed via repeated observation and/or sampled human review. Metrics are reported as medians across sites unless stated otherwise.
+                                <strong className="font-semibold">Measurement context:</strong> All quantitative values reported below are derived from live industrial pilots using continuous capture from Mortar P1 devices operating 6-10 hours/day across mixed-activity sites. Events are counted only when a change affects navigation, access, or safety constraints, and are confirmed via repeated observation and/or sampled human review. Metrics are reported as medians across sites unless stated otherwise.
                             </p>
                         </div>
 
@@ -575,14 +575,14 @@ const IndustrialAutonomy = () => {
                                 Mortar is built from two coupled components: one to standardize capture, one to standardize structure.
                             </p>
 
-                            {/* AEGIS */}
+                            {/* Mortar P1 */}
                             <div className="my-10 p-8 bg-gray-50 rounded-xl border border-gray-200">
-                                <h3 className="text-xl font-semibold text-black mb-4">(1) AEGIS: plug-and-play visual data capture hardware</h3>
+                                <h3 className="text-xl font-semibold text-black mb-4">(1) Mortar P1: plug-and-play visual data capture hardware</h3>
                                 <p className="text-gray-600 leading-relaxed mb-6">
-                                    AEGIS is deployed on-site to capture continuous visual streams and sensor signals. Its job is not "logging." Its job is to keep the system's view of reality fresh and consistent across sites.
+                                    Mortar P1 is deployed on-site to capture continuous visual streams and sensor signals. Its job is not "logging." Its job is to keep the system's view of reality fresh and consistent across sites.
                                 </p>
                                 <div className="text-sm">
-                                    <p className="text-gray-500 mb-2">AEGIS provides:</p>
+                                    <p className="text-gray-500 mb-2">Mortar P1 provides:</p>
                                     <ul className="space-y-1 text-gray-600 ml-4">
                                         <li>• continuous visual streams reflecting real site conditions</li>
                                         <li>• consistent data quality across deployments</li>
@@ -591,10 +591,10 @@ const IndustrialAutonomy = () => {
                                 </div>
                             </div>
 
-                            {/* AEGIS Spec Box */}
+                            {/* Mortar P1 Spec Box */}
                             <div className="my-10 p-8 bg-black rounded-xl text-white">
                                 <div className="flex items-center justify-between mb-6">
-                                    <h3 className="text-lg font-semibold tracking-wide">AEGIS - Capture Node Target Envelope</h3>
+                                    <h3 className="text-lg font-semibold tracking-wide">Mortar P1 - Capture Node Target Envelope</h3>
                                     <span className="text-xs text-gray-500 uppercase tracking-wider">Design Goals</span>
                                 </div>
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm">
@@ -715,7 +715,7 @@ const IndustrialAutonomy = () => {
                                     <thead>
                                         <tr className="bg-gray-50">
                                             <th className="text-left py-3 px-4 font-semibold text-black border-b border-gray-200">Function</th>
-                                            <th className="text-center py-3 px-4 font-semibold text-black border-b border-gray-200">Edge (AEGIS)</th>
+                                            <th className="text-center py-3 px-4 font-semibold text-black border-b border-gray-200">Edge (Mortar P1)</th>
                                             <th className="text-center py-3 px-4 font-semibold text-black border-b border-gray-200">Backend (Zhora)</th>
                                         </tr>
                                     </thead>

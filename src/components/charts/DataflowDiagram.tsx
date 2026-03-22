@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const DataflowDiagram = () => {
     const stages = [
         {
-            title: 'AEGIS',
+            title: 'Mortar P1',
             subtitle: 'Edge, per worker / site',
             icon: (
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">

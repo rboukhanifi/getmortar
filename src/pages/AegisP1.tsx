@@ -18,7 +18,7 @@ const CyclingImage: React.FC<{ currentImage: number; className?: string; initial
         <motion.img
             key={currentImage}
             src={images[currentImage]}
-            alt="AEGIS P1 AR Glasses"
+            alt="Mortar P1 AR Glasses"
             initial={isInitial ? false : { opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -28,7 +28,7 @@ const CyclingImage: React.FC<{ currentImage: number; className?: string; initial
     </AnimatePresence>
 );
 
-const AegisP1: React.FC = () => {
+const MortarP1: React.FC = () => {
     const [currentImage, setCurrentImage] = useState(0);
     const [isInitial, setIsInitial] = useState(true);
     const [showModal, setShowModal] = useState(false);
@@ -64,7 +64,7 @@ const AegisP1: React.FC = () => {
                     transition={{ duration: 0.6, delay: 0.1 }}
                     className="text-3xl font-normal tracking-tight mb-2"
                 >
-                    AEGIS P1
+                    Mortar P1
                 </motion.h1>
 
                 {/* Mobile Image */}
@@ -97,7 +97,7 @@ const AegisP1: React.FC = () => {
                     className="text-sm leading-snug text-white"
                 >
                     <p>
-                        AEGIS P1 is a passive stereo capture system engineered around the geometry
+                        Mortar P1 is a passive stereo capture system engineered around the geometry
                         of human vision. With Two global-shutter 8 MP sensors capture high-speed
                         RGBD video at 1080p, 30 fps, without rolling-shutter distortion.
                     </p>
@@ -186,7 +186,7 @@ const AegisP1: React.FC = () => {
                                 transition={{ duration: 0.6, delay: 0.1 }}
                                 className="text-4xl md:text-5xl lg:text-6xl font-normal tracking-tight mb-5"
                             >
-                                AEGIS P1
+                                Mortar P1
                             </motion.h1>
 
                             <motion.div
@@ -196,7 +196,7 @@ const AegisP1: React.FC = () => {
                                 className="space-y-6 text-lg leading-relaxed text-white"
                             >
                                 <p>
-                                    AEGIS P1 is a passive stereo capture system engineered around the geometry
+                                    Mortar P1 is a passive stereo capture system engineered around the geometry
                                     of human vision. With Two global-shutter 8 MP sensors capture high-speed
                                     RGBD video at 1080p, 30 fps, without rolling-shutter distortion.
                                 </p>
@@ -281,7 +281,7 @@ const AegisP1: React.FC = () => {
                             </button>
 
                             {/* Modal Header */}
-                            <h2 className="text-xl lg:text-2xl font-bold mb-1">Mortar AEGIS P1 Pre-order</h2>
+                            <h2 className="text-xl lg:text-2xl font-bold mb-1">Mortar P1 Pre-order</h2>
                             <p className="text-gray-500 text-sm lg:text-base mb-6">Complete your purchase</p>
 
                             <hr className="border-gray-200 mb-6" />
@@ -291,11 +291,11 @@ const AegisP1: React.FC = () => {
                                 <div className="flex items-center gap-4 mb-4">
                                     <img
                                         src="/aegisp1front.png"
-                                        alt="AEGIS P1"
+                                        alt="Mortar P1"
                                         className="w-16 h-12 object-contain"
                                     />
                                     <div>
-                                        <p className="font-semibold text-lg">Mortar AEGIS P1</p>
+                                        <p className="font-semibold text-lg">Mortar P1</p>
                                         <p className="text-gray-500 text-sm">Intelligent Human to Robot Vision Glass Camera</p>
                                     </div>
                                 </div>
@@ -327,4 +327,4 @@ const AegisP1: React.FC = () => {
     );
 };
 
-export default AegisP1;
+export default MortarP1;

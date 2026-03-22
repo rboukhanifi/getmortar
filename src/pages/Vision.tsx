@@ -36,7 +36,7 @@ const Vision: React.FC = () => {
                             </div>
 
                             <div>
-                                <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">2. Mortar Aegis</h3>
+                                <h3 className="text-xl md:text-2xl font-semibold text-white mb-2">2. Mortar P1</h3>
                                 <p className="text-sm md:text-base text-gray-400 leading-relaxed">
                                     It is the hardware layer that captures, protects, and deploys physical intelligence in the real world.
                                 </p>
